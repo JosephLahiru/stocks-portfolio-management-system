@@ -31,5 +31,5 @@
         android:text="Get Started"
         android:textSize="30sp"
         />
-    
+
 </androidx.constraintlayout.widget.ConstraintLayout>
