@@ -1,0 +1,2 @@
+rootProject.name='Stocks Portfolio Management System'
+include ':app'
