@@ -23,10 +23,18 @@ public class LoginActivity extends AppCompatActivity {
         userNameEditText = (EditText) findViewById(R.id.editTextTextUserName);
         passwordEditText = (EditText) findViewById(R.id.editTextTextPassword);
 
+        DAOUser doa = new DAOUser();
+
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(LoginActivity.this, "User Name : " + userNameEditText.getText().toString() + "\nPassword : " + passwordEditText.getText().toString(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(LoginActivity.this, "User Name : " + userNameEditText.getText().toString() + "\nPassword : " + passwordEditText.getText().toString(), Toast.LENGTH_SHORT).show();
+                User user = new User(userNameEditText.getText().toString(), passwordEditText.getText().toString());
+                doa.add(user).addOnSuccessListener(suc->{
+                    Toast.makeText(LoginActivity.this, "Data Inserted Successfully.", Toast.LENGTH_SHORT).show();
+                }).addOnFailureListener(er->{
+                    Toast.makeText(LoginActivity.this, er.getMessage(), Toast.LENGTH_SHORT).show();
+                });
             }
         });
     }

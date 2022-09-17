@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "569613651702",
+    "project_id": "spms-e66c8",
+    "storage_bucket": "spms-e66c8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:569613651702:android:662f5be05ccc94ce86e6d7",
+        "android_client_info": {
+          "package_name": "com.example.stocksportfoliomanagementsystem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "569613651702-tn9hr5ldq8org79k6lefgsjm9j7ao8kk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.stocksportfoliomanagementsystem",
+            "certificate_hash": "45eb79a530b6439626e7563f211a46279ef66148"
+          }
+        },
+        {
+          "client_id": "569613651702-pb8cijmdim46n5ragskq9dg3mdqsrjd4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIhG25GTzjI61lRYu_jfWqmI5Kf4_1J3o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "569613651702-pb8cijmdim46n5ragskq9dg3mdqsrjd4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
