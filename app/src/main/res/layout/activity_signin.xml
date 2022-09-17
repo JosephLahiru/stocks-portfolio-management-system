@@ -8,13 +8,13 @@
     tools:context=".SignInActivity">
 
   <EditText
-      android:id="@+id/editEmail"
+      android:id="@+id/etEmail"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginBottom="32dp"
       android:ems="13"
       android:hint="Email"
-      android:inputType="textPersonName"
+      android:inputType="textEmailAddress"
       android:textSize="20sp"
       app:layout_constraintBottom_toTopOf="@id/editTextUserName"
       app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +52,7 @@
       android:id="@+id/editTextPasswordConfirm"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginBottom="40dp"
+      android:layout_marginBottom="30dp"
       android:ems="13"
       android:hint="Password Confirm"
       android:inputType="textPassword"
@@ -63,11 +63,11 @@
       app:layout_constraintStart_toStartOf="parent" />
 
   <Button
-      android:id="@+id/loginButton"
+      android:id="@+id/signInButton"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginBottom="56dp"
-      android:text="Login"
+      android:text="SignIn"
       android:textSize="20sp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
@@ -87,4 +87,14 @@
       app:layout_constraintVertical_bias="0.0"
       app:srcCompat="@mipmap/portfolio2" />
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+  <TextView
+      android:id="@+id/loginText"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Already have an account? Login"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/signInButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

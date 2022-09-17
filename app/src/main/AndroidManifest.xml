@@ -18,7 +18,8 @@
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
-        <activity android:name=".GetStaredActivity" >
+        <activity android:name=".GetStaredActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
