@@ -52,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LoginActivity.this, SignInActivity.class));
+                finish();
             }
         });
     }
@@ -73,9 +74,13 @@ public class LoginActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
                         Toast.makeText(LoginActivity.this, "User logged in successfully.", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(LoginActivity.this, ProfileActivity.class));
+                        Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+                        intent.putExtra("userEmail", email);
+                        startActivity(intent);
+                        finish();
                     }else{
                         Toast.makeText(LoginActivity.this, "User Login Error : " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        progressBar.setVisibility(View.INVISIBLE);
                     }
                 }
             });
