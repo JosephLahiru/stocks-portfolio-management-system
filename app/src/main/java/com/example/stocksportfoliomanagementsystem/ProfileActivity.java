@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    Button btnLogout;
+    Button btnLogout, btnMenu;
     FirebaseAuth mAuth;
     String userEmail;
     TextView welcomeTextView;
@@ -37,6 +37,7 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         btnLogout = findViewById(R.id.logoutButton);
+        btnMenu = findViewById(R.id.menuButton);
         mAuth = FirebaseAuth.getInstance();
         welcomeTextView = findViewById(R.id.welcomeText);
 
@@ -66,6 +67,13 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
                 mAuth.signOut();
                 startActivity(new Intent(ProfileActivity.this, LoginActivity.class));
+            }
+        });
+
+        btnMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ProfileActivity.this, MenuActivity.class));
             }
         });
     }
