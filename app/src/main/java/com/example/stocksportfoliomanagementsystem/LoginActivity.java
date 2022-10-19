@@ -1,11 +1,13 @@
 package com.example.stocksportfoliomanagementsystem;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,12 +15,19 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
+
+    private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
+    private static final String USER = "root";
+    private static final String PASSWORD = "amres";
 
     Button loginButton;
     EditText emailEditText;
@@ -26,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView redirectSignInTextView;
     ProgressBar progressBar;
 
-    FirebaseAuth mAuth;
+    String email, password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +47,6 @@ public class LoginActivity extends AppCompatActivity {
         passwordEditText = (EditText) findViewById(R.id.editTextTextPassword);
         redirectSignInTextView = (TextView) findViewById(R.id.redirectSignup);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
-
-        mAuth = FirebaseAuth.getInstance();
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,8 +65,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void loginUser(){
-        String email = emailEditText.getText().toString().trim();
-        String password = passwordEditText.getText().toString().trim();
+        email = emailEditText.getText().toString().trim();
+        password = passwordEditText.getText().toString().trim();
 
         if(TextUtils.isEmpty(email)){
             emailEditText.setError("Email cannot be empty.");
@@ -69,21 +76,58 @@ public class LoginActivity extends AppCompatActivity {
             passwordEditText.requestFocus();
         }else{
             progressBar.setVisibility(View.VISIBLE);
-            mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if(task.isSuccessful()){
-                        Toast.makeText(LoginActivity.this, "User logged in successfully.", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
-                        intent.putExtra("userEmail", email);
-                        startActivity(intent);
-                        finish();
-                    }else{
-                        Toast.makeText(LoginActivity.this, "User Login Error : " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                        progressBar.setVisibility(View.INVISIBLE);
+
+            new InfoAsyncTask().execute();
+        }
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    public class InfoAsyncTask extends AsyncTask<Void, Void, List<String>> {
+        @Override
+        protected List<String> doInBackground(Void... voids) {
+            List<String> districts = new ArrayList<>();
+
+            int user_found = 0;
+
+            try {
+                Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+
+                String sql = "SELECT * FROM user";
+                PreparedStatement statement = connection.prepareStatement(sql);
+                ResultSet resultSet = statement.executeQuery();
+                while (resultSet.next()) {
+
+                    if(Objects.equals(resultSet.getString("user_email"), email) && Objects.equals(resultSet.getString("user_password"), password)){
+                        user_found = 1;
+                        break;
                     }
                 }
-            });
+
+                if(user_found == 1){
+                    progressBar.setVisibility(View.INVISIBLE);
+                    //Toast.makeText(LoginActivity.this, "User logged in successfully.", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+                    intent.putExtra("userEmail", email);
+                    startActivity(intent);
+                    finish();
+                }else{
+                    progressBar.setVisibility(View.INVISIBLE);
+
+                    runOnUiThread(new Runnable() {
+                        public void run() {
+                            final Toast toast = Toast.makeText(LoginActivity.this, "User login failed.", Toast.LENGTH_SHORT);
+                            toast.show();
+                        }
+                    });
+
+                    emailEditText.getText().clear();
+                    passwordEditText.getText().clear();
+                }
+            } catch (Exception e) {
+                Log.e("InfoAsyncTask", "Error reading information", e);
+            }
+
+            return districts;
         }
     }
 }
