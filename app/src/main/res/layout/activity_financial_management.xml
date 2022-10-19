@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/background2"
-    tools:context=".FinancialManagementActivity" >
+    android:background="@color/cardview_shadow_end_color"
+    tools:context=".FinancialManagementActivity">
 
     <Button
         android:id="@+id/viewtransactions"

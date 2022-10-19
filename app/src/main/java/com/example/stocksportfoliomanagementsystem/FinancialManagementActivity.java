@@ -37,7 +37,7 @@ public class FinancialManagementActivity extends AppCompatActivity {
             }
         });
         updateTransactionButton = (Button) findViewById(R.id.updatetransactions);
-        viewTransactionsButton.setOnClickListener(new View.OnClickListener() {
+        updateTransactionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(FinancialManagementActivity.this, UpdateTransactionsActivity.class));
@@ -45,7 +45,7 @@ public class FinancialManagementActivity extends AppCompatActivity {
             }
         });
         saveTransactionButton = (Button) findViewById(R.id.savetransactions);
-        viewTransactionsButton.setOnClickListener(new View.OnClickListener() {
+        saveTransactionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(FinancialManagementActivity.this, SaveTransactionsActivity.class));
@@ -53,7 +53,7 @@ public class FinancialManagementActivity extends AppCompatActivity {
             }
         });
         deleteTransactionButton = (Button) findViewById(R.id.deletetransactions);
-        viewTransactionsButton.setOnClickListener(new View.OnClickListener() {
+        deleteTransactionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(FinancialManagementActivity.this, DeleteTransactionsActivity.class));
