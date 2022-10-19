@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class StockManagementActivity extends AppCompatActivity {
 
-    Button addStockBtn;
+    Button addStockBtn, viewStockHistoryBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +17,7 @@ public class StockManagementActivity extends AppCompatActivity {
         setContentView(R.layout.activity_stock_management);
 
         addStockBtn = (Button) findViewById(R.id.addStocks);
+        viewStockHistoryBtn = (Button) findViewById(R.id.viewStockHistory);
 
         addStockBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -25,5 +26,14 @@ public class StockManagementActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        viewStockHistoryBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(StockManagementActivity.this, ViewStockHistoryActivity.class));
+                finish();
+            }
+        });
+
     }
 }
