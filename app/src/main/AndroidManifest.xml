@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ViewStockHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddStockActivity"
+            android:exported="false" />
+        <activity
             android:name=".StockManagementActivity"
             android:exported="false" />
         <activity

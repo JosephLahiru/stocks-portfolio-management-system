@@ -13,6 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@mipmap/background2"
         tools:context=".MenuActivity">
 
         <ImageView
@@ -34,7 +35,7 @@
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/choseImageView"/>
+            app:layout_constraintTop_toBottomOf="@id/choseImageView" />
 
         <Button
             android:id="@+id/stockMngButton"
@@ -96,12 +97,12 @@
             android:layout_width="358dp"
             android:layout_height="91dp"
             android:layout_marginTop="20sp"
+            android:layout_marginBottom="20sp"
             android:text="ADMIN PANEL"
             android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="20sp"
             app:layout_constraintTop_toBottomOf="@id/deliveryMngButton" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
