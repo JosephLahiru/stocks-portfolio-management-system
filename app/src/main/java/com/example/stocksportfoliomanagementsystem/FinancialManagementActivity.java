@@ -36,6 +36,29 @@ public class FinancialManagementActivity extends AppCompatActivity {
                 finish();
             }
         });
-
+        updateTransactionButton = (Button) findViewById(R.id.updatetransactions);
+        viewTransactionsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(FinancialManagementActivity.this, UpdateTransactionsActivity.class));
+                finish();
+            }
+        });
+        saveTransactionButton = (Button) findViewById(R.id.savetransactions);
+        viewTransactionsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(FinancialManagementActivity.this, SaveTransactionsActivity.class));
+                finish();
+            }
+        });
+        deleteTransactionButton = (Button) findViewById(R.id.deletetransactions);
+        viewTransactionsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(FinancialManagementActivity.this, DeleteTransactionsActivity.class));
+                finish();
+            }
+        });
     }
 }
