@@ -4,6 +4,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FinancialManagementActivity">
+    android:background="@mipmap/background2"
+    tools:context=".FinancialManagementActivity" >
 
+    <Button
+        android:id="@+id/viewtransactions"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="450dp"
+        android:layout_marginEnd="47dp"
+        android:text="View Trasactions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/updatetransactions"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="47dp"
+        android:text="Update Trasactions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewtransactions" />
+
+    <Button
+        android:id="@+id/Savetransactions"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="47dp"
+        android:text="Save Invoices To Inventory"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/updatetransactions" />
+
+    <Button
+        android:id="@+id/deletetransactions"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="61dp"
+        android:text="Delete Trasactions And Invoices"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Savetransactions" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="345dp"
+        android:layout_height="218dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/wealth_management" />
 </androidx.constraintlayout.widget.ConstraintLayout>
