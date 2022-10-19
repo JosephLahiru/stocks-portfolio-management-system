@@ -10,6 +10,10 @@ import android.widget.Button;
 public class FinancialManagementActivity extends AppCompatActivity {
 
     Button backToDashboardButton;
+    Button viewTransactionsButton;
+    Button updateTransactionButton;
+    Button saveTransactionButton;
+    Button deleteTransactionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,5 +28,14 @@ public class FinancialManagementActivity extends AppCompatActivity {
                 finish();
             }
         });
+        viewTransactionsButton = (Button) findViewById(R.id.viewtransactions);
+        viewTransactionsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(FinancialManagementActivity.this, ViewTransactionsActivity.class));
+                finish();
+            }
+        });
+
     }
 }
