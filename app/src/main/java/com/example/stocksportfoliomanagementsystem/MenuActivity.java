@@ -10,6 +10,7 @@ import android.widget.Button;
 public class MenuActivity extends AppCompatActivity {
 
     Button financeManagementButton;
+    Button stockManagementButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,16 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MenuActivity.this, FinancialManagementActivity.class));
+                finish();
+            }
+        });
+              
+        stockManagementButton = (Button) findViewById(R.id.stockMngButton);
+
+        stockManagementButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MenuActivity.this, StockManagementActivity.class));
                 finish();
             }
         });
