@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".UpdateStockActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DeleteStockActivity"
+            android:exported="false" />
+        <activity
             android:name=".DeleteTransactionsActivity"
             android:exported="false">
             <meta-data
