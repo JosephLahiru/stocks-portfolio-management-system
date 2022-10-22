@@ -4,11 +4,14 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -27,6 +30,7 @@ public class ViewStockHistoryActivity extends AppCompatActivity {
     TableView tableView;
     Connection connection;
     String data[][];
+    Button backBtn;
 
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
     private static final String USER = "root";
@@ -36,6 +40,16 @@ public class ViewStockHistoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_stock_history);
+
+        backBtn = (Button) findViewById(R.id.backButton2);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ViewStockHistoryActivity.this, StockManagementActivity.class));
+                finish();
+            }
+        });
 
         tableView = findViewById(R.id.table_data_view);
         String headers[] = {"product Stock ID", "Arrived Date", "Stock Qty", "Product ID"};

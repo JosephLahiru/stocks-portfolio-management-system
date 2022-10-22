@@ -46,6 +46,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <activity
             android:name=".ViewStockHistoryActivity"
             android:exported="false" />
         <activity
