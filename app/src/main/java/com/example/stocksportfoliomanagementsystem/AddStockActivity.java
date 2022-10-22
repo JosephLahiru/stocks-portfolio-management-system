@@ -27,7 +27,7 @@ import java.util.List;
 public class AddStockActivity extends AppCompatActivity {
 
     Spinner dropdown;
-    Button addStockBtn;
+    Button addStockBtn, backButton;
     Connection connection;
     EditText productQty;
 
@@ -43,6 +43,7 @@ public class AddStockActivity extends AppCompatActivity {
         dropdown = findViewById(R.id.spinner1);
         addStockBtn = (Button) findViewById(R.id.addStock);
         productQty = (EditText) findViewById(R.id.etProductQty);
+        backButton = (Button) findViewById(R.id.backButton);
 
         new InfoAsyncTask().execute();
 
@@ -50,6 +51,14 @@ public class AddStockActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 new AddStockTask().execute();
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(AddStockActivity.this, StockManagementActivity.class));
+                finish();
             }
         });
     }

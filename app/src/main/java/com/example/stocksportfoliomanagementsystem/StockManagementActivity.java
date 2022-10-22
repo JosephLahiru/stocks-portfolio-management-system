@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class StockManagementActivity extends AppCompatActivity {
 
-    Button addStockBtn, viewStockHistoryBtn;
+    Button addStockBtn, viewStockHistoryBtn, backToMenuBtn, deleteStockBtn, updateStockBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +18,33 @@ public class StockManagementActivity extends AppCompatActivity {
 
         addStockBtn = (Button) findViewById(R.id.addStocks);
         viewStockHistoryBtn = (Button) findViewById(R.id.viewStockHistory);
+        backToMenuBtn = (Button) findViewById(R.id.backtoMenu);
+        deleteStockBtn = (Button) findViewById(R.id.deleteStock);
+        updateStockBtn = (Button) findViewById(R.id.updateStock);
+
+        updateStockBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(StockManagementActivity.this, UpdateStockActivity.class));
+                finish();
+            }
+        });
+
+        deleteStockBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(StockManagementActivity.this, DeleteStockActivity.class));
+                finish();
+            }
+        });
+
+        backToMenuBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(StockManagementActivity.this, MenuActivity.class));
+                finish();
+            }
+        });
 
         addStockBtn.setOnClickListener(new View.OnClickListener() {
             @Override

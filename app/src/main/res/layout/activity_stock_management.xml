@@ -63,13 +63,24 @@ android:fillViewport="true">
             android:layout_width="358dp"
             android:layout_height="91dp"
             android:layout_marginTop="20sp"
-            android:layout_marginBottom="20sp"
             android:text="UPDATE STOCK"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/deleteStock" />
+
+        <Button
+            android:id="@+id/backtoMenu"
+            android:layout_width="358dp"
+            android:layout_height="91dp"
+            android:layout_marginTop="20sp"
+            android:layout_marginBottom="20sp"
+            android:text="BACK TO MENU"
             android:textSize="25sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/deleteStock" />
+            app:layout_constraintTop_toBottomOf="@id/updateStock" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
