@@ -7,6 +7,36 @@
     android:background="@mipmap/fmvb"
     tools:context=".ViewTransactionsActivity">
 
+
+    <TextView
+        android:id="@+id/txtViewTransactions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="View Transcations"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.codecrafters.tableview.TableView
+        android:id="@+id/tableView"
+        android:layout_width="wrap_content"
+        android:layout_height="600dp"
+        android:layout_marginTop="100dp"
+        android:fillViewport="false"
+        android:orientation="horizontal"
+        android:scrollIndicators="bottom|right"
+        android:scrollbarAlwaysDrawHorizontalTrack="true"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarDefaultDelayBeforeFade="10"
+        android:scrollbarStyle="insideOverlay"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tableView_columnCount="8">
+
+    </de.codecrafters.tableview.TableView>
+
     <Button
         android:id="@+id/vbfm"
         android:layout_width="wrap_content"
@@ -16,19 +46,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <de.codecrafters.tableview.TableView
-        android:id="@+id/tableView"
-        android:layout_width="wrap_content"
-        android:layout_height="600dp"
-        android:layout_marginTop="50dp"
-        android:isScrollContainer="true"
-        android:padding="10dp"
-        android:scrollbarStyle="insideOverlay"
-        android:verticalScrollbarPosition="defaultPosition"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tableView_columnCount="4"></de.codecrafters.tableview.TableView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
