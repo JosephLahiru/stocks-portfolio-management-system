@@ -74,7 +74,7 @@ public class ViewTransactionsActivity extends AppCompatActivity {
                     temp.add(resultSet.getString("discription"));
                     temp.add(resultSet.getString("pquantity"));
                     temp.add(resultSet.getString("total"));
-                    temp.add(resultSet.getString("type"));
+                    temp.add(resultSet.getString("ttype"));
                     products.add(temp);
                 }
             } catch (Exception e) {
