@@ -40,7 +40,7 @@
             app:layout_constraintGuide_end="50dp" />
 
         <de.codecrafters.tableview.TableView
-            android:id="@+id/tableView"
+            android:id="@+id/tableViewU"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
@@ -56,13 +56,13 @@
             app:tableView_columnCount="8"></de.codecrafters.tableview.TableView>
 
         <TextView
-            android:id="@+id/textViewInvoiceID"
+            android:id="@+id/textViewInvoiceIDU"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:text="Invoice ID"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
-            app:layout_constraintTop_toBottomOf="@+id/tableView" />
+            app:layout_constraintTop_toBottomOf="@+id/tableViewU" />
 
         <EditText
             android:id="@+id/editTextInvoiceID"
@@ -74,10 +74,10 @@
             android:text="Invoice ID"
             app:layout_constraintEnd_toStartOf="@+id/guideline5"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
-            app:layout_constraintTop_toBottomOf="@+id/textViewInvoiceID" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewInvoiceIDU" />
 
         <Button
-            android:id="@+id/btmsfi"
+            android:id="@+id/btnsfi"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -94,7 +94,7 @@
             android:layout_marginTop="20dp"
             android:text="Company Name"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
-            app:layout_constraintTop_toBottomOf="@+id/btmsfi" />
+            app:layout_constraintTop_toBottomOf="@+id/btnsfi" />
 
         <EditText
             android:id="@+id/editTextCompanyNameu"
@@ -202,7 +202,7 @@
             app:layout_constraintTop_toBottomOf="@+id/editTextTotalPriceu" />
 
         <Spinner
-            android:id="@+id/spinner"
+            android:id="@+id/spinneru"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -213,16 +213,26 @@
             app:layout_constraintTop_toBottomOf="@+id/textttypeu" />
 
         <Button
-            android:id="@+id/ubfm"
-            android:layout_width="wrap_content"
+            android:id="@+id/btnut"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
+            android:text="Update Transaction"
+            app:layout_constraintEnd_toStartOf="@+id/guideline5"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            app:layout_constraintTop_toBottomOf="@+id/spinneru" />
+
+        <Button
+            android:id="@+id/ubfm2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:text="Back To Financial Management"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinner" />
+            app:layout_constraintEnd_toStartOf="@+id/guideline5"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            app:layout_constraintTop_toBottomOf="@+id/btnut" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
