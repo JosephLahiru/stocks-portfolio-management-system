@@ -103,8 +103,6 @@ public class DeleteTransactionsActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(List<List<String>> result) {
 
-            //String[][] data = {{"1", "2", "3", "4"},{"5", "6", "7", "8"}};
-
             String[][] arr = result.stream()
                     .map(l -> l.stream().toArray(String[]::new))
                     .toArray(String[][]::new);
