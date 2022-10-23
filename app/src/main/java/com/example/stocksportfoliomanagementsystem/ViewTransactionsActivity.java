@@ -11,14 +11,12 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.annotation.SuppressLint;
 import android.os.Build;
-import android.widget.ArrayAdapter;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import de.codecrafters.tableview.TableView;
@@ -74,7 +72,7 @@ public class ViewTransactionsActivity extends AppCompatActivity {
                     temp.add(resultSet.getString("discription"));
                     temp.add(resultSet.getString("pquantity"));
                     temp.add(resultSet.getString("total"));
-                    temp.add(resultSet.getString("type"));
+                    temp.add(resultSet.getString("ttype"));
                     products.add(temp);
                 }
             } catch (Exception e) {

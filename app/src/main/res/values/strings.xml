@@ -11,4 +11,8 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_login2">LoginActivity2</string>
     <string name="add_stock">ADD STOCK</string>
+    <array name="transactiontype">
+        <item>BUY</item>
+        <item>SELL</item>
+    </array>
 </resources>
