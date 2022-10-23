@@ -86,6 +86,11 @@ public class SaveTransactionsActivity extends AppCompatActivity {
 
                 if (!st1.execute(sql)) {
                     System.out.println("Data uploaded successfully");
+                    companyName.getText().clear();
+                    productName.getText().clear();
+                    productDiscription.getText().clear();
+                    productQuantity.getText().clear();
+                    totalPrice.getText().clear();
 
                     runOnUiThread(new Runnable() {
                         public void run() {
@@ -94,11 +99,7 @@ public class SaveTransactionsActivity extends AppCompatActivity {
                         }
                     });
 
-                    companyName.getText().clear();
-                    productName.getText().clear();
-                    productDiscription.getText().clear();
-                    productQuantity.getText().clear();
-                    totalPrice.getText().clear();
+
                     
                 } else {
                     System.out.println("Data upload failed.");

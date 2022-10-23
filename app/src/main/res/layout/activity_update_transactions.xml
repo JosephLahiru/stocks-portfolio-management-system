@@ -42,7 +42,7 @@
         <de.codecrafters.tableview.TableView
             android:id="@+id/tableViewU"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="600dp"
             android:layout_marginTop="100dp"
             android:fillViewport="false"
             android:orientation="horizontal"

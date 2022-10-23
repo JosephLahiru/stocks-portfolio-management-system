@@ -44,7 +44,7 @@ public class UpdateTransactionsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_transactions);
         new InfoAsyncTask().execute();
-        backToFinancialManagementButton = (Button) findViewById(R.id.btnut);
+        backToFinancialManagementButton = (Button) findViewById(R.id.ubfm2);
         backToFinancialManagementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
