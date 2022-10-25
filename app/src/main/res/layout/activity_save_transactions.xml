@@ -55,7 +55,7 @@
             android:layout_marginTop="15dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Company Name"
+            android:hint="Company Name"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toBottomOf="@+id/textcname" />
@@ -76,7 +76,7 @@
             android:layout_marginTop="15dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Product Name"
+            android:hint="Product Name"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toBottomOf="@+id/textpname" />
@@ -97,7 +97,7 @@
             android:layout_marginTop="15dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Product Discription"
+            android:hint="Product Discription"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toBottomOf="@+id/textpdiscription" />
@@ -118,7 +118,7 @@
             android:layout_marginTop="15dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Product Quantity"
+            android:hint="Product Quantity"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toBottomOf="@+id/textpquantity" />
@@ -139,7 +139,7 @@
             android:layout_marginTop="15dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Total Price"
+            android:hint="Total Price"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toBottomOf="@+id/texttotal" />

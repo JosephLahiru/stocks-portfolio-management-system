@@ -11,11 +11,14 @@ public class MenuActivity extends AppCompatActivity {
 
     Button financeManagementButton;
     Button stockManagementButton;
+    String userEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+        userEmail = getIntent().getStringExtra("userEmail");
 
         financeManagementButton = (Button) findViewById(R.id.financialMngButton);
 
