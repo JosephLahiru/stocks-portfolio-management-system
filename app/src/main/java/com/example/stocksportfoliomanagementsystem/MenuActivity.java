@@ -11,6 +11,7 @@ public class MenuActivity extends AppCompatActivity {
 
     Button financeManagementButton;
     Button stockManagementButton;
+    Button adminManagementButton;
     String userEmail;
 
     @Override
@@ -19,6 +20,16 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
         userEmail = getIntent().getStringExtra("userEmail");
+
+        adminManagementButton = (Button) findViewById(R.id.adminMngButton);
+
+        adminManagementButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MenuActivity.this, AdministrationActivity.class));
+                finish();
+            }
+        });
 
         financeManagementButton = (Button) findViewById(R.id.financialMngButton);
 

@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".AdministrationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserRegistrationActivity"
+            android:exported="false" />
+        <activity
             android:name=".SupplierManagementActivity"
             android:exported="false">
             <meta-data
