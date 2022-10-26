@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="1dp"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/background2"
+        tools:context=".AddStockActivity">
+
+        <ImageView
+            android:id="@+id/choseImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/admin" />
+
+        <Button
+            android:id="@+id/userRegistration"
+            android:layout_width="358dp"
+            android:layout_height="91dp"
+            android:layout_marginTop="30dp"
+            android:text="USER REGISTRATION"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/choseImageView" />
+
+        <Button
+            android:id="@+id/resetPassword"
+            android:layout_width="358dp"
+            android:layout_height="91dp"
+            android:layout_marginTop="20sp"
+            android:text="RESET USER PASSWORD"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/userRegistration" />
+
+        <Button
+            android:id="@+id/supplierDataReview"
+            android:layout_width="358dp"
+            android:layout_height="91dp"
+            android:layout_marginTop="20sp"
+            android:text="SUPPLIER DATA REVIEW"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/resetPassword" />
+
+        <Button
+            android:id="@+id/developerFeedbackReview"
+            android:layout_width="358dp"
+            android:layout_height="91dp"
+            android:layout_marginTop="20sp"
+            android:text="DEVELOPER FEEDBACK REVIEW"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/supplierDataReview" />
+
+        <Button
+            android:id="@+id/bugReview"
+            android:layout_width="358dp"
+            android:layout_height="91dp"
+            android:layout_marginTop="20sp"
+            android:text="BUG REVIEW"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/developerFeedbackReview" />
+
+        <Button
+            android:id="@+id/backToMenuAdmin"
+            android:layout_width="358dp"
+            android:layout_height="91dp"
+            android:layout_marginTop="20sp"
+            android:layout_marginBottom="20sp"
+            android:text="BACK TO MENU"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bugReview" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

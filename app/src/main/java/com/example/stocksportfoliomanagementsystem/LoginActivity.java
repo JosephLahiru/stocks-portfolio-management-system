@@ -111,17 +111,17 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 }else{
-                    progressBar.setVisibility(View.INVISIBLE);
-
                     runOnUiThread(new Runnable() {
                         public void run() {
                             final Toast toast = Toast.makeText(LoginActivity.this, "User login failed.", Toast.LENGTH_SHORT);
                             toast.show();
+
+                            emailEditText.getText().clear();
+                            passwordEditText.getText().clear();
+
+                            progressBar.setVisibility(View.INVISIBLE);
                         }
                     });
-
-                    emailEditText.getText().clear();
-                    passwordEditText.getText().clear();
                 }
             } catch (Exception e) {
                 Log.e("InfoAsyncTask", "Error reading information", e);
