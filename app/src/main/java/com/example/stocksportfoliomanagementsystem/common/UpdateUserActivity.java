@@ -1,8 +1,10 @@
-package com.example.stocksportfoliomanagementsystem;
+package com.example.stocksportfoliomanagementsystem.common;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.stocksportfoliomanagementsystem.R;
 
 public class UpdateUserActivity extends AppCompatActivity {
 

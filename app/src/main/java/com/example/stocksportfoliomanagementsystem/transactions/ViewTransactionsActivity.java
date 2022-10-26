@@ -12,7 +12,7 @@ import android.util.Log;
 import android.annotation.SuppressLint;
 import android.os.Build;
 
-import com.example.stocksportfoliomanagementsystem.FinancialManagementActivity;
+import com.example.stocksportfoliomanagementsystem.supplier.FinancialManagementActivity;
 import com.example.stocksportfoliomanagementsystem.R;
 
 import java.sql.Connection;
