@@ -1,4 +1,4 @@
-package com.example.stocksportfoliomanagementsystem;
+package com.example.stocksportfoliomanagementsystem.supplier;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.stocksportfoliomanagementsystem.R;
+import com.example.stocksportfoliomanagementsystem.common.UpdateUserActivity;
 import com.example.stocksportfoliomanagementsystem.startup.MenuActivity;
 
 public class SupplierManagementActivity extends AppCompatActivity {

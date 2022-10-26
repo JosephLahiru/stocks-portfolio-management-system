@@ -12,70 +12,70 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ViewDiscountsActivity"
+            android:name=".supplier.ViewDiscountsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".CheckRequiredStockActivity"
+            android:name=".supplier.CheckRequiredStockActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".UpdateUserActivity"
+            android:name=".common.UpdateUserActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".DeleteDiscountsDetailsActivity"
+            android:name=".supplier.DeleteDiscountsDetailsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".UpdateDiscountsDetailsActivity"
+            android:name=".supplier.UpdateDiscountsDetailsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".AddDiscountsDetailsActivity"
+            android:name=".supplier.AddDiscountsDetailsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".DeleteSupplyDetailsActivity"
+            android:name=".supplier.DeleteSupplyDetailsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".UpdateSupplyDetailsActivity"
+            android:name=".supplier.UpdateSupplyDetailsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".SaveSupplyDetailsActivity"
+            android:name=".supplier.SaveSupplyDetailsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".CheckSupplyDetailsActivity"
+            android:name=".supplier.CheckSupplyDetailsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -91,7 +91,7 @@
             android:name=".admin.UserRegistrationActivity"
             android:exported="false" />
         <activity
-            android:name=".SupplierManagementActivity"
+            android:name=".supplier.SupplierManagementActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -132,7 +132,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".FinancialManagementActivity"
+            android:name=".supplier.FinancialManagementActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

@@ -1,8 +1,10 @@
-package com.example.stocksportfoliomanagementsystem;
+package com.example.stocksportfoliomanagementsystem.supplier;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.stocksportfoliomanagementsystem.R;
 
 public class CheckSupplyDetailsActivity extends AppCompatActivity {
 
