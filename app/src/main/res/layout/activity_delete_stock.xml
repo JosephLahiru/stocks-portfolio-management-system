@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@mipmap/background2"
-        tools:context=".DeleteStockActivity">
+        tools:context=".stocks.DeleteStockActivity">
 
         <de.codecrafters.tableview.TableView
             android:id="@+id/table_data_view_delete"
