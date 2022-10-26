@@ -1,4 +1,4 @@
-package com.example.stocksportfoliomanagementsystem;
+package com.example.stocksportfoliomanagementsystem.supplier;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.stocksportfoliomanagementsystem.R;
 import com.example.stocksportfoliomanagementsystem.startup.MenuActivity;
 import com.example.stocksportfoliomanagementsystem.transactions.DeleteTransactionsActivity;
 import com.example.stocksportfoliomanagementsystem.transactions.SaveTransactionsActivity;

@@ -15,7 +15,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.stocksportfoliomanagementsystem.FinancialManagementActivity;
+import com.example.stocksportfoliomanagementsystem.supplier.FinancialManagementActivity;
 import com.example.stocksportfoliomanagementsystem.R;
 
 import java.sql.Connection;
