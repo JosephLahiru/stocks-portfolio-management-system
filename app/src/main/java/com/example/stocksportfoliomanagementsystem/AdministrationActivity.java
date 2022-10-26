@@ -9,12 +9,22 @@ import android.widget.Button;
 
 public class AdministrationActivity extends AppCompatActivity {
 
-    Button backBtn, userRegistrationBtn;
+    Button backBtn, userRegistrationBtn, supplierDataBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_administration);
+
+        supplierDataBtn = (Button) findViewById(R.id.supplierDataReview);
+
+        supplierDataBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(AdministrationActivity.this, ViewSupplierDataActivity.class));
+                finish();
+            }
+        });
 
         userRegistrationBtn = (Button) findViewById(R.id.userRegistration);
 

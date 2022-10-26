@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ViewSupplierDataActivity"
+            android:exported="false" />
+        <activity
             android:name=".AdministrationActivity"
             android:exported="false" />
         <activity

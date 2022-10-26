@@ -25,7 +25,7 @@ import de.codecrafters.tableview.TableView;
 import de.codecrafters.tableview.toolkit.SimpleTableDataAdapter;
 import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 
-public class ViewStockHistoryActivity extends AppCompatActivity {
+public class ViewSupplierDataActivity extends AppCompatActivity {
 
     TableView tableView;
     Connection connection;
@@ -38,20 +38,20 @@ public class ViewStockHistoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_stock_history);
+        setContentView(R.layout.activity_view_supplier_data);
 
-        backBtn = (Button) findViewById(R.id.backButton2);
+        backBtn = (Button) findViewById(R.id.backButtonSupplier);
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ViewStockHistoryActivity.this, StockManagementActivity.class));
+                startActivity(new Intent(ViewSupplierDataActivity.this, AdministrationActivity.class));
                 finish();
             }
         });
 
-        tableView = findViewById(R.id.table_data_view);
-        String headers[] = {"PS ID", "Arrived Date", "Stock Qty", "Product ID"};
+        tableView = findViewById(R.id.table_data_view_supplier);
+        String headers[] = {"Name", "Email"};
 
         tableView.setHeaderAdapter(new SimpleTableHeaderAdapter(this, headers));
 
@@ -66,16 +66,14 @@ public class ViewStockHistoryActivity extends AppCompatActivity {
             try {
                 connection = DriverManager.getConnection(URL, USER, PASSWORD);
 
-                String sql = "SELECT * FROM product_stock";
+                String sql = "SELECT * FROM user WHERE user_type='S'";
                 PreparedStatement statement = connection.prepareStatement(sql);
                 ResultSet resultSet = statement.executeQuery();
 
                 while (resultSet.next()) {
                     List<String> temp = new ArrayList<>();
-                    temp.add(resultSet.getString("product_stock_id"));
-                    temp.add(resultSet.getString("arrived_date"));
-                    temp.add(resultSet.getString("stock_qty"));
-                    temp.add(resultSet.getString("product_id"));
+                    temp.add(resultSet.getString("user_name"));
+                    temp.add(resultSet.getString("user_email"));
                     products.add(temp);
                 }
             } catch (Exception e) {
@@ -89,15 +87,13 @@ public class ViewStockHistoryActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(List<List<String>> result) {
 
-            //String[][] data = {{"1", "2", "3", "4"},{"5", "6", "7", "8"}};
-
             String[][] arr = result.stream()
                     .map(l -> l.stream().toArray(String[]::new))
                     .toArray(String[][]::new);
 
 
             if (!result.isEmpty()) {
-                tableView.setDataAdapter(new SimpleTableDataAdapter(ViewStockHistoryActivity.this, arr));
+                tableView.setDataAdapter(new SimpleTableDataAdapter(ViewSupplierDataActivity.this, arr));
             }
         }
     }
