@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@mipmap/fmvb"
+    android:fillViewport="true"
     tools:layout_editor_absoluteX="1dp"
-    tools:layout_editor_absoluteY="1dp"
-    android:fillViewport="true">
+    tools:layout_editor_absoluteY="1dp">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@mipmap/fmvb"
         tools:context=".transactions.ViewTransactionsActivity">
 
 
@@ -18,42 +19,53 @@
             android:id="@+id/txtViewViewTransactions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="35dp"
             android:text="View Transcations"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:translationZ="1dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/horizontalScrollView" />
 
-        <de.codecrafters.tableview.TableView
-            android:id="@+id/tableView"
-            android:layout_width="wrap_content"
-            android:layout_height="600dp"
-            android:layout_marginTop="100dp"
-            android:fillViewport="false"
-            android:orientation="horizontal"
-            android:scrollIndicators="bottom|right"
-            android:scrollbarAlwaysDrawHorizontalTrack="true"
-            android:scrollbarAlwaysDrawVerticalTrack="true"
-            android:scrollbarDefaultDelayBeforeFade="10"
-            android:scrollbarStyle="insideOverlay"
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tableView_columnCount="8">
+            app:layout_constraintTop_toTopOf="parent">
 
-        </de.codecrafters.tableview.TableView>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                tools:context=".transactions.ViewTransactionsActivity">
+
+
+                <de.codecrafters.tableview.TableView
+                    android:id="@+id/tableView"
+                    android:layout_width="1500dp"
+                    android:layout_height="600dp"
+                    android:layout_marginTop="100dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tableView_columnCount="8">
+
+                </de.codecrafters.tableview.TableView>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </HorizontalScrollView>
 
         <Button
             android:id="@+id/vbfm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="50dp"
             android:text="Back To Financial Management"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tableView" />
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
