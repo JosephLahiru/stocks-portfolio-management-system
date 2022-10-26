@@ -1,4 +1,4 @@
-package com.example.stocksportfoliomanagementsystem;
+package com.example.stocksportfoliomanagementsystem.startup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.stocksportfoliomanagementsystem.AdministrationActivity;
+import com.example.stocksportfoliomanagementsystem.FinancialManagementActivity;
+import com.example.stocksportfoliomanagementsystem.R;
+import com.example.stocksportfoliomanagementsystem.SupplierManagementActivity;
+import com.example.stocksportfoliomanagementsystem.stocks.StockManagementActivity;
 
 public class MenuActivity extends AppCompatActivity {
 

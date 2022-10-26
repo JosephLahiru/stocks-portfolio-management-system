@@ -1,4 +1,4 @@
-package com.example.stocksportfoliomanagementsystem;
+package com.example.stocksportfoliomanagementsystem.stocks;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.stocksportfoliomanagementsystem.R;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -26,14 +28,14 @@ import de.codecrafters.tableview.TableView;
 import de.codecrafters.tableview.toolkit.SimpleTableDataAdapter;
 import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 
-public class UpdateStockActivity extends AppCompatActivity {
+public class DeleteStockActivity extends AppCompatActivity {
 
     TableView tableView;
     Connection connection;
     String data[][];
-    Button backBtn, updateBtn;
+    Button backBtn, deleteBtn;
 
-    EditText updateDataID, updateDataColumn, newData;
+    EditText deleteDataID;
 
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
     private static final String USER = "root";
@@ -42,35 +44,31 @@ public class UpdateStockActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_stock);
+        setContentView(R.layout.activity_delete_stock);
 
-        updateDataID = (EditText) findViewById(R.id.etStockIDUpdate);
-        updateDataColumn = (EditText) findViewById(R.id.etStockColumnUpdate);
-        newData = (EditText) findViewById(R.id.etNewValue);
+        deleteDataID = (EditText) findViewById(R.id.etStockID);
 
-        backBtn = (Button) findViewById(R.id.backButton4);
-        updateBtn = (Button) findViewById(R.id.updateButton);
+        backBtn = (Button) findViewById(R.id.backButton3);
+        deleteBtn = (Button) findViewById(R.id.deleteButton);
 
-        updateBtn.setOnClickListener(new View.OnClickListener() {
+        deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new UpdateStockTask().execute();
+                new DeleteStockTask().execute();
 
-                updateDataID.getText().clear();
-                updateDataColumn.getText().clear();
-                newData.getText().clear();
+                deleteDataID.getText().clear();
             }
         });
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(UpdateStockActivity.this, StockManagementActivity.class));
+                startActivity(new Intent(DeleteStockActivity.this, StockManagementActivity.class));
                 finish();
             }
         });
 
-        tableView = findViewById(R.id.table_data_view_update);
+        tableView = findViewById(R.id.table_data_view_delete);
         String headers[] = {"PS ID", "Arrived Date", "Stock Qty", "Product ID"};
 
         tableView.setHeaderAdapter(new SimpleTableHeaderAdapter(this, headers));
@@ -79,37 +77,35 @@ public class UpdateStockActivity extends AppCompatActivity {
     }
 
     @SuppressLint("StaticFieldLeak")
-    public class UpdateStockTask extends AsyncTask<Void, Void, List<String>> {
+    public class DeleteStockTask extends AsyncTask<Void, Void, List<String>> {
         @Override
         protected List<String> doInBackground(Void... voids) {
             List<String> products = new ArrayList<>();
             try {
 
-                String stockID = updateDataID.getText().toString();
-                String stockColumn = updateDataColumn.getText().toString();
-                String stockNewData = newData.getText().toString();
+                String stockID = deleteDataID.getText().toString();
 
-                String sql = "UPDATE product_stock SET `" + stockColumn + "` = '" + stockNewData + "' WHERE  `product_stock_id` = '" + stockID + "'; ";
+                String sql = "DELETE FROM `product_stock` WHERE `product_stock_id` = '" + stockID + "'; ";
 
                 System.out.println(sql);
 
                 Statement st1 = connection.createStatement();
 
                 if (!st1.execute(sql)) {
-                    System.out.println("Data updated successfully");
+                    System.out.println("Data deleted successfully");
 
                     runOnUiThread(new Runnable() {
                         public void run() {
-                            final Toast toast = Toast.makeText(UpdateStockActivity.this, "Data updated Successfully.", Toast.LENGTH_SHORT);
+                            final Toast toast = Toast.makeText(DeleteStockActivity.this, "Data Deleted Successfully.", Toast.LENGTH_SHORT);
                             toast.show();
                         }
                     });
 
                 } else {
-                    System.out.println("Data upload failed.");
+                    System.out.println("Data deletion failed.");
                     runOnUiThread(new Runnable() {
                         public void run() {
-                            final Toast toast = Toast.makeText(UpdateStockActivity.this, "Data Upload Failed.", Toast.LENGTH_SHORT);
+                            final Toast toast = Toast.makeText(DeleteStockActivity.this, "Data Deletion Failed.", Toast.LENGTH_SHORT);
                             toast.show();
                         }
                     });
@@ -160,7 +156,7 @@ public class UpdateStockActivity extends AppCompatActivity {
 
 
             if (!result.isEmpty()) {
-                tableView.setDataAdapter(new SimpleTableDataAdapter(UpdateStockActivity.this, arr));
+                tableView.setDataAdapter(new SimpleTableDataAdapter(DeleteStockActivity.this, arr));
             }
         }
     }

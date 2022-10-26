@@ -1,4 +1,4 @@
-package com.example.stocksportfoliomanagementsystem;
+package com.example.stocksportfoliomanagementsystem.transactions;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,16 +8,16 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.stocksportfoliomanagementsystem.FinancialManagementActivity;
+import com.example.stocksportfoliomanagementsystem.R;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;

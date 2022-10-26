@@ -13,7 +13,7 @@ android:fillViewport="true">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@mipmap/background2"
-        tools:context=".StockManagementActivity">
+        tools:context=".stocks.StockManagementActivity">
 
         <ImageView
             android:id="@+id/choseImageView"

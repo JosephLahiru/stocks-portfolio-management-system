@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/background2"
-    tools:context=".SignInActivity">
+    tools:context=".startup.SignInActivity">
 
   <EditText
       android:id="@+id/etEmail"
