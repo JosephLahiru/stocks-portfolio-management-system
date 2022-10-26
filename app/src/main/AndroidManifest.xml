@@ -82,13 +82,13 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ViewSupplierDataActivity"
+            android:name=".admin.ViewSupplierDataActivity"
             android:exported="false" />
         <activity
-            android:name=".AdministrationActivity"
+            android:name=".admin.AdministrationActivity"
             android:exported="false" />
         <activity
-            android:name=".UserRegistrationActivity"
+            android:name=".admin.UserRegistrationActivity"
             android:exported="false" />
         <activity
             android:name=".SupplierManagementActivity"
