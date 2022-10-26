@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.stocksportfoliomanagementsystem.startup.MenuActivity;
+
 public class SupplierManagementActivity extends AppCompatActivity {
 
     Button backToDashboardButton;

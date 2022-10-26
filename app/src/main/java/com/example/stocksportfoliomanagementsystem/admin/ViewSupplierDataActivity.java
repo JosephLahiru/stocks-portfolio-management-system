@@ -1,4 +1,4 @@
-package com.example.stocksportfoliomanagementsystem;
+package com.example.stocksportfoliomanagementsystem.admin;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,15 +10,15 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
+
+import com.example.stocksportfoliomanagementsystem.R;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import de.codecrafters.tableview.TableView;
