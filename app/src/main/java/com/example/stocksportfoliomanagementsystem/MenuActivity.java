@@ -11,6 +11,7 @@ public class MenuActivity extends AppCompatActivity {
 
     Button financeManagementButton;
     Button stockManagementButton;
+    Button supplierManagementButton;
     String userEmail;
 
     @Override
@@ -36,6 +37,18 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MenuActivity.this, StockManagementActivity.class));
+                finish();
+            }
+        });
+
+        supplierManagementButton = (Button) findViewById(R.id.supplierMngButton);
+
+        supplierManagementButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MenuActivity.this, SupplierManagementActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
