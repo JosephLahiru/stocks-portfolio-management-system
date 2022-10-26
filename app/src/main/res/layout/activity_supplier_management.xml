@@ -41,14 +41,24 @@
             app:srcCompat="@mipmap/suppliermanagement" />
 
         <Button
-            android:id="@+id/checksupplydetails"
+            android:id="@+id/checkrequiredstock"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:text="Check Supply Details"
+            android:text="Check Required Stock Details"
             app:layout_constraintEnd_toStartOf="@+id/guideline9"
             app:layout_constraintStart_toStartOf="@+id/guideline8"
             app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+        <Button
+            android:id="@+id/checksupplydetails"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Check Supply Details"
+            app:layout_constraintEnd_toStartOf="@+id/guideline9"
+            app:layout_constraintStart_toStartOf="@+id/guideline8"
+            app:layout_constraintTop_toBottomOf="@+id/checkrequiredstock" />
 
         <Button
             android:id="@+id/savesupplydetails"
@@ -91,6 +101,16 @@
             app:layout_constraintTop_toBottomOf="@+id/adddiscountsdetails" />
 
         <Button
+            android:id="@+id/viewdiscountsdetails"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="View Discounts Details"
+            app:layout_constraintEnd_toStartOf="@+id/guideline9"
+            app:layout_constraintStart_toStartOf="@+id/guideline8"
+            app:layout_constraintTop_toBottomOf="@+id/deletesupplydetails" />
+
+        <Button
             android:id="@+id/adddiscountsdetails"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -98,7 +118,7 @@
             android:text="Add Discounts Details"
             app:layout_constraintEnd_toStartOf="@+id/guideline9"
             app:layout_constraintStart_toStartOf="@+id/guideline8"
-            app:layout_constraintTop_toBottomOf="@+id/deletesupplydetails" />
+            app:layout_constraintTop_toBottomOf="@+id/viewdiscountsdetails" />
 
         <Button
             android:id="@+id/deletediscountsdetails"
