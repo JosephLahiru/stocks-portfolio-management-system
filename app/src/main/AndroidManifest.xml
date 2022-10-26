@@ -12,76 +12,155 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SupplierManagementActivity"
+            android:name=".supplier.ViewDiscountsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".UpdateStockActivity"
-            android:exported="false" />
-        <activity
-            android:name=".DeleteStockActivity"
-            android:exported="false" />
-        <activity
-            android:name=".DeleteTransactionsActivity"
+            android:name=".supplier.CheckRequiredStockActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".SaveTransactionsActivity"
+            android:name=".common.UpdateUserActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".UpdateTransactionsActivity"
+            android:name=".supplier.DeleteDiscountsDetailsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ViewTransactionsActivity"
+            android:name=".supplier.UpdateDiscountsDetailsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".FinancialManagementActivity"
+            android:name=".supplier.AddDiscountsDetailsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ViewStockHistoryActivity"
+            android:name=".supplier.DeleteSupplyDetailsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".supplier.UpdateSupplyDetailsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".supplier.SaveSupplyDetailsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".supplier.CheckSupplyDetailsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".admin.ViewSupplierDataActivity"
             android:exported="false" />
         <activity
-            android:name=".AddStockActivity"
+            android:name=".admin.AdministrationActivity"
             android:exported="false" />
         <activity
-            android:name=".StockManagementActivity"
+            android:name=".admin.UserRegistrationActivity"
             android:exported="false" />
         <activity
-            android:name=".MenuActivity"
+            android:name=".supplier.SupplierManagementActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".stocks.UpdateStockActivity"
             android:exported="false" />
         <activity
-            android:name=".SignInActivity"
+            android:name=".stocks.DeleteStockActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".transactions.DeleteTransactionsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".transactions.SaveTransactionsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".transactions.UpdateTransactionsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".transactions.ViewTransactionsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".supplier.FinancialManagementActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".stocks.ViewStockHistoryActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".stocks.AddStockActivity"
             android:exported="false" />
         <activity
-            android:name=".GetStaredActivity"
+            android:name=".stocks.StockManagementActivity"
+            android:exported="false" />
+        <activity
+            android:name=".startup.MenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".startup.SignInActivity"
+            android:exported="false" />
+        <activity
+            android:name=".startup.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".startup.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".startup.GetStaredActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

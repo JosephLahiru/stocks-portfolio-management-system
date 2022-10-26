@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-tools:layout_editor_absoluteX="1dp"
-tools:layout_editor_absoluteY="1dp"
-android:fillViewport="true">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="1dp"
+    android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@mipmap/background2"
-        tools:context=".stocks.StockManagementActivity">
+        tools:context=".stocks.AddStockActivity">
 
         <ImageView
             android:id="@+id/choseImageView"
@@ -23,54 +23,65 @@ android:fillViewport="true">
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@mipmap/portfolio2" />
+            app:srcCompat="@mipmap/admin" />
 
         <Button
-            android:id="@+id/addStocks"
+            android:id="@+id/userRegistration"
             android:layout_width="358dp"
             android:layout_height="91dp"
             android:layout_marginTop="30dp"
-            android:text="ADD STOCK"
+            android:text="USER REGISTRATION"
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/choseImageView" />
 
         <Button
-            android:id="@+id/viewStockHistory"
+            android:id="@+id/resetPassword"
             android:layout_width="358dp"
             android:layout_height="91dp"
             android:layout_marginTop="20sp"
-            android:text="VIEW STOCK HISTORY"
+            android:text="RESET USER PASSWORD"
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/addStocks" />
+            app:layout_constraintTop_toBottomOf="@id/userRegistration" />
 
         <Button
-            android:id="@+id/deleteStock"
+            android:id="@+id/supplierDataReview"
             android:layout_width="358dp"
             android:layout_height="91dp"
             android:layout_marginTop="20sp"
-            android:text="DELETE STOCK"
+            android:text="SUPPLIER DATA REVIEW"
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/viewStockHistory" />
+            app:layout_constraintTop_toBottomOf="@id/resetPassword" />
 
         <Button
-            android:id="@+id/updateStock"
+            android:id="@+id/developerFeedbackReview"
             android:layout_width="358dp"
             android:layout_height="91dp"
             android:layout_marginTop="20sp"
-            android:text="UPDATE STOCK"
+            android:text="DEVELOPER FEEDBACK REVIEW"
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/deleteStock" />
+            app:layout_constraintTop_toBottomOf="@id/supplierDataReview" />
 
         <Button
-            android:id="@+id/backtoMenu"
+            android:id="@+id/bugReview"
+            android:layout_width="358dp"
+            android:layout_height="91dp"
+            android:layout_marginTop="20sp"
+            android:text="BUG REVIEW"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/developerFeedbackReview" />
+
+        <Button
+            android:id="@+id/backToMenuAdmin"
             android:layout_width="358dp"
             android:layout_height="91dp"
             android:layout_marginTop="20sp"
@@ -80,7 +91,7 @@ android:fillViewport="true">
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/updateStock" />
+            app:layout_constraintTop_toBottomOf="@id/bugReview" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
