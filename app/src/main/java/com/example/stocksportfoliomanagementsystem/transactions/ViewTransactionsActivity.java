@@ -1,4 +1,4 @@
-package com.example.stocksportfoliomanagementsystem;
+package com.example.stocksportfoliomanagementsystem.transactions;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.RequiresApi;
@@ -11,6 +11,9 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.annotation.SuppressLint;
 import android.os.Build;
+
+import com.example.stocksportfoliomanagementsystem.FinancialManagementActivity;
+import com.example.stocksportfoliomanagementsystem.R;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

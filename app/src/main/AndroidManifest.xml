@@ -12,13 +12,83 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ViewSupplierDataActivity"
+            android:name=".ViewDiscountsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".CheckRequiredStockActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".UpdateUserActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".DeleteDiscountsDetailsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".UpdateDiscountsDetailsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".AddDiscountsDetailsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".DeleteSupplyDetailsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".UpdateSupplyDetailsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".SaveSupplyDetailsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".CheckSupplyDetailsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".admin.ViewSupplierDataActivity"
             android:exported="false" />
         <activity
-            android:name=".AdministrationActivity"
+            android:name=".admin.AdministrationActivity"
             android:exported="false" />
         <activity
-            android:name=".UserRegistrationActivity"
+            android:name=".admin.UserRegistrationActivity"
             android:exported="false" />
         <activity
             android:name=".SupplierManagementActivity"
@@ -28,34 +98,34 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".UpdateStockActivity"
+            android:name=".stocks.UpdateStockActivity"
             android:exported="false" />
         <activity
-            android:name=".DeleteStockActivity"
+            android:name=".stocks.DeleteStockActivity"
             android:exported="false" />
         <activity
-            android:name=".DeleteTransactionsActivity"
+            android:name=".transactions.DeleteTransactionsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".SaveTransactionsActivity"
+            android:name=".transactions.SaveTransactionsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".UpdateTransactionsActivity"
+            android:name=".transactions.UpdateTransactionsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ViewTransactionsActivity"
+            android:name=".transactions.ViewTransactionsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -69,28 +139,28 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ViewStockHistoryActivity"
+            android:name=".stocks.ViewStockHistoryActivity"
             android:exported="false" />
         <activity
-            android:name=".AddStockActivity"
+            android:name=".stocks.AddStockActivity"
             android:exported="false" />
         <activity
-            android:name=".StockManagementActivity"
+            android:name=".stocks.StockManagementActivity"
             android:exported="false" />
         <activity
-            android:name=".MenuActivity"
+            android:name=".startup.MenuActivity"
             android:exported="false" />
         <activity
-            android:name=".SignInActivity"
+            android:name=".startup.SignInActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".startup.ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".startup.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".GetStaredActivity"
+            android:name=".startup.GetStaredActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

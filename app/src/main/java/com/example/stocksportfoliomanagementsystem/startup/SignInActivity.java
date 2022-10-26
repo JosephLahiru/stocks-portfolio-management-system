@@ -1,4 +1,4 @@
-package com.example.stocksportfoliomanagementsystem;
+package com.example.stocksportfoliomanagementsystem.startup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,9 +11,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.stocksportfoliomanagementsystem.R;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -22,31 +23,29 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserRegistrationActivity extends AppCompatActivity {
+public class SignInActivity extends AppCompatActivity {
 
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
     private static final String USER = "root";
     private static final String PASSWORD = "amres";
 
     EditText etUserName, etEmail, etPassword, etPasswordConfirm;
-    Button signInButton, backBtn;
-    ProgressBar progressBar;
+    Button signInButton;
+    TextView loginText;
 
     String username, email, password, comPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_registration);
+        setContentView(R.layout.activity_signin);
 
-        backBtn = (Button) findViewById(R.id.backButtonAdmin);
-        progressBar = (ProgressBar) findViewById(R.id.progressBar2);
-
-        etUserName = findViewById(R.id.editTextUserNameAdmin);
-        etEmail = findViewById(R.id.etEmailAdmin);
-        etPassword = findViewById(R.id.editTextPasswordAdmin);
-        etPasswordConfirm = findViewById(R.id.editTextPasswordConfirmAdmin);
-        signInButton = (Button) findViewById(R.id.signInButtonAdmin);
+        etUserName = findViewById(R.id.editTextUserName);
+        etEmail = findViewById(R.id.etEmail);
+        etPassword = findViewById(R.id.editTextPassword);
+        etPasswordConfirm = findViewById(R.id.editTextPasswordConfirm);
+        signInButton = (Button) findViewById(R.id.signInButton);
+        loginText = (TextView) findViewById(R.id.loginText);
 
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,10 +54,10 @@ public class UserRegistrationActivity extends AppCompatActivity {
             }
         });
 
-        backBtn.setOnClickListener(new View.OnClickListener() {
+        loginText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(UserRegistrationActivity.this, AdministrationActivity.class));
+                startActivity(new Intent(SignInActivity.this, LoginActivity.class));
                 finish();
             }
         });
@@ -69,7 +68,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
         email = etEmail.getText().toString().trim();
         password = etPassword.getText().toString().trim();
         comPassword = etPasswordConfirm.getText().toString().trim();
-
+        
         if(TextUtils.isEmpty(email)){
             etEmail.setError("Email cannot be empty.");
             etEmail.requestFocus();
@@ -86,7 +85,6 @@ public class UserRegistrationActivity extends AppCompatActivity {
             Toast.makeText(this, "Password and Confirm Password not matching.!!!", Toast.LENGTH_SHORT).show();
         }else{
             new InfoAsyncTask().execute();
-            progressBar.setVisibility(View.VISIBLE);
         }
     }
 
@@ -99,33 +97,21 @@ public class UserRegistrationActivity extends AppCompatActivity {
                 Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
 
                 String sql = "INSERT INTO user(user_name, user_email, user_password) VALUES('" + username + "', '" + email + "', '" + password + "');";
+                //String sql2 = "CREATE TABLE `user`(user_id INT PRIMARY KEY AUTO_INCREMENT, user_email VARCHAR(60), user_password VARCHAR(100));";
                 Statement st1 = connection.createStatement();
 
                 if (!st1.execute(sql)) {
-                    System.out.println("User registered successfully");
+                    System.out.println("Data uploaded successfully");
 
-                    runOnUiThread(new Runnable() {
-                        public void run() {
-                            etUserName.getText().clear();
-                            etEmail.getText().clear();
-                            etUserName.getText().clear();
-                            etPassword.getText().clear();
-                            etPasswordConfirm.getText().clear();
-
-                            progressBar.setVisibility(View.INVISIBLE);
-
-                            final Toast toast = Toast.makeText(UserRegistrationActivity.this, "User Registered Successfully.", Toast.LENGTH_SHORT);
-                            toast.show();
-                        }
-                    });
+                    startActivity(new Intent(SignInActivity.this, LoginActivity.class));
+                    finish();
 
                 } else {
-                    System.out.println("User registration failed.");
+                    System.out.println("Data upload failed.");
                     runOnUiThread(new Runnable() {
                         public void run() {
-                            final Toast toast = Toast.makeText(UserRegistrationActivity.this, "User Registration Failed.", Toast.LENGTH_SHORT);
+                            final Toast toast = Toast.makeText(SignInActivity.this, "Signing Failed.", Toast.LENGTH_SHORT);
                             toast.show();
-                            progressBar.setVisibility(View.INVISIBLE);
                         }
                     });
                 }

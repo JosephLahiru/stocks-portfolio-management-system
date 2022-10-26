@@ -4,7 +4,6 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_add_stock.xml" value="0.25495495495495496" />
-        <entry key="app/src/main/res/layout/activity_administration.xml" value="0.268018018018018" />
         <entry key="app/src/main/res/layout/activity_delete_stock.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_login3.xml" value="0.15052083333333333" />
@@ -14,14 +13,11 @@
         <entry key="app/src/main/res/layout/activity_signin.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_stock_management.xml" value="0.25495495495495496" />
         <entry key="app/src/main/res/layout/activity_update_stock.xml" value="0.18558558558558558" />
-        <entry key="app/src/main/res/layout/activity_user_registration.xml" value="0.268018018018018" />
         <entry key="app/src/main/res/layout/activity_view_stock_history.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_view_supplier_data.xml" value="0.268018018018018" />
-        <entry key="app/src/main/res/layout/activity_view_transactions.xml" value="0.268018018018018" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
