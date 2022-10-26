@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cardview_shadow_end_color"
-    tools:context=".supplier.FinancialManagementActivity">
+    tools:context=".transactions.FinancialManagementActivity">
 
     <Button
         android:id="@+id/viewtransactions"
