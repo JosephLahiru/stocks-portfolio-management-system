@@ -1,4 +1,4 @@
-package com.example.stocksportfoliomanagementsystem.stocks;
+package com.example.stocksportfoliomanagementsystem.admin;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,13 +28,13 @@ import de.codecrafters.tableview.TableView;
 import de.codecrafters.tableview.toolkit.SimpleTableDataAdapter;
 import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 
-public class UpdateStockActivity extends AppCompatActivity {
+public class UserPasswordResetActivity extends AppCompatActivity {
 
     TableView tableView;
     Connection connection;
-    Button backBtn, updateBtn;
+    Button backBtn, resetBtn;
 
-    EditText updateDataID, updateDataColumn, newData;
+    EditText resetDataID;
 
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
     private static final String USER = "root";
@@ -43,36 +43,33 @@ public class UpdateStockActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_stock);
+        setContentView(R.layout.activity_user_password_reset);
 
-        updateDataID = (EditText) findViewById(R.id.etStockIDUpdate);
-        updateDataColumn = (EditText) findViewById(R.id.etStockColumnUpdate);
-        newData = (EditText) findViewById(R.id.etNewValue);
+        resetDataID = (EditText) findViewById(R.id.etUserID);
 
-        backBtn = (Button) findViewById(R.id.backButton4);
-        updateBtn = (Button) findViewById(R.id.updateButton);
+        resetBtn = (Button) findViewById(R.id.resetButton);
 
-        updateBtn.setOnClickListener(new View.OnClickListener() {
+        resetBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new UpdateStockTask().execute();
+                new ResetUserTask().execute();
 
-                updateDataID.getText().clear();
-                updateDataColumn.getText().clear();
-                newData.getText().clear();
+                resetDataID.getText().clear();
             }
         });
+
+        backBtn = (Button) findViewById(R.id.backButtonReset);
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(UpdateStockActivity.this, StockManagementActivity.class));
+                startActivity(new Intent(UserPasswordResetActivity.this, AdministrationActivity.class));
                 finish();
             }
         });
 
-        tableView = findViewById(R.id.table_data_view_update);
-        String headers[] = {"PS ID", "Arrived Date", "Stock Qty", "Product ID"};
+        tableView = findViewById(R.id.table_data_view_reset);
+        String headers[] = {"User ID", "User Name", "User Email", "User Type"};
 
         tableView.setHeaderAdapter(new SimpleTableHeaderAdapter(this, headers));
 
@@ -80,17 +77,15 @@ public class UpdateStockActivity extends AppCompatActivity {
     }
 
     @SuppressLint("StaticFieldLeak")
-    public class UpdateStockTask extends AsyncTask<Void, Void, List<String>> {
+    public class ResetUserTask extends AsyncTask<Void, Void, List<String>> {
         @Override
         protected List<String> doInBackground(Void... voids) {
             List<String> products = new ArrayList<>();
             try {
 
-                String stockID = updateDataID.getText().toString();
-                String stockColumn = updateDataColumn.getText().toString();
-                String stockNewData = newData.getText().toString();
+                String userID = resetDataID.getText().toString();
 
-                String sql = "UPDATE product_stock SET `" + stockColumn + "` = '" + stockNewData + "' WHERE  `product_stock_id` = '" + stockID + "'; ";
+                String sql = "UPDATE user SET `user_password` = '1234' WHERE  `user_id` = '" + userID + "'; ";
 
                 System.out.println(sql);
 
@@ -101,7 +96,7 @@ public class UpdateStockActivity extends AppCompatActivity {
 
                     runOnUiThread(new Runnable() {
                         public void run() {
-                            final Toast toast = Toast.makeText(UpdateStockActivity.this, "Data updated Successfully.", Toast.LENGTH_SHORT);
+                            final Toast toast = Toast.makeText(UserPasswordResetActivity.this, "Password Reset Successful.", Toast.LENGTH_SHORT);
                             toast.show();
                         }
                     });
@@ -110,7 +105,7 @@ public class UpdateStockActivity extends AppCompatActivity {
                     System.out.println("Data upload failed.");
                     runOnUiThread(new Runnable() {
                         public void run() {
-                            final Toast toast = Toast.makeText(UpdateStockActivity.this, "Data Upload Failed.", Toast.LENGTH_SHORT);
+                            final Toast toast = Toast.makeText(UserPasswordResetActivity.this, "Password Reset Failed.", Toast.LENGTH_SHORT);
                             toast.show();
                         }
                     });
@@ -130,16 +125,16 @@ public class UpdateStockActivity extends AppCompatActivity {
             try {
                 connection = DriverManager.getConnection(URL, USER, PASSWORD);
 
-                String sql = "SELECT * FROM product_stock";
+                String sql = "SELECT * FROM user";
                 PreparedStatement statement = connection.prepareStatement(sql);
                 ResultSet resultSet = statement.executeQuery();
 
                 while (resultSet.next()) {
                     List<String> temp = new ArrayList<>();
-                    temp.add(resultSet.getString("product_stock_id"));
-                    temp.add(resultSet.getString("arrived_date"));
-                    temp.add(resultSet.getString("stock_qty"));
-                    temp.add(resultSet.getString("product_id"));
+                    temp.add(resultSet.getString("user_id"));
+                    temp.add(resultSet.getString("user_name"));
+                    temp.add(resultSet.getString("user_email"));
+                    temp.add(resultSet.getString("user_type"));
                     products.add(temp);
                 }
             } catch (Exception e) {
@@ -153,15 +148,13 @@ public class UpdateStockActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(List<List<String>> result) {
 
-            //String[][] data = {{"1", "2", "3", "4"},{"5", "6", "7", "8"}};
-
             String[][] arr = result.stream()
                     .map(l -> l.stream().toArray(String[]::new))
                     .toArray(String[][]::new);
 
 
             if (!result.isEmpty()) {
-                tableView.setDataAdapter(new SimpleTableDataAdapter(UpdateStockActivity.this, arr));
+                tableView.setDataAdapter(new SimpleTableDataAdapter(UserPasswordResetActivity.this, arr));
             }
         }
     }
