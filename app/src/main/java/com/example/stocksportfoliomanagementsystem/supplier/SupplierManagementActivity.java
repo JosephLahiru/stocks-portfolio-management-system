@@ -24,12 +24,14 @@ public class SupplierManagementActivity extends AppCompatActivity {
     Button updateDiscountsDetailsButton;
     Button deleteDiscountsDetailsButton;
     Button updateUserDetailsButton;
+    String userEmail;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_supplier_management);
+        userEmail = getIntent().getStringExtra("userEmail");
 
         viewRequiredStockDetailsButton = (Button) findViewById(R.id.checkrequiredstock);
         viewRequiredStockDetailsButton.setOnClickListener(new View.OnClickListener() {
@@ -44,7 +46,9 @@ public class SupplierManagementActivity extends AppCompatActivity {
         viewSupplyDetailsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SupplierManagementActivity.this, CheckSupplyDetailsActivity.class));
+                Intent intent = new Intent(SupplierManagementActivity.this, CheckSupplyDetailsActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
