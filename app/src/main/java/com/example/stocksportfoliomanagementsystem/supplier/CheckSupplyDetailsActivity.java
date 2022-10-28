@@ -48,8 +48,9 @@ public class CheckSupplyDetailsActivity extends AppCompatActivity {
         backToFinancialManagementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CheckSupplyDetailsActivity.this, SupplierManagementActivity.class));
-                finish();
+                Intent intent = new Intent(CheckSupplyDetailsActivity.this, SupplierManagementActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
             }
         });
 

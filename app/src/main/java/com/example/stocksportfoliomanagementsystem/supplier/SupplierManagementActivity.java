@@ -57,7 +57,9 @@ public class SupplierManagementActivity extends AppCompatActivity {
         saveSupplyDetailsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SupplierManagementActivity.this, SaveSupplyDetailsActivity.class));
+                Intent intent = new Intent(SupplierManagementActivity.this, SaveSupplyDetailsActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });

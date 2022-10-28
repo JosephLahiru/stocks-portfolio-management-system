@@ -8,9 +8,14 @@ import com.example.stocksportfoliomanagementsystem.R;
 
 public class SaveSupplyDetailsActivity extends AppCompatActivity {
 
+    String userEmail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_save_supply_details);
+        userEmail = getIntent().getStringExtra("userEmail");
+
+
     }
 }
