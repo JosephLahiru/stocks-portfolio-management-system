@@ -153,7 +153,7 @@ public class UpdateSupplyDetailsActivity extends AppCompatActivity {
                     supplier_id = resultSet2.getInt("supplier_id");
                     System.out.println(supplier_id);
                 }
-                String sql = "SELECT product.product_name FROM product CROSS JOIN supply_details WHERE product.product_id=supply_details.product_id AND supply_details.supplier_id='"+supplier_id+"';";
+                String sql = "SELECT product.product_id, product.product_name FROM product CROSS JOIN supply_details WHERE product.product_id=supply_details.product_id AND supply_details.supplier_id='"+supplier_id+"';";
                 PreparedStatement statement = connection.prepareStatement(sql);
                 ResultSet resultSet = statement.executeQuery();
                 while (resultSet.next()) {
