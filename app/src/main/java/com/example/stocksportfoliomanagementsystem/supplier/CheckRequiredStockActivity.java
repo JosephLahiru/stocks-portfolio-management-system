@@ -29,7 +29,7 @@ import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 public class CheckRequiredStockActivity extends AppCompatActivity {
 
     TableView tableView;
-    Button backToFinancialManagementButton;
+    Button backToSupplireManagementButton;
     Connection connection;
     String data[][];
     String userEmail;
@@ -44,8 +44,8 @@ public class CheckRequiredStockActivity extends AppCompatActivity {
         setContentView(R.layout.activity_check_required_stock);
         userEmail = getIntent().getStringExtra("userEmail");
 
-        backToFinancialManagementButton = (Button) findViewById(R.id.vbsm);
-        backToFinancialManagementButton.setOnClickListener(new View.OnClickListener() {
+        backToSupplireManagementButton = (Button) findViewById(R.id.vbsm);
+        backToSupplireManagementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(CheckRequiredStockActivity.this, SupplierManagementActivity.class);

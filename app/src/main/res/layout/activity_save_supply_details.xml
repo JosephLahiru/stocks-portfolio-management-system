@@ -125,11 +125,11 @@
             android:id="@+id/btnssd"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="100dp"
+            android:layout_marginTop="142dp"
             android:text="Save Supply Details"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/guideline11"
-            app:layout_constraintStart_toStartOf="@id/guideline10" />
+            app:layout_constraintStart_toStartOf="@id/guideline10"
+            app:layout_constraintTop_toBottomOf="@+id/editTextCostPerItemS" />
 
         <Button
             android:id="@+id/vbsm3"

@@ -28,7 +28,7 @@ import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 public class CheckSupplyDetailsActivity extends AppCompatActivity {
 
     TableView tableView;
-    Button backToFinancialManagementButton;
+    Button backToSupplireManagementButton;
     Connection connection;
     String data[][];
     String userEmail;
@@ -44,8 +44,8 @@ public class CheckSupplyDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_check_supply_details);
         userEmail = getIntent().getStringExtra("userEmail");
 
-        backToFinancialManagementButton = (Button) findViewById(R.id.vbsm2);
-        backToFinancialManagementButton.setOnClickListener(new View.OnClickListener() {
+        backToSupplireManagementButton = (Button) findViewById(R.id.vbsm2);
+        backToSupplireManagementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(CheckSupplyDetailsActivity.this, SupplierManagementActivity.class);
