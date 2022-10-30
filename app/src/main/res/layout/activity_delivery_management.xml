@@ -70,7 +70,7 @@
             app:layout_constraintTop_toBottomOf="@id/viewLocationDetails" />
 
         <Button
-            android:id="@+id/backToMenuAdmin"
+            android:id="@+id/backToMenuDelivery"
             android:layout_width="358dp"
             android:layout_height="91dp"
             android:layout_marginTop="20sp"
