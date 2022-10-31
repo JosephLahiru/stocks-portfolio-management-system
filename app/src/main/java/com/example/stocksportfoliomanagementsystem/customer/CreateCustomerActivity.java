@@ -84,6 +84,7 @@ public class CreateCustomerActivity extends AppCompatActivity {
         protected List<String> doInBackground(Void... voids) {
             List<String> products = new ArrayList<>();
             try {
+                connection = DriverManager.getConnection(URL, USER, PASSWORD);
 
                 String fName = etFirstName.getText().toString();
                 String lName = etLastName.getText().toString();

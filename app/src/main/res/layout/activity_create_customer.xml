@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/background2"
     tools:context=".customer.CreateCustomerActivity">
 
     <TextView
@@ -28,7 +29,6 @@
         android:ems="10"
         android:hint="First Name"
         android:inputType="textPersonName"
-        android:textColorHint="@color/design_default_color_on_secondary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +42,6 @@
         android:ems="10"
         android:hint="Last Name"
         android:inputType="textPersonName"
-        android:textColorHint="@color/design_default_color_on_secondary"
         app:layout_constraintEnd_toEndOf="@+id/inputFirstName"
         app:layout_constraintStart_toStartOf="@+id/inputFirstName"
         app:layout_constraintTop_toBottomOf="@+id/inputFirstName" />
@@ -53,9 +52,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Address"
+        android:hint="Telephone Number"
         android:inputType="textPersonName"
-        android:textColorHint="@color/design_default_color_on_secondary"
         app:layout_constraintEnd_toEndOf="@+id/inputLastName"
         app:layout_constraintStart_toStartOf="@+id/inputLastName"
         app:layout_constraintTop_toBottomOf="@+id/inputLastName" />
@@ -66,9 +64,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Telephone Number"
-        android:inputType="textPersonName"
-        android:textColorHint="@color/design_default_color_on_secondary"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="@+id/inputTeleNo"
         app:layout_constraintStart_toStartOf="@+id/inputTeleNo"
         app:layout_constraintTop_toBottomOf="@+id/inputTeleNo" />
@@ -79,9 +76,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Email"
+        android:hint="Address"
         android:inputType="textPersonName"
-        android:textColorHint="@color/design_default_color_on_secondary"
         app:layout_constraintEnd_toEndOf="@+id/inputEmail"
         app:layout_constraintStart_toStartOf="@+id/inputEmail"
         app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
@@ -94,7 +90,6 @@
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
-        android:textColorHint="@color/design_default_color_on_secondary"
         app:layout_constraintEnd_toEndOf="@+id/inputAddress"
         app:layout_constraintStart_toStartOf="@+id/inputAddress"
         app:layout_constraintTop_toBottomOf="@+id/inputAddress" />
