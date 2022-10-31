@@ -12,7 +12,7 @@ import com.example.stocksportfoliomanagementsystem.startup.MenuActivity;
 
 public class DeliveryManagementActivity extends AppCompatActivity {
 
-    Button viewOderListBtn, confirmDeliveryBtn, viewLocationDetailsBtn, getUserFeedbackBtn, backBtn;
+    Button viewOderListBtn, confirmDeliveryBtn, getUserFeedbackBtn, backBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,16 +35,6 @@ public class DeliveryManagementActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(DeliveryManagementActivity.this, ConfirmDeliveryActivity.class));
-                finish();
-            }
-        });
-
-        viewLocationDetailsBtn = (Button) findViewById(R.id.viewLocationDetails);
-
-        viewLocationDetailsBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(DeliveryManagementActivity.this, ViewLocationDetailsActivity.class));
                 finish();
             }
         });

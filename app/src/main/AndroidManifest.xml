@@ -15,9 +15,6 @@
             android:name=".delivery.GetUserDeliveryFeedbackActivity"
             android:exported="false" />
         <activity
-            android:name=".delivery.ViewLocationDetailsActivity"
-            android:exported="false" />
-        <activity
             android:name=".delivery.ConfirmDeliveryActivity"
             android:exported="false" />
         <activity
