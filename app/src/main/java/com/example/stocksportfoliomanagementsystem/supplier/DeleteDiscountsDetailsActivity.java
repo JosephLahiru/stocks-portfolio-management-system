@@ -33,7 +33,7 @@ import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 public class DeleteDiscountsDetailsActivity extends AppCompatActivity {
 
     String userEmail;
-    Button updateDiscountsButton,backToSupplireManagementButton;
+    Button deleteDiscountsButton,backToSupplireManagementButton;
     Connection connection;
     EditText discountid;
     int supplier_id;
@@ -60,8 +60,8 @@ public class DeleteDiscountsDetailsActivity extends AppCompatActivity {
 
         new InfoAsyncTask().execute();
 
-        updateDiscountsButton = (Button) findViewById(R.id.btnDeleteDiscountsDSD);
-        updateDiscountsButton.setOnClickListener(new View.OnClickListener() {
+        deleteDiscountsButton = (Button) findViewById(R.id.btnDeleteDiscountsDSD);
+        deleteDiscountsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 new DeleteDiscountsTask().execute();
