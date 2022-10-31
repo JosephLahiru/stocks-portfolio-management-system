@@ -39,8 +39,6 @@ tools:context=".delivery.ViewOrderListActivity">
                 app:tableView_columnCount="3">
 
             </de.codecrafters.tableview.TableView>
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </HorizontalScrollView>
 
