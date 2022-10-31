@@ -39,21 +39,25 @@
             android:orientation="vertical"
             app:layout_constraintGuide_end="50dp" />
 
-        <de.codecrafters.tableview.TableView
-            android:id="@+id/tableViewU"
-            android:layout_width="wrap_content"
-            android:layout_height="600dp"
-            android:layout_marginTop="100dp"
-            android:fillViewport="false"
-            android:orientation="horizontal"
-            android:scrollIndicators="bottom|right"
-            android:scrollbarAlwaysDrawHorizontalTrack="true"
-            android:scrollbarAlwaysDrawVerticalTrack="true"
-            android:scrollbarDefaultDelayBeforeFade="10"
-            android:scrollbarStyle="insideOverlay"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tableView_columnCount="8"></de.codecrafters.tableview.TableView>
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <de.codecrafters.tableview.TableView
+                    android:id="@+id/tableViewU"
+                    android:layout_width="1500dp"
+                    android:layout_height="600dp"
+                    android:layout_marginTop="100dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tableView_columnCount="8"></de.codecrafters.tableview.TableView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </HorizontalScrollView>
 
         <TextView
             android:id="@+id/textViewInvoiceIDU"
@@ -62,7 +66,7 @@
             android:layout_marginTop="50dp"
             android:text="Invoice ID"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
-            app:layout_constraintTop_toBottomOf="@+id/tableViewU" />
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView3" />
 
         <EditText
             android:id="@+id/editTextInvoiceID"

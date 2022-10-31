@@ -12,12 +12,42 @@ import com.example.stocksportfoliomanagementsystem.startup.MenuActivity;
 
 public class AdministrationActivity extends AppCompatActivity {
 
-    Button backBtn, userRegistrationBtn, supplierDataBtn;
+    Button backBtn, userRegistrationBtn, supplierDataBtn, bugReviewBtn, devFeedbackBtn, usrPassResetBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_administration);
+
+        usrPassResetBtn = (Button) findViewById(R.id.resetPassword);
+
+        usrPassResetBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(AdministrationActivity.this, UserPasswordResetActivity.class));
+                finish();
+            }
+        });
+
+        devFeedbackBtn = (Button) findViewById(R.id.developerFeedbackReview);
+
+        devFeedbackBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(AdministrationActivity.this, DeveloperFeedbackActivity.class));
+                finish();
+            }
+        });
+
+        bugReviewBtn = (Button) findViewById(R.id.bugReview);
+
+        bugReviewBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(AdministrationActivity.this, BugReviewActivity.class));
+                finish();
+            }
+        });
 
         supplierDataBtn = (Button) findViewById(R.id.supplierDataReview);
 
