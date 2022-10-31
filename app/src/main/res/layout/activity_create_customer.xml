@@ -119,26 +119,14 @@
         app:layout_constraintStart_toStartOf="@+id/btnRegister"
         app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
 
-    <TextView
-        android:id="@+id/textAlready"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Already Have An Account?"
-        android:textColorHint="@color/design_default_color_on_secondary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.909" />
-
     <Button
-        android:id="@+id/btnBackUpdate"
+        android:id="@+id/btnBackRegis"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Back"
         app:layout_constraintEnd_toEndOf="@+id/btnClear"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/btnClear"
         app:layout_constraintTop_toBottomOf="@+id/btnClear" />
 
