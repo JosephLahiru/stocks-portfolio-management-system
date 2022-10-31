@@ -140,7 +140,7 @@ public class UpdateDiscountsDetailsActivity extends AppCompatActivity {
                 String margin_ = margin.getText().toString();
                 String discount_ = discount.getText().toString();
 
-                String sql = "INSERT INTO `spms`.`supplier_discounts` (`product_id`, `supplier_id`, `margin`, `discount`) VALUES ('"+productId+"', '"+supplier_id+"', '"+margin_+"', '"+discount_+"');";
+                String sql = "UPDATE `spms`.`supplier_discounts` SET `product_id` = '"+productId+"', `margin` = '"+margin_+"', `discount` = '"+discount_+"' WHERE (`discount_id` = '"+discountid_+"');";
 
                 System.out.println(sql);
 
