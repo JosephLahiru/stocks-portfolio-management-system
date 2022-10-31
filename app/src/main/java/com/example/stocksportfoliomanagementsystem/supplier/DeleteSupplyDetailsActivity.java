@@ -208,6 +208,8 @@ public class DeleteSupplyDetailsActivity extends AppCompatActivity {
                         public void run() {
                             final Toast toast = Toast.makeText(DeleteSupplyDetailsActivity.this, "Data Deleted Successfully.", Toast.LENGTH_SHORT);
                             toast.show();
+                            new InfoAsyncTask().execute();
+                            new InfoAsyncTask2().execute();
                         }
                     });
 

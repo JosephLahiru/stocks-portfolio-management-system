@@ -153,6 +153,8 @@ public class UpdateDiscountsDetailsActivity extends AppCompatActivity {
                         public void run() {
                             final Toast toast = Toast.makeText(UpdateDiscountsDetailsActivity.this, "Data Uploaded Successfully.", Toast.LENGTH_SHORT);
                             toast.show();
+                            new InfoAsyncTask2().execute();
+                            new InfoAsyncTask().execute();
                         }
                     });
 

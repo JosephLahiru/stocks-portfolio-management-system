@@ -104,22 +104,23 @@ public class DeleteDiscountsDetailsActivity extends AppCompatActivity {
                 Statement st1 = connection.createStatement();
 
                 if (!st1.execute(sql)) {
-                    System.out.println("Data uploaded successfully");
+                    System.out.println("Data Deleted successfully");
 
                     runOnUiThread(new Runnable() {
                         public void run() {
-                            final Toast toast = Toast.makeText(DeleteDiscountsDetailsActivity.this, "Data Uploaded Successfully.", Toast.LENGTH_SHORT);
+                            final Toast toast = Toast.makeText(DeleteDiscountsDetailsActivity.this, "Data Deleted Successfully.", Toast.LENGTH_SHORT);
                             toast.show();
+                            new InfoAsyncTask().execute();
                         }
                     });
 
                     discountid.getText().clear();
 
                 } else {
-                    System.out.println("Data upload failed.");
+                    System.out.println("Data Delete failed.");
                     runOnUiThread(new Runnable() {
                         public void run() {
-                            final Toast toast = Toast.makeText(DeleteDiscountsDetailsActivity.this, "Data Upload Failed.", Toast.LENGTH_SHORT);
+                            final Toast toast = Toast.makeText(DeleteDiscountsDetailsActivity.this, "Data Delete Failed.", Toast.LENGTH_SHORT);
                             toast.show();
                         }
                     });

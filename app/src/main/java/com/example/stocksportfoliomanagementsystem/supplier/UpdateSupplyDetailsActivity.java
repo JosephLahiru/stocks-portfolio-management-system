@@ -215,6 +215,8 @@ public class UpdateSupplyDetailsActivity extends AppCompatActivity {
                         public void run() {
                             final Toast toast = Toast.makeText(UpdateSupplyDetailsActivity.this, "Data Updated Successfully.", Toast.LENGTH_SHORT);
                             toast.show();
+                            new InfoAsyncTask().execute();
+                            new InfoAsyncTask2().execute();
                         }
                     });
 
