@@ -45,6 +45,8 @@ public class ConfirmDeliveryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_delivery);
 
+        etDeliveryID = (EditText) findViewById(R.id.etDeliveryID);
+
         backBtn = (Button) findViewById(R.id.backButtonConfirmDelivery);
 
         backBtn.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +83,7 @@ public class ConfirmDeliveryActivity extends AppCompatActivity {
 
                 String deliveryID = etDeliveryID.getText().toString();
 
-                String sql = "UPDATE order SET `status` = 'delivered' WHERE  `order_id` = '" + deliveryID + "'; ";
+                String sql = "UPDATE `order` SET `status` = 'delivered' WHERE `order_id` = '" + deliveryID + "'; ";
 
                 System.out.println(sql);
 
@@ -94,6 +96,7 @@ public class ConfirmDeliveryActivity extends AppCompatActivity {
                         public void run() {
                             final Toast toast = Toast.makeText(ConfirmDeliveryActivity.this, "Data updated Successfully.", Toast.LENGTH_SHORT);
                             toast.show();
+                            etDeliveryID.getText().clear();
                         }
                     });
 
