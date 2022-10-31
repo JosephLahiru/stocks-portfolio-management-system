@@ -12,12 +12,21 @@ import com.example.stocksportfoliomanagementsystem.startup.MenuActivity;
 
 public class CustomerManagementActivity extends AppCompatActivity {
 
-    Button createCustomerBtn, backToMenuBtn;
+    Button createCustomerBtn, backToMenuBtn, resetPasswordBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_management);
+
+        resetPasswordBtn = (Button) findViewById(R.id.updateAndResetPassword);
+
+        resetPasswordBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CustomerManagementActivity.this, UpdateAndResetPasswordActivity.class));
+            }
+        });
 
         backToMenuBtn = (Button) findViewById(R.id.backToMenu12);
 
