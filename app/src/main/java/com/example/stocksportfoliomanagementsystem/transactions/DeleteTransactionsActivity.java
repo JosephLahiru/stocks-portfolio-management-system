@@ -138,6 +138,7 @@ public class DeleteTransactionsActivity extends AppCompatActivity {
                         public void run() {
                             final Toast toast = Toast.makeText(DeleteTransactionsActivity.this, "Data Deleted Successfully.", Toast.LENGTH_SHORT);
                             toast.show();
+                            new InfoAsyncTask().execute();
                         }
                     });
 
