@@ -12,6 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".delivery.ViewOrderListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".delivery.DeliveryManagementActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.UserPasswordResetActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.BugReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.DeveloperFeedbackActivity"
+            android:exported="false" />
+        <activity
             android:name=".supplier.ViewDiscountsActivity"
             android:exported="false">
             <meta-data
@@ -132,7 +147,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".supplier.FinancialManagementActivity"
+            android:name=".transactions.FinancialManagementActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
