@@ -24,10 +24,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:layout_marginStart="30dp"
+        app:layout_constraintStart_toStartOf="parent"
         android:text="First Name"
         android:textSize="15sp"
-        app:layout_constraintTop_toBottomOf="@+id/textUpdateCustomerDetails"
-        tools:layout_editor_absoluteX="29dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textUpdateCustomerDetails" />
 
     <EditText
         android:id="@+id/idFirstName"
@@ -45,6 +46,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginStart="30dp"
+        app:layout_constraintStart_toStartOf="parent"
         android:text="Last Name"
         android:textSize="15sp"
         app:layout_constraintTop_toBottomOf="@+id/idFirstName"
@@ -67,6 +70,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Address"
+        android:layout_marginStart="30dp"
+        app:layout_constraintStart_toStartOf="parent"
         android:textSize="15sp"
         app:layout_constraintTop_toBottomOf="@+id/idLastName"
         tools:layout_editor_absoluteX="28dp" />
@@ -88,6 +93,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Telephone Number"
+        android:layout_marginStart="30dp"
+        app:layout_constraintStart_toStartOf="parent"
         android:textSize="15sp"
         app:layout_constraintTop_toBottomOf="@+id/idAddress"
         tools:layout_editor_absoluteX="28dp" />
@@ -109,6 +116,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Email"
+        android:layout_marginStart="30dp"
+        app:layout_constraintStart_toStartOf="parent"
         android:textSize="15sp"
         app:layout_constraintTop_toBottomOf="@+id/idTelNo"
         tools:layout_editor_absoluteX="30dp" />
@@ -129,17 +138,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Update"
-        tools:layout_editor_absoluteX="67dp"
-        tools:layout_editor_absoluteY="684dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnBackUpdate"
+        app:layout_constraintHorizontal_bias="0.659"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="60dp"
+        />
 
     <Button
         android:id="@+id/btnBackUpdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="76dp"
         android:text="Back"
         app:layout_constraintBottom_toBottomOf="@+id/btnUpdateDetails"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/btnUpdateDetails"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="227dp" />
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

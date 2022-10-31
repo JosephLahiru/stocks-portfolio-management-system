@@ -23,6 +23,7 @@
         <entry key="app/src/main/res/layout/activity_signin.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_stock_management.xml" value="0.25495495495495496" />
         <entry key="app/src/main/res/layout/activity_supplier_management.xml" value="0.218018018018018" />
+        <entry key="app/src/main/res/layout/activity_update_and_reset_password.xml" value="0.2545045045045045" />
         <entry key="app/src/main/res/layout/activity_update_customer.xml" value="0.268018018018018" />
         <entry key="app/src/main/res/layout/activity_update_stock.xml" value="0.18558558558558558" />
         <entry key="app/src/main/res/layout/activity_update_user.xml" value="0.2545045045045045" />
