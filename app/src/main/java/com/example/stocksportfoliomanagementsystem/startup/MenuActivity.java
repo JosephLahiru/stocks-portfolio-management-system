@@ -36,7 +36,9 @@ public class MenuActivity extends AppCompatActivity {
         deliveryManagementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MenuActivity.this, DeliveryManagementActivity.class));
+                Intent intent = new Intent(MenuActivity.this, DeliveryManagementActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -46,7 +48,9 @@ public class MenuActivity extends AppCompatActivity {
         adminManagementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MenuActivity.this, AdministrationActivity.class));
+                Intent intent = new Intent(MenuActivity.this, AdministrationActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -56,7 +60,9 @@ public class MenuActivity extends AppCompatActivity {
         financeManagementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MenuActivity.this, FinancialManagementActivity.class));
+                Intent intent = new Intent(MenuActivity.this, FinancialManagementActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -66,7 +72,9 @@ public class MenuActivity extends AppCompatActivity {
         stockManagementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MenuActivity.this, StockManagementActivity.class));
+                Intent intent = new Intent(MenuActivity.this, StockManagementActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
