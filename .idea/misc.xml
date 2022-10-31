@@ -7,6 +7,8 @@
         <entry key="app/src/main/res/layout/activity_administration.xml" value="0.2644444444444444" />
         <entry key="app/src/main/res/layout/activity_bug_review.xml" value="0.268018018018018" />
         <entry key="app/src/main/res/layout/activity_confirm_delivery.xml" value="0.2545045045045045" />
+        <entry key="app/src/main/res/layout/activity_create_customer.xml" value="0.268018018018018" />
+        <entry key="app/src/main/res/layout/activity_delete_discounts_details.xml" value="0.268018018018018" />
         <entry key="app/src/main/res/layout/activity_delete_stock.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_delete_transactions.xml" value="0.2545045045045045" />
         <entry key="app/src/main/res/layout/activity_delivery_management.xml" value="0.268018018018018" />
@@ -20,8 +22,10 @@
         <entry key="app/src/main/res/layout/activity_signin.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_stock_management.xml" value="0.25495495495495496" />
         <entry key="app/src/main/res/layout/activity_supplier_management.xml" value="0.218018018018018" />
+        <entry key="app/src/main/res/layout/activity_update_customer.xml" value="0.268018018018018" />
         <entry key="app/src/main/res/layout/activity_update_stock.xml" value="0.18558558558558558" />
         <entry key="app/src/main/res/layout/activity_update_user.xml" value="0.2545045045045045" />
+        <entry key="app/src/main/res/layout/activity_updateand_reset_paassword.xml" value="0.268018018018018" />
         <entry key="app/src/main/res/layout/activity_user_password_reset.xml" value="0.268018018018018" />
         <entry key="app/src/main/res/layout/activity_user_registration.xml" value="0.2644444444444444" />
         <entry key="app/src/main/res/layout/activity_view_discounts.xml" value="0.218018018018018" />
