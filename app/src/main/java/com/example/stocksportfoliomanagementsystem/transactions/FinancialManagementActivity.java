@@ -1,4 +1,4 @@
-package com.example.stocksportfoliomanagementsystem.supplier;
+package com.example.stocksportfoliomanagementsystem.transactions;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,10 +9,6 @@ import android.widget.Button;
 
 import com.example.stocksportfoliomanagementsystem.R;
 import com.example.stocksportfoliomanagementsystem.startup.MenuActivity;
-import com.example.stocksportfoliomanagementsystem.transactions.DeleteTransactionsActivity;
-import com.example.stocksportfoliomanagementsystem.transactions.SaveTransactionsActivity;
-import com.example.stocksportfoliomanagementsystem.transactions.UpdateTransactionsActivity;
-import com.example.stocksportfoliomanagementsystem.transactions.ViewTransactionsActivity;
 
 public class FinancialManagementActivity extends AppCompatActivity {
 

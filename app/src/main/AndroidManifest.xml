@@ -147,7 +147,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".supplier.FinancialManagementActivity"
+            android:name=".transactions.FinancialManagementActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

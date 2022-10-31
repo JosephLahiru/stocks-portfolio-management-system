@@ -8,8 +8,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.stocksportfoliomanagementsystem.admin.AdministrationActivity;
+import com.example.stocksportfoliomanagementsystem.transactions.FinancialManagementActivity;
 import com.example.stocksportfoliomanagementsystem.delivery.DeliveryManagementActivity;
-import com.example.stocksportfoliomanagementsystem.supplier.FinancialManagementActivity;
 import com.example.stocksportfoliomanagementsystem.R;
 import com.example.stocksportfoliomanagementsystem.supplier.SupplierManagementActivity;
 import com.example.stocksportfoliomanagementsystem.stocks.StockManagementActivity;
