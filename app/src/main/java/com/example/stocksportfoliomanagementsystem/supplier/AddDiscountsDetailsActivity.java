@@ -51,7 +51,7 @@ public class AddDiscountsDetailsActivity extends AppCompatActivity {
 
         new InfoAsyncTask().execute();
 
-        addDiscountsButton = (Button) findViewById(R.id.btnadddiscountsASD);
+        addDiscountsButton = (Button) findViewById(R.id.btnaddDiscountsASD);
         addDiscountsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

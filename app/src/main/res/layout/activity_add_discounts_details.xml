@@ -101,7 +101,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textViewDiscoundtASD" />
 
         <Button
-            android:id="@+id/btnadddiscountsASD"
+            android:id="@+id/btnaddDiscountsASD"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="150dp"
@@ -112,15 +112,15 @@
 
         <Button
             android:id="@+id/vbsm7"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="50dp"
             android:text="Back To Supplier Management"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnadddiscountsASD"  />
+            app:layout_constraintEnd_toStartOf="@+id/guideline15"
+            app:layout_constraintStart_toStartOf="@+id/guideline14"
+            app:layout_constraintTop_toBottomOf="@+id/btnaddDiscountsASD" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
