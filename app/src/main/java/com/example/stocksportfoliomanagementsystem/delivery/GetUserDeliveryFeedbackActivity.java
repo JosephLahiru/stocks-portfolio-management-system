@@ -51,7 +51,7 @@ public class GetUserDeliveryFeedbackActivity extends AppCompatActivity {
         });
 
         tableView = findViewById(R.id.table_data_view_delivery_feedback);
-        String headers[] = {"Feedback ID", "Feedback"};
+        String headers[] = {"Feedback ID", "Customer ID", "Feedback"};
 
         tableView.setHeaderAdapter(new SimpleTableHeaderAdapter(this, headers));
 
@@ -72,7 +72,8 @@ public class GetUserDeliveryFeedbackActivity extends AppCompatActivity {
 
                 while (resultSet.next()) {
                     List<String> temp = new ArrayList<>();
-                    temp.add(resultSet.getString("df_id"));
+                    temp.add(resultSet.getString("uf_id"));
+                    temp.add(resultSet.getString("customer_id"));
                     temp.add(resultSet.getString("feedback"));
                     products.add(temp);
                 }

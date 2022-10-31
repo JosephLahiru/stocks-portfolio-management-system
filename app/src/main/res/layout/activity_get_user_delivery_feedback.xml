@@ -6,15 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".delivery.GetUserDeliveryFeedbackActivity">
 
-    <!--    <de.codecrafters.tableview.TableView-->
-    <!--        android:id="@+id/table_data_view_devfeedback"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="650dp"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:tableView_columnCount="4" >-->
-
-    <!--    </de.codecrafters.tableview.TableView>-->
-
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView10"
         android:layout_width="match_parent"
@@ -36,7 +27,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:tableView_columnCount="2">
+                app:tableView_columnCount="3">
 
             </de.codecrafters.tableview.TableView>
 
