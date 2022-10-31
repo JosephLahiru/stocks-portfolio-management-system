@@ -14,14 +14,43 @@
         android:background="@mipmap/background2"
         tools:context=".stocks.UpdateStockActivity">
 
-        <de.codecrafters.tableview.TableView
-            android:id="@+id/table_data_view_update"
+<!--        <de.codecrafters.tableview.TableView-->
+<!--            android:id="@+id/table_data_view_update"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="500dp"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            android:layout_marginTop="130dp"-->
+<!--            app:tableView_columnCount="4" >-->
+<!--        </de.codecrafters.tableview.TableView>-->
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView_"
             android:layout_width="match_parent"
-            android:layout_height="500dp"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="130dp"
-            app:tableView_columnCount="4" >
-        </de.codecrafters.tableview.TableView>
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteY="21dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                tools:context=".supplier.ViewDiscountsActivity">
+
+                <de.codecrafters.tableview.TableView
+                    android:id="@+id/table_data_view"
+                    android:layout_width="600dp"
+                    android:layout_height="500dp"
+                    android:layout_marginTop="140dp"
+                    android:fillViewport="false"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tableView_columnCount="4">
+
+                </de.codecrafters.tableview.TableView>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </HorizontalScrollView>
 
         <TextView
             android:id="@+id/textView4"
@@ -58,7 +87,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginEnd="30sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/table_data_view_update" />
+            app:layout_constraintTop_toBottomOf="@id/horizontalScrollView_" />
 
         <EditText
             android:id="@+id/etStockColumnUpdate"
@@ -107,7 +136,7 @@
             android:layout_marginTop="35dp"
             android:textSize="25sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/table_data_view_update" />
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView_" />
 
         <TextView
             android:id="@+id/textViewStockColumn"
