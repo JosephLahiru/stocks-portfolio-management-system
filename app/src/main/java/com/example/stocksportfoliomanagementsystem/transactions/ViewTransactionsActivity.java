@@ -30,6 +30,7 @@ public class ViewTransactionsActivity extends AppCompatActivity {
     Button backToFinancialManagementButton;
     Connection connection;
     String data[][];
+    String userEmail;
 
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
     private static final String USER = "root";
@@ -38,11 +39,15 @@ public class ViewTransactionsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_transactions);
+        userEmail = getIntent().getStringExtra("userEmail");
+
         backToFinancialManagementButton = (Button) findViewById(R.id.vbfm);
         backToFinancialManagementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ViewTransactionsActivity.this, FinancialManagementActivity.class));
+                Intent intent = new Intent(ViewTransactionsActivity.this, FinancialManagementActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
