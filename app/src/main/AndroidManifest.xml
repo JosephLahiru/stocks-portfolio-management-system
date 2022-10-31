@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".customer.UpdateAndResetPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customer.UpdateCustomerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customer.CreateCustomerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customer.CustomerManagementActivity"
+            android:exported="false" />
+        <activity
             android:name=".delivery.GetUserDeliveryFeedbackActivity"
             android:exported="false" />
         <activity
