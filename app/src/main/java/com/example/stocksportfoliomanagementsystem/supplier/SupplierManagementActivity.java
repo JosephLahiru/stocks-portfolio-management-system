@@ -24,12 +24,14 @@ public class SupplierManagementActivity extends AppCompatActivity {
     Button updateDiscountsDetailsButton;
     Button deleteDiscountsDetailsButton;
     Button updateUserDetailsButton;
+    String userEmail;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_supplier_management);
+        userEmail = getIntent().getStringExtra("userEmail");
 
         viewRequiredStockDetailsButton = (Button) findViewById(R.id.checkrequiredstock);
         viewRequiredStockDetailsButton.setOnClickListener(new View.OnClickListener() {
@@ -44,7 +46,9 @@ public class SupplierManagementActivity extends AppCompatActivity {
         viewSupplyDetailsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SupplierManagementActivity.this, CheckSupplyDetailsActivity.class));
+                Intent intent = new Intent(SupplierManagementActivity.this, CheckSupplyDetailsActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -53,7 +57,9 @@ public class SupplierManagementActivity extends AppCompatActivity {
         saveSupplyDetailsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SupplierManagementActivity.this, SaveSupplyDetailsActivity.class));
+                Intent intent = new Intent(SupplierManagementActivity.this, SaveSupplyDetailsActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -62,7 +68,9 @@ public class SupplierManagementActivity extends AppCompatActivity {
         updateSupplyDetailsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SupplierManagementActivity.this, UpdateSupplyDetailsActivity.class));
+                Intent intent = new Intent(SupplierManagementActivity.this, UpdateSupplyDetailsActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -71,7 +79,9 @@ public class SupplierManagementActivity extends AppCompatActivity {
         deleteSupplyDetailsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SupplierManagementActivity.this, DeleteSupplyDetailsActivity.class));
+                Intent intent = new Intent(SupplierManagementActivity.this, DeleteSupplyDetailsActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -80,7 +90,9 @@ public class SupplierManagementActivity extends AppCompatActivity {
         viewDiscountsDetailsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SupplierManagementActivity.this, ViewDiscountsActivity.class));
+                Intent intent = new Intent(SupplierManagementActivity.this, ViewDiscountsActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -89,7 +101,9 @@ public class SupplierManagementActivity extends AppCompatActivity {
         addDiscountsDetailsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SupplierManagementActivity.this, AddDiscountsDetailsActivity.class));
+                Intent intent = new Intent(SupplierManagementActivity.this, AddDiscountsDetailsActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -98,7 +112,9 @@ public class SupplierManagementActivity extends AppCompatActivity {
         updateDiscountsDetailsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SupplierManagementActivity.this, UpdateDiscountsDetailsActivity.class));
+                Intent intent = new Intent(SupplierManagementActivity.this, UpdateDiscountsDetailsActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -107,7 +123,9 @@ public class SupplierManagementActivity extends AppCompatActivity {
         deleteDiscountsDetailsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SupplierManagementActivity.this, DeleteDiscountsDetailsActivity.class));
+                Intent intent = new Intent(SupplierManagementActivity.this, DeleteDiscountsDetailsActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -116,7 +134,9 @@ public class SupplierManagementActivity extends AppCompatActivity {
         updateUserDetailsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SupplierManagementActivity.this, UpdateUserActivity.class));
+                Intent intent = new Intent(SupplierManagementActivity.this, UpdateUserActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -125,7 +145,9 @@ public class SupplierManagementActivity extends AppCompatActivity {
         backToDashboardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SupplierManagementActivity.this, MenuActivity.class));
+                Intent intent = new Intent(SupplierManagementActivity.this, MenuActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });

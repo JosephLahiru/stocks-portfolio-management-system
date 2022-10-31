@@ -8,7 +8,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.stocksportfoliomanagementsystem.admin.AdministrationActivity;
-import com.example.stocksportfoliomanagementsystem.supplier.FinancialManagementActivity;
+import com.example.stocksportfoliomanagementsystem.transactions.FinancialManagementActivity;
+import com.example.stocksportfoliomanagementsystem.delivery.DeliveryManagementActivity;
 import com.example.stocksportfoliomanagementsystem.R;
 import com.example.stocksportfoliomanagementsystem.supplier.SupplierManagementActivity;
 import com.example.stocksportfoliomanagementsystem.stocks.StockManagementActivity;
@@ -19,6 +20,7 @@ public class MenuActivity extends AppCompatActivity {
     Button stockManagementButton;
     Button supplierManagementButton;
     Button adminManagementButton;
+    Button deliveryManagementButton;
 
     String userEmail;
 
@@ -28,6 +30,16 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
         userEmail = getIntent().getStringExtra("userEmail");
+
+        deliveryManagementButton = (Button) findViewById(R.id.deliveryMngButton);
+
+        deliveryManagementButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MenuActivity.this, DeliveryManagementActivity.class));
+                finish();
+            }
+        });
 
         adminManagementButton = (Button) findViewById(R.id.adminMngButton);
 
