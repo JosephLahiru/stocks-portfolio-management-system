@@ -35,7 +35,7 @@
                 tools:context=".supplier.ViewDiscountsActivity">
 
                 <de.codecrafters.tableview.TableView
-                    android:id="@+id/table_data_view"
+                    android:id="@+id/table_data_view_update"
                     android:layout_width="600dp"
                     android:layout_height="500dp"
                     android:layout_marginTop="140dp"
@@ -59,7 +59,7 @@
             android:layout_marginTop="80dp"
             android:text="UPDATE STOCKS"
             android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/table_data_view_update"
+            app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView_"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
