@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@mipmap/fmdb"
-        tools:context=".DeleteTransactionsActivity">
+        tools:context=".transactions.DeleteTransactionsActivity">
 
         <TextView
             android:id="@+id/txtViewDeleteTransactions"
@@ -39,32 +39,52 @@
             android:orientation="vertical"
             app:layout_constraintGuide_end="50dp" />
 
-        <de.codecrafters.tableview.TableView
-            android:id="@+id/tableViewD"
-            android:layout_width="wrap_content"
-            android:layout_height="600dp"
-            android:layout_marginTop="100dp"
-            android:fillViewport="false"
-            android:orientation="horizontal"
-            android:scrollIndicators="bottom|right"
-            android:scrollbarAlwaysDrawHorizontalTrack="true"
-            android:scrollbarAlwaysDrawVerticalTrack="true"
-            android:scrollbarDefaultDelayBeforeFade="10"
-            android:scrollbarStyle="insideOverlay"
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tableView_columnCount="8">
+            app:layout_constraintTop_toTopOf="parent">
 
-        </de.codecrafters.tableview.TableView>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_end="50dp">
+
+                <de.codecrafters.tableview.TableView
+                    android:id="@+id/tableViewD"
+                    android:layout_width="1500dp"
+                    android:layout_height="600dp"
+                    android:layout_marginTop="100dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tableView_columnCount="8">
+
+                </de.codecrafters.tableview.TableView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </HorizontalScrollView>
 
         <TextView
             android:id="@+id/textViewInvoiceIDD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:text="Invoice ID"
             app:layout_constraintStart_toStartOf="@+id/guideline6"
-            app:layout_constraintTop_toBottomOf="@+id/tableViewD" />
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView2" />
+
+        <EditText
+            android:id="@+id/editTextInvoiceIDD"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:hint="Invoice ID"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toStartOf="@+id/guideline7"
+            app:layout_constraintStart_toStartOf="@+id/guideline6"
+            app:layout_constraintTop_toBottomOf="@+id/textViewInvoiceIDD" />
 
         <Button
             android:id="@+id/btnrmt"
@@ -87,18 +107,6 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline7"
             app:layout_constraintStart_toStartOf="@+id/guideline6"
             app:layout_constraintTop_toBottomOf="@+id/btnrmt" />
-
-        <EditText
-            android:id="@+id/editTextInvoiceIDD"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Invoice ID"
-            app:layout_constraintEnd_toStartOf="@+id/guideline7"
-            app:layout_constraintStart_toStartOf="@+id/guideline6"
-            app:layout_constraintTop_toBottomOf="@+id/textViewInvoiceIDD" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

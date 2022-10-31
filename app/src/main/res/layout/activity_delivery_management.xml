@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="1dp"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/background2"
+        tools:context=".delivery.DeliveryManagementActivity">
+
+        <ImageView
+            android:id="@+id/choseImageView"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/delivery" />
+
+        <Button
+            android:id="@+id/viewOrderList"
+            android:layout_width="358dp"
+            android:layout_height="91dp"
+            android:layout_marginTop="30dp"
+            android:text="VIEW ORDER LIST"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/choseImageView" />
+
+        <Button
+            android:id="@+id/confirmDelivery"
+            android:layout_width="358dp"
+            android:layout_height="91dp"
+            android:layout_marginTop="20sp"
+            android:text="CONFIRM DELIVERY"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewOrderList" />
+
+        <Button
+            android:id="@+id/viewLocationDetails"
+            android:layout_width="358dp"
+            android:layout_height="91dp"
+            android:layout_marginTop="20sp"
+            android:text="VIEW LOCATION DETAILS"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/confirmDelivery" />
+
+        <Button
+            android:id="@+id/getUserFeedback"
+            android:layout_width="358dp"
+            android:layout_height="91dp"
+            android:layout_marginTop="20sp"
+            android:text="GET USER FEEDBACK"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewLocationDetails" />
+
+        <Button
+            android:id="@+id/backToMenuDelivery"
+            android:layout_width="358dp"
+            android:layout_height="91dp"
+            android:layout_marginTop="20sp"
+            android:layout_marginBottom="20sp"
+            android:text="BACK TO MENU"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/getUserFeedback" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
