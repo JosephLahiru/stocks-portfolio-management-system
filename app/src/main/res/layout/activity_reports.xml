@@ -52,16 +52,6 @@
         app:layout_constraintTop_toBottomOf="@+id/finalmonthlyreportbtn" />
 
     <Button
-        android:id="@+id/useractivityreportsbtn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="User Activity Reports"
-        app:layout_constraintEnd_toStartOf="@+id/guideline19"
-        app:layout_constraintStart_toStartOf="@+id/guideline18"
-        app:layout_constraintTop_toBottomOf="@+id/suppliersreportbtn" />
-
-    <Button
         android:id="@+id/rback"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

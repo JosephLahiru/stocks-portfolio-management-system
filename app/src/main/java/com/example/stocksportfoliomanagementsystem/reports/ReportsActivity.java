@@ -16,7 +16,6 @@ public class ReportsActivity extends AppCompatActivity {
 
     Button finalMonthlyReportButton;
     Button supplierReportButton;
-    Button userActivityReportButton;
     Button backToDashboardButton;
 
     @Override
@@ -53,17 +52,6 @@ public class ReportsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ReportsActivity.this, SupplierReportActivity.class);
-                intent.putExtra("userEmail", userEmail);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        userActivityReportButton = findViewById(R.id.useractivityreportsbtn);
-        userActivityReportButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ReportsActivity.this, UserReportActivity.class);
                 intent.putExtra("userEmail", userEmail);
                 startActivity(intent);
                 finish();
