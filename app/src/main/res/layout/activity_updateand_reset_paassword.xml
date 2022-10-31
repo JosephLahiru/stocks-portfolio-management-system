@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UpdateandResetPaasswordActivity">
+
+    <TextView
+        android:id="@+id/textUpdateandReset"
+        android:layout_width="362dp"
+        android:layout_height="75dp"
+        android:text="Update and Reset Password"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.145" />
+
+    <EditText
+        android:id="@+id/idCurrentPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="Current Password"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/design_default_color_on_secondary"
+        app:layout_constraintEnd_toEndOf="@+id/textUpdateandReset"
+        app:layout_constraintStart_toStartOf="@+id/textUpdateandReset"
+        app:layout_constraintTop_toBottomOf="@+id/textUpdateandReset" />
+
+    <EditText
+        android:id="@+id/idNewPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="New Password"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/design_default_color_on_secondary"
+        app:layout_constraintEnd_toEndOf="@+id/idCurrentPassword"
+        app:layout_constraintStart_toStartOf="@+id/idCurrentPassword"
+        app:layout_constraintTop_toBottomOf="@+id/idCurrentPassword" />
+
+    <EditText
+        android:id="@+id/idConfirmNewPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Confirm New Password"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/design_default_color_on_secondary"
+        app:layout_constraintEnd_toEndOf="@+id/idNewPassword"
+        app:layout_constraintStart_toStartOf="@+id/idNewPassword"
+        app:layout_constraintTop_toBottomOf="@+id/idNewPassword" />
+
+    <Button
+        android:id="@+id/btnUpdatePass"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Update"
+        app:layout_constraintEnd_toEndOf="@+id/idConfirmNewPassword"
+        app:layout_constraintStart_toStartOf="@+id/idConfirmNewPassword"
+        app:layout_constraintTop_toBottomOf="@+id/idConfirmNewPassword" />
+
+    <Button
+        android:id="@+id/btnBackPass"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Back"
+        app:layout_constraintEnd_toEndOf="@+id/btnUpdatePass"
+        app:layout_constraintStart_toStartOf="@+id/btnUpdatePass"
+        app:layout_constraintTop_toBottomOf="@+id/btnUpdatePass" />
+</androidx.constraintlayout.widget.ConstraintLayout>
