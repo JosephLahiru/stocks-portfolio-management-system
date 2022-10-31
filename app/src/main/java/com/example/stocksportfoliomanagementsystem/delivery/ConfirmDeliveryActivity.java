@@ -11,13 +11,17 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.stocksportfoliomanagementsystem.R;
+import com.example.stocksportfoliomanagementsystem.stocks.UpdateStockActivity;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,11 +29,12 @@ import de.codecrafters.tableview.TableView;
 import de.codecrafters.tableview.toolkit.SimpleTableDataAdapter;
 import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 
-public class ViewOrderListActivity extends AppCompatActivity {
+public class ConfirmDeliveryActivity extends AppCompatActivity {
 
     TableView tableView;
     Connection connection;
-    Button backBtn;
+    Button backBtn, confirmDeliveryBtn;
+    EditText etDeliveryID;
 
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
     private static final String USER = "root";
@@ -38,24 +43,78 @@ public class ViewOrderListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_order_list);
+        setContentView(R.layout.activity_confirm_delivery);
 
-        backBtn = (Button) findViewById(R.id.backButtonViewOrder);
+        etDeliveryID = (EditText) findViewById(R.id.etDeliveryID);
+
+        backBtn = (Button) findViewById(R.id.backButtonConfirmDelivery);
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ViewOrderListActivity.this, DeliveryManagementActivity.class));
+                startActivity(new Intent(ConfirmDeliveryActivity.this, DeliveryManagementActivity.class));
                 finish();
             }
         });
 
-        tableView = findViewById(R.id.table_data_view_order);
+        confirmDeliveryBtn = (Button) findViewById(R.id.confirmDeliveryButton);
+
+        confirmDeliveryBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new UpdateDeliveryStatusTask().execute();
+            }
+        });
+
+        tableView = findViewById(R.id.table_data_confirm_delivery);
         String headers[] = {"Customer ID", "Address", "Package ID", "Status"};
 
         tableView.setHeaderAdapter(new SimpleTableHeaderAdapter(this, headers));
 
         new InfoAsyncTask().execute();
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    public class UpdateDeliveryStatusTask extends AsyncTask<Void, Void, List<String>> {
+        @Override
+        protected List<String> doInBackground(Void... voids) {
+            List<String> products = new ArrayList<>();
+            try {
+
+                String deliveryID = etDeliveryID.getText().toString();
+
+                String sql = "UPDATE `order` SET `status` = 'delivered' WHERE `order_id` = '" + deliveryID + "'; ";
+
+                System.out.println(sql);
+
+                Statement st1 = connection.createStatement();
+
+                if (!st1.execute(sql)) {
+                    System.out.println("Data updated successfully");
+
+                    runOnUiThread(new Runnable() {
+                        public void run() {
+                            final Toast toast = Toast.makeText(ConfirmDeliveryActivity.this, "Data updated Successfully.", Toast.LENGTH_SHORT);
+                            toast.show();
+                            etDeliveryID.getText().clear();
+                            new InfoAsyncTask().execute();
+                        }
+                    });
+
+                } else {
+                    System.out.println("Data upload failed.");
+                    runOnUiThread(new Runnable() {
+                        public void run() {
+                            final Toast toast = Toast.makeText(ConfirmDeliveryActivity.this, "Data update Failed.", Toast.LENGTH_SHORT);
+                            toast.show();
+                        }
+                    });
+                }
+            } catch (Exception e) {
+                Log.e("InfoAsyncTask", "Error reading information", e);
+            }
+            return products;
+        }
     }
 
     @SuppressLint("StaticFieldLeak")
@@ -95,7 +154,7 @@ public class ViewOrderListActivity extends AppCompatActivity {
 
 
             if (!result.isEmpty()) {
-                tableView.setDataAdapter(new SimpleTableDataAdapter(ViewOrderListActivity.this, arr));
+                tableView.setDataAdapter(new SimpleTableDataAdapter(ConfirmDeliveryActivity.this, arr));
             }
         }
     }

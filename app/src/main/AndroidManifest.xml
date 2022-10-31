@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".delivery.GetUserDeliveryFeedbackActivity"
+            android:exported="false" />
+        <activity
+            android:name=".delivery.ConfirmDeliveryActivity"
+            android:exported="false" />
+        <activity
             android:name=".reports.SupplierReportActivity"
             android:exported="false">
             <meta-data
