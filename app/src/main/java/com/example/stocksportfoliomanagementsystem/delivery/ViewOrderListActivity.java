@@ -51,7 +51,7 @@ public class ViewOrderListActivity extends AppCompatActivity {
         });
 
         tableView = findViewById(R.id.table_data_view_order);
-        String headers[] = {"Customer ID", "Address", "Package ID"};
+        String headers[] = {"Customer ID", "Address", "Package ID", "Status"};
 
         tableView.setHeaderAdapter(new SimpleTableHeaderAdapter(this, headers));
 
@@ -75,6 +75,7 @@ public class ViewOrderListActivity extends AppCompatActivity {
                     temp.add(resultSet.getString("customer_id"));
                     temp.add(resultSet.getString("destination_address"));
                     temp.add(resultSet.getString("package_id"));
+                    temp.add(resultSet.getString("status"));
                     products.add(temp);
                 }
             } catch (Exception e) {

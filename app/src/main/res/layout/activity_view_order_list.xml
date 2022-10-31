@@ -36,7 +36,7 @@ tools:context=".delivery.ViewOrderListActivity">
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:tableView_columnCount="3">
+                app:tableView_columnCount="4">
 
             </de.codecrafters.tableview.TableView>
         </androidx.constraintlayout.widget.ConstraintLayout>
