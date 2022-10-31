@@ -34,7 +34,8 @@ public class DeliveryManagementActivity extends AppCompatActivity {
         confirmDeliveryBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(DeliveryManagementActivity.this, ConfirmDeliveryActivity.class));
+                finish();
             }
         });
 
@@ -43,7 +44,8 @@ public class DeliveryManagementActivity extends AppCompatActivity {
         viewLocationDetailsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(DeliveryManagementActivity.this, ViewLocationDetailsActivity.class));
+                finish();
             }
         });
 
@@ -52,7 +54,8 @@ public class DeliveryManagementActivity extends AppCompatActivity {
         getUserFeedbackBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(DeliveryManagementActivity.this, GetUserDeliveryFeedbackActivity.class));
+                finish();
             }
         });
 
