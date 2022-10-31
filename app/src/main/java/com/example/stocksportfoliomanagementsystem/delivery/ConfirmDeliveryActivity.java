@@ -97,6 +97,7 @@ public class ConfirmDeliveryActivity extends AppCompatActivity {
                             final Toast toast = Toast.makeText(ConfirmDeliveryActivity.this, "Data updated Successfully.", Toast.LENGTH_SHORT);
                             toast.show();
                             etDeliveryID.getText().clear();
+                            new InfoAsyncTask().execute();
                         }
                     });
 
