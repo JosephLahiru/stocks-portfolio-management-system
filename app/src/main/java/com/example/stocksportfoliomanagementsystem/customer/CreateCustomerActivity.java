@@ -30,6 +30,8 @@ public class CreateCustomerActivity extends AppCompatActivity {
     Connection connection;
     EditText etFirstName, etLastName, etAddress, etTpNum, etEmail, etPassword;
 
+    String userEmail;
+
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
     private static final String USER = "root";
     private static final String PASSWORD = "amres";
@@ -38,6 +40,8 @@ public class CreateCustomerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_customer);
+
+        userEmail = getIntent().getStringExtra("userEmail");
 
         etFirstName = (EditText) findViewById(R.id.inputFirstName);
         etLastName = (EditText) findViewById(R.id.inputLastName);
@@ -72,7 +76,9 @@ public class CreateCustomerActivity extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CreateCustomerActivity.this, CustomerManagementActivity.class));
+                Intent intent = new Intent(CreateCustomerActivity.this, CustomerManagementActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });

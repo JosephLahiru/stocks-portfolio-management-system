@@ -34,6 +34,8 @@ public class UpdateAndResetPasswordActivity extends AppCompatActivity {
     Connection connection;
     Button backBtn, resetBtn;
 
+    String userEmail;
+
     EditText resetDataID;
 
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
@@ -44,6 +46,8 @@ public class UpdateAndResetPasswordActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_and_reset_password);
+
+        userEmail = getIntent().getStringExtra("userEmail");
 
         resetDataID = (EditText) findViewById(R.id.etCustomerID);
 
@@ -63,7 +67,9 @@ public class UpdateAndResetPasswordActivity extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(UpdateAndResetPasswordActivity.this, CustomerManagementActivity.class));
+                Intent intent = new Intent(UpdateAndResetPasswordActivity.this, CustomerManagementActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
