@@ -107,7 +107,7 @@ public class UpdateCustomerActivity extends AppCompatActivity {
 
                     runOnUiThread(new Runnable() {
                         public void run() {
-                            final Toast toast = Toast.makeText(UpdateCustomerActivity.this, "Password Reset Successful.", Toast.LENGTH_SHORT);
+                            final Toast toast = Toast.makeText(UpdateCustomerActivity.this, "Customer Updated Successfully.", Toast.LENGTH_SHORT);
                             toast.show();
 
                             etFName.getText().clear();
@@ -123,7 +123,7 @@ public class UpdateCustomerActivity extends AppCompatActivity {
                     System.out.println("Data upload failed.");
                     runOnUiThread(new Runnable() {
                         public void run() {
-                            final Toast toast = Toast.makeText(UpdateCustomerActivity.this, "Password Reset Failed.", Toast.LENGTH_SHORT);
+                            final Toast toast = Toast.makeText(UpdateCustomerActivity.this, "Customer Update Failed.", Toast.LENGTH_SHORT);
                             toast.show();
                         }
                     });
