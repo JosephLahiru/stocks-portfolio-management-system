@@ -12,12 +12,22 @@ import com.example.stocksportfoliomanagementsystem.startup.MenuActivity;
 
 public class CustomerManagementActivity extends AppCompatActivity {
 
-    Button createCustomerBtn, backToMenuBtn, resetPasswordBtn;
+    Button createCustomerBtn, backToMenuBtn, resetPasswordBtn, updateCustomerBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_management);
+
+        updateCustomerBtn = (Button) findViewById(R.id.updateCustomer);
+
+        updateCustomerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CustomerManagementActivity.this, UpdateCustomerActivity.class));
+                finish();
+            }
+        });
 
         resetPasswordBtn = (Button) findViewById(R.id.updateAndResetPassword);
 
@@ -25,6 +35,7 @@ public class CustomerManagementActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(CustomerManagementActivity.this, UpdateAndResetPasswordActivity.class));
+                finish();
             }
         });
 
@@ -34,6 +45,7 @@ public class CustomerManagementActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(CustomerManagementActivity.this, MenuActivity.class));
+                finish();
             }
         });
 
@@ -43,6 +55,7 @@ public class CustomerManagementActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(CustomerManagementActivity.this, CreateCustomerActivity.class));
+                finish();
             }
         });
     }
