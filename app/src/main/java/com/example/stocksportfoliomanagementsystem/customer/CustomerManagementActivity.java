@@ -1,4 +1,4 @@
-package com.example.stocksportfoliomanagementsystem.delivery;
+package com.example.stocksportfoliomanagementsystem.customer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,61 +10,61 @@ import android.widget.Button;
 import com.example.stocksportfoliomanagementsystem.R;
 import com.example.stocksportfoliomanagementsystem.startup.MenuActivity;
 
-public class DeliveryManagementActivity extends AppCompatActivity {
+public class CustomerManagementActivity extends AppCompatActivity {
 
-    Button viewOderListBtn, confirmDeliveryBtn, getUserFeedbackBtn, backBtn;
+    Button createCustomerBtn, backToMenuBtn, resetPasswordBtn, updateCustomerBtn;
 
     String userEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_delivery_management);
-
-        viewOderListBtn = (Button) findViewById(R.id.viewOrderList);
+        setContentView(R.layout.activity_customer_management);
 
         userEmail = getIntent().getStringExtra("userEmail");
 
-        viewOderListBtn.setOnClickListener(new View.OnClickListener() {
+        updateCustomerBtn = (Button) findViewById(R.id.updateCustomer);
+
+        updateCustomerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DeliveryManagementActivity.this, ViewOrderListActivity.class);
+                Intent intent = new Intent(CustomerManagementActivity.this, UpdateCustomerActivity.class);
                 intent.putExtra("userEmail", userEmail);
                 startActivity(intent);
                 finish();
             }
         });
 
-        confirmDeliveryBtn = (Button) findViewById(R.id.confirmDelivery);
+        resetPasswordBtn = (Button) findViewById(R.id.updateAndResetPassword);
 
-        confirmDeliveryBtn.setOnClickListener(new View.OnClickListener() {
+        resetPasswordBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DeliveryManagementActivity.this, ConfirmDeliveryActivity.class);
+                Intent intent = new Intent(CustomerManagementActivity.this, UpdateAndResetPasswordActivity.class);
                 intent.putExtra("userEmail", userEmail);
                 startActivity(intent);
                 finish();
             }
         });
 
-        getUserFeedbackBtn = (Button) findViewById(R.id.getUserFeedback);
+        backToMenuBtn = (Button) findViewById(R.id.backToMenu12);
 
-        getUserFeedbackBtn.setOnClickListener(new View.OnClickListener() {
+        backToMenuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DeliveryManagementActivity.this, GetUserDeliveryFeedbackActivity.class);
+                Intent intent = new Intent(CustomerManagementActivity.this, MenuActivity.class);
                 intent.putExtra("userEmail", userEmail);
                 startActivity(intent);
                 finish();
             }
         });
 
-        backBtn = (Button) findViewById(R.id.backToMenuDelivery);
+        createCustomerBtn = (Button) findViewById(R.id.createCustomer);
 
-        backBtn.setOnClickListener(new View.OnClickListener() {
+        createCustomerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DeliveryManagementActivity.this, MenuActivity.class);
+                Intent intent = new Intent(CustomerManagementActivity.this, CreateCustomerActivity.class);
                 intent.putExtra("userEmail", userEmail);
                 startActivity(intent);
                 finish();

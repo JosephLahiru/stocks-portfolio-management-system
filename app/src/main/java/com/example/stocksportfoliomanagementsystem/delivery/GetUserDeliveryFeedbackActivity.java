@@ -25,11 +25,12 @@ import de.codecrafters.tableview.TableView;
 import de.codecrafters.tableview.toolkit.SimpleTableDataAdapter;
 import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 
-public class ViewOrderListActivity extends AppCompatActivity {
+public class GetUserDeliveryFeedbackActivity extends AppCompatActivity {
 
     TableView tableView;
     Connection connection;
     Button backBtn;
+
     String userEmail;
 
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
@@ -39,24 +40,24 @@ public class ViewOrderListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_order_list);
+        setContentView(R.layout.activity_get_user_delivery_feedback);
 
         userEmail = getIntent().getStringExtra("userEmail");
 
-        backBtn = (Button) findViewById(R.id.backButtonViewOrder);
+        backBtn = (Button) findViewById(R.id.backButtonDeliveryFeedback);
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ViewOrderListActivity.this, DeliveryManagementActivity.class);
+                Intent intent = new Intent(GetUserDeliveryFeedbackActivity.this, DeliveryManagementActivity.class);
                 intent.putExtra("userEmail", userEmail);
                 startActivity(intent);
                 finish();
             }
         });
 
-        tableView = findViewById(R.id.table_data_view_order);
-        String headers[] = {"Customer ID", "Address", "Package ID", "Status"};
+        tableView = findViewById(R.id.table_data_view_delivery_feedback);
+        String headers[] = {"Feedback ID", "Customer ID", "Feedback"};
 
         tableView.setHeaderAdapter(new SimpleTableHeaderAdapter(this, headers));
 
@@ -71,16 +72,15 @@ public class ViewOrderListActivity extends AppCompatActivity {
             try {
                 connection = DriverManager.getConnection(URL, USER, PASSWORD);
 
-                String sql = "SELECT * FROM `order`;";
+                String sql = "SELECT * FROM customer_delivery_feedback";
                 PreparedStatement statement = connection.prepareStatement(sql);
                 ResultSet resultSet = statement.executeQuery();
 
                 while (resultSet.next()) {
                     List<String> temp = new ArrayList<>();
+                    temp.add(resultSet.getString("uf_id"));
                     temp.add(resultSet.getString("customer_id"));
-                    temp.add(resultSet.getString("destination_address"));
-                    temp.add(resultSet.getString("package_id"));
-                    temp.add(resultSet.getString("status"));
+                    temp.add(resultSet.getString("feedback"));
                     products.add(temp);
                 }
             } catch (Exception e) {
@@ -100,7 +100,7 @@ public class ViewOrderListActivity extends AppCompatActivity {
 
 
             if (!result.isEmpty()) {
-                tableView.setDataAdapter(new SimpleTableDataAdapter(ViewOrderListActivity.this, arr));
+                tableView.setDataAdapter(new SimpleTableDataAdapter(GetUserDeliveryFeedbackActivity.this, arr));
             }
         }
     }

@@ -1,4 +1,4 @@
-package com.example.stocksportfoliomanagementsystem.delivery;
+package com.example.stocksportfoliomanagementsystem.reports;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.stocksportfoliomanagementsystem.R;
+import com.example.stocksportfoliomanagementsystem.transactions.ViewTransactionsActivity;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -25,12 +26,13 @@ import de.codecrafters.tableview.TableView;
 import de.codecrafters.tableview.toolkit.SimpleTableDataAdapter;
 import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 
-public class ViewOrderListActivity extends AppCompatActivity {
+public class FinalMonthlyReportActivity extends AppCompatActivity {
 
-    TableView tableView;
-    Connection connection;
-    Button backBtn;
     String userEmail;
+    TableView tableView;
+    Button backToReportsButton;
+    Connection connection;
+    String data[][];
 
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
     private static final String USER = "root";
@@ -39,27 +41,25 @@ public class ViewOrderListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_order_list);
+        setContentView(R.layout.activity_final_monthly_report);
 
         userEmail = getIntent().getStringExtra("userEmail");
 
-        backBtn = (Button) findViewById(R.id.backButtonViewOrder);
-
-        backBtn.setOnClickListener(new View.OnClickListener() {
+        backToReportsButton = (Button) findViewById(R.id.fmrbackbtn);
+        backToReportsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ViewOrderListActivity.this, DeliveryManagementActivity.class);
+                Intent intent = new Intent(FinalMonthlyReportActivity.this, ReportsActivity.class);
                 intent.putExtra("userEmail", userEmail);
                 startActivity(intent);
                 finish();
             }
         });
 
-        tableView = findViewById(R.id.table_data_view_order);
-        String headers[] = {"Customer ID", "Address", "Package ID", "Status"};
-
+        tableView = findViewById(R.id.tableViewFinalMonthlyReport);
+        tableView.setColumnCount(5);
+        String headers[] = {"Product ID", "Product Name", "Product Price", "Current Stock", "Stock Required"};
         tableView.setHeaderAdapter(new SimpleTableHeaderAdapter(this, headers));
-
         new InfoAsyncTask().execute();
     }
 
@@ -71,16 +71,17 @@ public class ViewOrderListActivity extends AppCompatActivity {
             try {
                 connection = DriverManager.getConnection(URL, USER, PASSWORD);
 
-                String sql = "SELECT * FROM `order`;";
+                String sql = "SELECT product.product_id, product.product_name, product.product_price, product_stock.stock_qty, stock_required.stock_needed FROM product CROSS JOIN product_stock ON product.product_id=product_stock.product_id CROSS JOIN stock_required ON product.product_id=stock_required.product_id;";
                 PreparedStatement statement = connection.prepareStatement(sql);
                 ResultSet resultSet = statement.executeQuery();
 
                 while (resultSet.next()) {
                     List<String> temp = new ArrayList<>();
-                    temp.add(resultSet.getString("customer_id"));
-                    temp.add(resultSet.getString("destination_address"));
-                    temp.add(resultSet.getString("package_id"));
-                    temp.add(resultSet.getString("status"));
+                    temp.add(resultSet.getString("product_id"));
+                    temp.add(resultSet.getString("product_name"));
+                    temp.add(resultSet.getString("product_price"));
+                    temp.add(resultSet.getString("stock_qty"));
+                    temp.add(resultSet.getString("stock_needed"));
                     products.add(temp);
                 }
             } catch (Exception e) {
@@ -100,7 +101,7 @@ public class ViewOrderListActivity extends AppCompatActivity {
 
 
             if (!result.isEmpty()) {
-                tableView.setDataAdapter(new SimpleTableDataAdapter(ViewOrderListActivity.this, arr));
+                tableView.setDataAdapter(new SimpleTableDataAdapter(FinalMonthlyReportActivity.this, arr));
             }
         }
     }
