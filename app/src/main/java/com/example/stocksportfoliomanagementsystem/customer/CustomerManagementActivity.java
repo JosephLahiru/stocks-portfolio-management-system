@@ -14,17 +14,23 @@ public class CustomerManagementActivity extends AppCompatActivity {
 
     Button createCustomerBtn, backToMenuBtn, resetPasswordBtn, updateCustomerBtn;
 
+    String userEmail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_management);
+
+        userEmail = getIntent().getStringExtra("userEmail");
 
         updateCustomerBtn = (Button) findViewById(R.id.updateCustomer);
 
         updateCustomerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CustomerManagementActivity.this, UpdateCustomerActivity.class));
+                Intent intent = new Intent(CustomerManagementActivity.this, UpdateCustomerActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -34,7 +40,9 @@ public class CustomerManagementActivity extends AppCompatActivity {
         resetPasswordBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CustomerManagementActivity.this, UpdateAndResetPasswordActivity.class));
+                Intent intent = new Intent(CustomerManagementActivity.this, UpdateAndResetPasswordActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -44,7 +52,9 @@ public class CustomerManagementActivity extends AppCompatActivity {
         backToMenuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CustomerManagementActivity.this, MenuActivity.class));
+                Intent intent = new Intent(CustomerManagementActivity.this, MenuActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -54,7 +64,9 @@ public class CustomerManagementActivity extends AppCompatActivity {
         createCustomerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CustomerManagementActivity.this, CreateCustomerActivity.class));
+                Intent intent = new Intent(CustomerManagementActivity.this, CreateCustomerActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });

@@ -35,6 +35,8 @@ public class UpdateCustomerActivity extends AppCompatActivity {
 
     EditText etFName, etLName, etAddress, etTpNo, etEmail, etCustID;
 
+    String userEmail;
+
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
     private static final String USER = "root";
     private static final String PASSWORD = "amres";
@@ -43,6 +45,8 @@ public class UpdateCustomerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_customer);
+
+        userEmail = getIntent().getStringExtra("userEmail");
 
         etFName = (EditText) findViewById(R.id.idFirstName);
         etLName = (EditText) findViewById(R.id.idLastName);
@@ -74,7 +78,9 @@ public class UpdateCustomerActivity extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(UpdateCustomerActivity.this, CustomerManagementActivity.class));
+                Intent intent = new Intent(UpdateCustomerActivity.this, CustomerManagementActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
