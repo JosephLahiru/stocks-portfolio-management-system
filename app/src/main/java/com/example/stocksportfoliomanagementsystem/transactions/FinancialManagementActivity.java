@@ -1,4 +1,4 @@
-package com.example.stocksportfoliomanagementsystem.supplier;
+package com.example.stocksportfoliomanagementsystem.transactions;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,10 +9,6 @@ import android.widget.Button;
 
 import com.example.stocksportfoliomanagementsystem.R;
 import com.example.stocksportfoliomanagementsystem.startup.MenuActivity;
-import com.example.stocksportfoliomanagementsystem.transactions.DeleteTransactionsActivity;
-import com.example.stocksportfoliomanagementsystem.transactions.SaveTransactionsActivity;
-import com.example.stocksportfoliomanagementsystem.transactions.UpdateTransactionsActivity;
-import com.example.stocksportfoliomanagementsystem.transactions.ViewTransactionsActivity;
 
 public class FinancialManagementActivity extends AppCompatActivity {
 
@@ -21,17 +17,22 @@ public class FinancialManagementActivity extends AppCompatActivity {
     Button updateTransactionButton;
     Button saveTransactionButton;
     Button deleteTransactionButton;
+    String userEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_financial_management);
 
+        userEmail = getIntent().getStringExtra("userEmail");
+
         backToDashboardButton = (Button) findViewById(R.id.fmback);
         backToDashboardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(FinancialManagementActivity.this, MenuActivity.class));
+                Intent intent = new Intent(FinancialManagementActivity.this, MenuActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -39,7 +40,9 @@ public class FinancialManagementActivity extends AppCompatActivity {
         viewTransactionsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(FinancialManagementActivity.this, ViewTransactionsActivity.class));
+                Intent intent = new Intent(FinancialManagementActivity.this, ViewTransactionsActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -47,7 +50,9 @@ public class FinancialManagementActivity extends AppCompatActivity {
         updateTransactionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(FinancialManagementActivity.this, UpdateTransactionsActivity.class));
+                Intent intent = new Intent(FinancialManagementActivity.this, UpdateTransactionsActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -55,7 +60,9 @@ public class FinancialManagementActivity extends AppCompatActivity {
         saveTransactionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(FinancialManagementActivity.this, SaveTransactionsActivity.class));
+                Intent intent = new Intent(FinancialManagementActivity.this, SaveTransactionsActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -63,7 +70,9 @@ public class FinancialManagementActivity extends AppCompatActivity {
         deleteTransactionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(FinancialManagementActivity.this, DeleteTransactionsActivity.class));
+                Intent intent = new Intent(FinancialManagementActivity.this, DeleteTransactionsActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });

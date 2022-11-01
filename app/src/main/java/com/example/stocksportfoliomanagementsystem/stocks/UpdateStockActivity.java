@@ -34,6 +34,8 @@ public class UpdateStockActivity extends AppCompatActivity {
     Connection connection;
     Button backBtn, updateBtn;
 
+    String userEmail;
+
     EditText updateDataID, updateDataColumn, newData;
 
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
@@ -44,6 +46,8 @@ public class UpdateStockActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_stock);
+
+        userEmail = getIntent().getStringExtra("userEmail");
 
         updateDataID = (EditText) findViewById(R.id.etStockIDUpdate);
         updateDataColumn = (EditText) findViewById(R.id.etStockColumnUpdate);
@@ -66,7 +70,9 @@ public class UpdateStockActivity extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(UpdateStockActivity.this, StockManagementActivity.class));
+                Intent intent = new Intent(UpdateStockActivity.this, StockManagementActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });

@@ -30,6 +30,7 @@ public class ViewOrderListActivity extends AppCompatActivity {
     TableView tableView;
     Connection connection;
     Button backBtn;
+    String userEmail;
 
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
     private static final String USER = "root";
@@ -40,18 +41,22 @@ public class ViewOrderListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_order_list);
 
+        userEmail = getIntent().getStringExtra("userEmail");
+
         backBtn = (Button) findViewById(R.id.backButtonViewOrder);
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ViewOrderListActivity.this, DeliveryManagementActivity.class));
+                Intent intent = new Intent(ViewOrderListActivity.this, DeliveryManagementActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
 
         tableView = findViewById(R.id.table_data_view_order);
-        String headers[] = {"Customer ID", "Address", "Package ID"};
+        String headers[] = {"Customer ID", "Address", "Package ID", "Status"};
 
         tableView.setHeaderAdapter(new SimpleTableHeaderAdapter(this, headers));
 
@@ -66,7 +71,7 @@ public class ViewOrderListActivity extends AppCompatActivity {
             try {
                 connection = DriverManager.getConnection(URL, USER, PASSWORD);
 
-                String sql = "SELECT * FROM order";
+                String sql = "SELECT * FROM `order`;";
                 PreparedStatement statement = connection.prepareStatement(sql);
                 ResultSet resultSet = statement.executeQuery();
 
@@ -75,6 +80,7 @@ public class ViewOrderListActivity extends AppCompatActivity {
                     temp.add(resultSet.getString("customer_id"));
                     temp.add(resultSet.getString("destination_address"));
                     temp.add(resultSet.getString("package_id"));
+                    temp.add(resultSet.getString("status"));
                     products.add(temp);
                 }
             } catch (Exception e) {

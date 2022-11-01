@@ -6,14 +6,43 @@
     android:layout_height="match_parent"
     tools:context=".admin.ViewSupplierDataActivity">
 
-    <de.codecrafters.tableview.TableView
-        android:id="@+id/table_data_view_supplier"
-        android:layout_width="match_parent"
-        android:layout_height="650dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:tableView_columnCount="4" >
+<!--    <de.codecrafters.tableview.TableView-->
+<!--        android:id="@+id/table_data_view_supplier"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="650dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:tableView_columnCount="4" >-->
 
-    </de.codecrafters.tableview.TableView>
+<!--    </de.codecrafters.tableview.TableView>-->
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteY="21dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            tools:context=".supplier.ViewDiscountsActivity">
+
+            <de.codecrafters.tableview.TableView
+                android:id="@+id/table_data_view_supplier"
+                android:layout_width="600dp"
+                android:layout_height="670dp"
+                android:layout_marginTop="140dp"
+                android:fillViewport="false"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tableView_columnCount="2">
+
+            </de.codecrafters.tableview.TableView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </HorizontalScrollView>
 
     <TextView
         android:id="@+id/textView4"
@@ -22,7 +51,7 @@
         android:layout_marginTop="80dp"
         android:text="SUPPLIER DATA"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/table_data_view_supplier"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
