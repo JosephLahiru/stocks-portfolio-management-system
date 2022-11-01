@@ -30,6 +30,7 @@ public class BugReviewActivity extends AppCompatActivity {
     TableView tableView;
     Connection connection;
     Button backBtn;
+    String userEmail;
 
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
     private static final String USER = "root";
@@ -40,12 +41,16 @@ public class BugReviewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bug_review);
 
+        userEmail = getIntent().getStringExtra("userEmail");
+
         backBtn = (Button) findViewById(R.id.backButtonBugReview);
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(BugReviewActivity.this, AdministrationActivity.class));
+                Intent intent = new Intent(BugReviewActivity.this, AdministrationActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });

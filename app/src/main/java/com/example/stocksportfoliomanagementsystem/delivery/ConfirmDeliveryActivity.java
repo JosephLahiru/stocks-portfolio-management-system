@@ -36,6 +36,8 @@ public class ConfirmDeliveryActivity extends AppCompatActivity {
     Button backBtn, confirmDeliveryBtn;
     EditText etDeliveryID;
 
+    String userEmail;
+
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
     private static final String USER = "root";
     private static final String PASSWORD = "amres";
@@ -45,6 +47,8 @@ public class ConfirmDeliveryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_delivery);
 
+        userEmail = getIntent().getStringExtra("userEmail");
+
         etDeliveryID = (EditText) findViewById(R.id.etDeliveryID);
 
         backBtn = (Button) findViewById(R.id.backButtonConfirmDelivery);
@@ -52,7 +56,9 @@ public class ConfirmDeliveryActivity extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ConfirmDeliveryActivity.this, DeliveryManagementActivity.class));
+                Intent intent = new Intent(ConfirmDeliveryActivity.this, DeliveryManagementActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });

@@ -14,6 +14,8 @@ public class DeliveryManagementActivity extends AppCompatActivity {
 
     Button viewOderListBtn, confirmDeliveryBtn, getUserFeedbackBtn, backBtn;
 
+    String userEmail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,10 +23,14 @@ public class DeliveryManagementActivity extends AppCompatActivity {
 
         viewOderListBtn = (Button) findViewById(R.id.viewOrderList);
 
+        userEmail = getIntent().getStringExtra("userEmail");
+
         viewOderListBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(DeliveryManagementActivity.this, ViewOrderListActivity.class));
+                Intent intent = new Intent(DeliveryManagementActivity.this, ViewOrderListActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -34,7 +40,9 @@ public class DeliveryManagementActivity extends AppCompatActivity {
         confirmDeliveryBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(DeliveryManagementActivity.this, ConfirmDeliveryActivity.class));
+                Intent intent = new Intent(DeliveryManagementActivity.this, ConfirmDeliveryActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -44,7 +52,9 @@ public class DeliveryManagementActivity extends AppCompatActivity {
         getUserFeedbackBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(DeliveryManagementActivity.this, GetUserDeliveryFeedbackActivity.class));
+                Intent intent = new Intent(DeliveryManagementActivity.this, GetUserDeliveryFeedbackActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -54,7 +64,9 @@ public class DeliveryManagementActivity extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(DeliveryManagementActivity.this, MenuActivity.class));
+                Intent intent = new Intent(DeliveryManagementActivity.this, MenuActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
