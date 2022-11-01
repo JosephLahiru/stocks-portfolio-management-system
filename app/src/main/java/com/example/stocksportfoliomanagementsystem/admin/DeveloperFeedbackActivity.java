@@ -30,6 +30,7 @@ public class DeveloperFeedbackActivity extends AppCompatActivity {
     TableView tableView;
     Connection connection;
     Button backBtn;
+    String userEmail;
 
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
     private static final String USER = "root";
@@ -39,13 +40,16 @@ public class DeveloperFeedbackActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_developer_feedback);
+        userEmail = getIntent().getStringExtra("userEmail");
 
         backBtn = (Button) findViewById(R.id.backButtonDevFeedback);
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(DeveloperFeedbackActivity.this, AdministrationActivity.class));
+                Intent intent = new Intent(DeveloperFeedbackActivity.this, AdministrationActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
