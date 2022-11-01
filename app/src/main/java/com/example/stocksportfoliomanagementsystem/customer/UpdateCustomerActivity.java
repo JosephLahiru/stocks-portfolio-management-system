@@ -1,4 +1,4 @@
-package com.example.stocksportfoliomanagementsystem.stocks;
+package com.example.stocksportfoliomanagementsystem.customer;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,15 +28,14 @@ import de.codecrafters.tableview.TableView;
 import de.codecrafters.tableview.toolkit.SimpleTableDataAdapter;
 import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 
-public class UpdateStockActivity extends AppCompatActivity {
+public class UpdateCustomerActivity extends AppCompatActivity {
 
-    TableView tableView;
     Connection connection;
-    Button backBtn, updateBtn;
+    Button backBtn, updateBtn, loadDataBtn;
+
+    EditText etFName, etLName, etAddress, etTpNo, etEmail, etCustID;
 
     String userEmail;
-
-    EditText updateDataID, updateDataColumn, newData;
 
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
     private static final String USER = "root";
@@ -45,58 +44,65 @@ public class UpdateStockActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_stock);
+        setContentView(R.layout.activity_update_customer);
 
         userEmail = getIntent().getStringExtra("userEmail");
 
-        updateDataID = (EditText) findViewById(R.id.etStockIDUpdate);
-        updateDataColumn = (EditText) findViewById(R.id.etStockColumnUpdate);
-        newData = (EditText) findViewById(R.id.etNewValue);
+        etFName = (EditText) findViewById(R.id.idFirstName);
+        etLName = (EditText) findViewById(R.id.idLastName);
+        etAddress = (EditText) findViewById(R.id.idAddress);
+        etTpNo = (EditText) findViewById(R.id.idTelNo);
+        etEmail = (EditText) findViewById(R.id.idEmail);
+        etCustID = (EditText) findViewById(R.id.idCus);
 
-        backBtn = (Button) findViewById(R.id.backButton4);
-        updateBtn = (Button) findViewById(R.id.updateButton);
+        loadDataBtn = (Button) findViewById(R.id.btnLoadData);
+
+        loadDataBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new LoadDataTask().execute();
+            }
+        });
+
+        updateBtn = (Button) findViewById(R.id.btnUpdateDetails);
 
         updateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new UpdateStockTask().execute();
-
-                updateDataID.getText().clear();
-                updateDataColumn.getText().clear();
-                newData.getText().clear();
+                new UpdateUserTask().execute();
             }
         });
+
+        backBtn = (Button) findViewById(R.id.btnBackUpdateCus);
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(UpdateStockActivity.this, StockManagementActivity.class);
+                Intent intent = new Intent(UpdateCustomerActivity.this, CustomerManagementActivity.class);
                 intent.putExtra("userEmail", userEmail);
                 startActivity(intent);
                 finish();
             }
         });
-
-        tableView = findViewById(R.id.table_data_view_update);
-        String headers[] = {"PS ID", "Arrived Date", "Stock Qty", "Product ID"};
-
-        tableView.setHeaderAdapter(new SimpleTableHeaderAdapter(this, headers));
-
-        new InfoAsyncTask().execute();
     }
 
     @SuppressLint("StaticFieldLeak")
-    public class UpdateStockTask extends AsyncTask<Void, Void, List<String>> {
+    public class UpdateUserTask extends AsyncTask<Void, Void, List<String>> {
         @Override
         protected List<String> doInBackground(Void... voids) {
             List<String> products = new ArrayList<>();
             try {
 
-                String stockID = updateDataID.getText().toString();
-                String stockColumn = updateDataColumn.getText().toString();
-                String stockNewData = newData.getText().toString();
+                String fName = etFName.getText().toString();
+                String lName = etLName.getText().toString();
+                String address = etAddress.getText().toString();
+                String tpNum = etTpNo.getText().toString();
+                String email = etEmail.getText().toString();
 
-                String sql = "UPDATE product_stock SET `" + stockColumn + "` = '" + stockNewData + "' WHERE  `product_stock_id` = '" + stockID + "'; ";
+                String custId = etCustID.getText().toString();
+
+                String sql = "UPDATE customer SET `firstName` = '" + fName + "', `lastName` = '" + lName + "' " +
+                        ", `address` = '" + address + "', `telNo` = '" + tpNum + "', `email` = '" + email + "' WHERE  `custID` = '" + custId + "'; ";
 
                 System.out.println(sql);
 
@@ -107,8 +113,15 @@ public class UpdateStockActivity extends AppCompatActivity {
 
                     runOnUiThread(new Runnable() {
                         public void run() {
-                            final Toast toast = Toast.makeText(UpdateStockActivity.this, "Data updated Successfully.", Toast.LENGTH_SHORT);
+                            final Toast toast = Toast.makeText(UpdateCustomerActivity.this, "Customer Updated Successfully.", Toast.LENGTH_SHORT);
                             toast.show();
+
+                            etFName.getText().clear();
+                            etLName.getText().clear();
+                            etAddress.getText().clear();
+                            etTpNo.getText().clear();
+                            etEmail.getText().clear();
+                            etCustID.getText().clear();
                         }
                     });
 
@@ -116,7 +129,7 @@ public class UpdateStockActivity extends AppCompatActivity {
                     System.out.println("Data upload failed.");
                     runOnUiThread(new Runnable() {
                         public void run() {
-                            final Toast toast = Toast.makeText(UpdateStockActivity.this, "Data Upload Failed.", Toast.LENGTH_SHORT);
+                            final Toast toast = Toast.makeText(UpdateCustomerActivity.this, "Customer Update Failed.", Toast.LENGTH_SHORT);
                             toast.show();
                         }
                     });
@@ -129,46 +142,31 @@ public class UpdateStockActivity extends AppCompatActivity {
     }
 
     @SuppressLint("StaticFieldLeak")
-    public class InfoAsyncTask extends AsyncTask<Void, Void, List<List<String>>> {
+    public class LoadDataTask extends AsyncTask<Void, Void, List<List<String>>> {
         @Override
         protected List<List<String>> doInBackground(Void... voids) {
             List<List<String>> products = new ArrayList<>();
             try {
                 connection = DriverManager.getConnection(URL, USER, PASSWORD);
 
-                String sql = "SELECT * FROM product_stock";
+                String custId = etCustID.getText().toString();
+
+                String sql = "SELECT * FROM customer WHERE `custID` = '" + custId + "' ";
                 PreparedStatement statement = connection.prepareStatement(sql);
                 ResultSet resultSet = statement.executeQuery();
 
-                while (resultSet.next()) {
-                    List<String> temp = new ArrayList<>();
-                    temp.add(resultSet.getString("product_stock_id"));
-                    temp.add(resultSet.getString("arrived_date"));
-                    temp.add(resultSet.getString("stock_qty"));
-                    temp.add(resultSet.getString("product_id"));
-                    products.add(temp);
+                if (resultSet.next()) {
+                    etFName.setText(resultSet.getString("firstName"));
+                    etLName.setText(resultSet.getString("lastName"));
+                    etAddress.setText(resultSet.getString("address"));
+                    etTpNo.setText(resultSet.getString("telNo"));
+                    etEmail.setText(resultSet.getString("email"));
                 }
             } catch (Exception e) {
                 Log.e("InfoAsyncTask", "Error reading information", e);
             }
 
             return products;
-        }
-
-        @RequiresApi(api = Build.VERSION_CODES.N)
-        @Override
-        protected void onPostExecute(List<List<String>> result) {
-
-            //String[][] data = {{"1", "2", "3", "4"},{"5", "6", "7", "8"}};
-
-            String[][] arr = result.stream()
-                    .map(l -> l.stream().toArray(String[]::new))
-                    .toArray(String[][]::new);
-
-
-            if (!result.isEmpty()) {
-                tableView.setDataAdapter(new SimpleTableDataAdapter(UpdateStockActivity.this, arr));
-            }
         }
     }
 }
