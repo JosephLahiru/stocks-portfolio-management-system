@@ -31,6 +31,8 @@ public class AddStockActivity extends AppCompatActivity {
     Connection connection;
     EditText productQty;
 
+    String userEmail;
+
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
     private static final String USER = "root";
     private static final String PASSWORD = "amres";
@@ -39,6 +41,8 @@ public class AddStockActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_stock);
+
+        userEmail = getIntent().getStringExtra("userEmail");
 
         dropdown = findViewById(R.id.spinner1);
         addStockBtn = (Button) findViewById(R.id.addStock);
@@ -57,7 +61,9 @@ public class AddStockActivity extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AddStockActivity.this, StockManagementActivity.class));
+                Intent intent = new Intent(AddStockActivity.this, StockManagementActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });

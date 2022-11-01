@@ -31,6 +31,8 @@ public class ViewSupplierDataActivity extends AppCompatActivity {
     Connection connection;
     Button backBtn;
 
+    String userEmail;
+
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
     private static final String USER = "root";
     private static final String PASSWORD = "amres";
@@ -40,12 +42,16 @@ public class ViewSupplierDataActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_supplier_data);
 
+        userEmail = getIntent().getStringExtra("userEmail");
+
         backBtn = (Button) findViewById(R.id.backButtonSupplier);
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ViewSupplierDataActivity.this, AdministrationActivity.class));
+                Intent intent = new Intent(ViewSupplierDataActivity.this, AdministrationActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });

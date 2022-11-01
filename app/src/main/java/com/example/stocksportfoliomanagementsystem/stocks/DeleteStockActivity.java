@@ -37,6 +37,8 @@ public class DeleteStockActivity extends AppCompatActivity {
 
     EditText deleteDataID;
 
+    String userEmail;
+
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
     private static final String USER = "root";
     private static final String PASSWORD = "amres";
@@ -45,6 +47,8 @@ public class DeleteStockActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delete_stock);
+
+        userEmail = getIntent().getStringExtra("userEmail");
 
         deleteDataID = (EditText) findViewById(R.id.etStockID);
 
@@ -63,7 +67,9 @@ public class DeleteStockActivity extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(DeleteStockActivity.this, StockManagementActivity.class));
+                Intent intent = new Intent(DeleteStockActivity.this, StockManagementActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
