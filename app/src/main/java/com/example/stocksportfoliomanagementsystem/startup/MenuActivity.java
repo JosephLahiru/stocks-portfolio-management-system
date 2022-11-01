@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.stocksportfoliomanagementsystem.admin.AdministrationActivity;
+import com.example.stocksportfoliomanagementsystem.customer.CustomerManagementActivity;
+import com.example.stocksportfoliomanagementsystem.reports.ReportsActivity;
 import com.example.stocksportfoliomanagementsystem.transactions.FinancialManagementActivity;
 import com.example.stocksportfoliomanagementsystem.delivery.DeliveryManagementActivity;
 import com.example.stocksportfoliomanagementsystem.R;
@@ -21,6 +23,9 @@ public class MenuActivity extends AppCompatActivity {
     Button supplierManagementButton;
     Button adminManagementButton;
     Button deliveryManagementButton;
+    Button customerManagement;
+    Button reportsButton;
+
 
     String userEmail;
 
@@ -31,12 +36,38 @@ public class MenuActivity extends AppCompatActivity {
 
         userEmail = getIntent().getStringExtra("userEmail");
 
+        customerManagement = (Button) findViewById(R.id.cusMngButton);
+
+        customerManagement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MenuActivity.this, CustomerManagementActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        reportsButton = (Button) findViewById(R.id.reportMngButton);
+        
+        reportsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MenuActivity.this, ReportsActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         deliveryManagementButton = (Button) findViewById(R.id.deliveryMngButton);
 
         deliveryManagementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MenuActivity.this, DeliveryManagementActivity.class));
+                Intent intent = new Intent(MenuActivity.this, DeliveryManagementActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -46,7 +77,9 @@ public class MenuActivity extends AppCompatActivity {
         adminManagementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MenuActivity.this, AdministrationActivity.class));
+                Intent intent = new Intent(MenuActivity.this, AdministrationActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -56,7 +89,9 @@ public class MenuActivity extends AppCompatActivity {
         financeManagementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MenuActivity.this, FinancialManagementActivity.class));
+                Intent intent = new Intent(MenuActivity.this, FinancialManagementActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -66,7 +101,9 @@ public class MenuActivity extends AppCompatActivity {
         stockManagementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MenuActivity.this, StockManagementActivity.class));
+                Intent intent = new Intent(MenuActivity.this, StockManagementActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });

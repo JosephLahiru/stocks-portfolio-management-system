@@ -31,6 +31,8 @@ public class ViewStockHistoryActivity extends AppCompatActivity {
     Connection connection;
     Button backBtn;
 
+    String userEmail;
+
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
     private static final String USER = "root";
     private static final String PASSWORD = "amres";
@@ -40,12 +42,16 @@ public class ViewStockHistoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_stock_history);
 
+        userEmail = getIntent().getStringExtra("userEmail");
+
         backBtn = (Button) findViewById(R.id.backButton2);
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ViewStockHistoryActivity.this, StockManagementActivity.class));
+                Intent intent = new Intent(ViewStockHistoryActivity.this, StockManagementActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });

@@ -16,6 +16,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.stocksportfoliomanagementsystem.R;
+import com.example.stocksportfoliomanagementsystem.supplier.CheckSupplyDetailsActivity;
+import com.example.stocksportfoliomanagementsystem.supplier.SupplierManagementActivity;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -36,6 +38,7 @@ public class UpdateTransactionsActivity extends AppCompatActivity {
     Connection connection;
     String data[][];
     EditText invoiceID,companyName,productName,productDiscription,productQuantity,totalPrice;
+    String userEmail;
 
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
     private static final String USER = "root";
@@ -45,12 +48,15 @@ public class UpdateTransactionsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_transactions);
+        userEmail = getIntent().getStringExtra("userEmail");
         new InfoAsyncTask().execute();
         backToFinancialManagementButton = (Button) findViewById(R.id.ubfm2);
         backToFinancialManagementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(UpdateTransactionsActivity.this, FinancialManagementActivity.class));
+                Intent intent = new Intent(UpdateTransactionsActivity.this, FinancialManagementActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -155,6 +161,7 @@ public class UpdateTransactionsActivity extends AppCompatActivity {
                         public void run() {
                             final Toast toast = Toast.makeText(UpdateTransactionsActivity.this, "Data updated Successfully.", Toast.LENGTH_SHORT);
                             toast.show();
+                            new InfoAsyncTask().execute();
                         }
                     });
 

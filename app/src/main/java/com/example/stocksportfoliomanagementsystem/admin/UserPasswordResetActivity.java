@@ -33,7 +33,7 @@ public class UserPasswordResetActivity extends AppCompatActivity {
     TableView tableView;
     Connection connection;
     Button backBtn, resetBtn;
-
+    String userEmail;
     EditText resetDataID;
 
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
@@ -44,6 +44,8 @@ public class UserPasswordResetActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_password_reset);
+
+        userEmail = getIntent().getStringExtra("userEmail");
 
         resetDataID = (EditText) findViewById(R.id.etUserID);
 
@@ -63,7 +65,9 @@ public class UserPasswordResetActivity extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(UserPasswordResetActivity.this, AdministrationActivity.class));
+                Intent intent = new Intent(UserPasswordResetActivity.this, AdministrationActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });

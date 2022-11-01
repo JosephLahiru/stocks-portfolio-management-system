@@ -8,23 +8,30 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.stocksportfoliomanagementsystem.R;
+import com.example.stocksportfoliomanagementsystem.customer.CustomerManagementActivity;
 import com.example.stocksportfoliomanagementsystem.startup.MenuActivity;
 
 public class AdministrationActivity extends AppCompatActivity {
 
     Button backBtn, userRegistrationBtn, supplierDataBtn, bugReviewBtn, devFeedbackBtn, usrPassResetBtn;
 
+    String userEmail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_administration);
+
+        userEmail = getIntent().getStringExtra("userEmail");
 
         usrPassResetBtn = (Button) findViewById(R.id.resetPassword);
 
         usrPassResetBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AdministrationActivity.this, UserPasswordResetActivity.class));
+                Intent intent = new Intent(AdministrationActivity.this, UserPasswordResetActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -34,7 +41,9 @@ public class AdministrationActivity extends AppCompatActivity {
         devFeedbackBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AdministrationActivity.this, DeveloperFeedbackActivity.class));
+                Intent intent = new Intent(AdministrationActivity.this, DeveloperFeedbackActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -44,7 +53,9 @@ public class AdministrationActivity extends AppCompatActivity {
         bugReviewBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AdministrationActivity.this, BugReviewActivity.class));
+                Intent intent = new Intent(AdministrationActivity.this, BugReviewActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -54,7 +65,9 @@ public class AdministrationActivity extends AppCompatActivity {
         supplierDataBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AdministrationActivity.this, ViewSupplierDataActivity.class));
+                Intent intent = new Intent(AdministrationActivity.this, ViewSupplierDataActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -64,7 +77,9 @@ public class AdministrationActivity extends AppCompatActivity {
         userRegistrationBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AdministrationActivity.this, UserRegistrationActivity.class));
+                Intent intent = new Intent(AdministrationActivity.this, UserRegistrationActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -74,7 +89,9 @@ public class AdministrationActivity extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AdministrationActivity.this, MenuActivity.class));
+                Intent intent = new Intent(AdministrationActivity.this, MenuActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });

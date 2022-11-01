@@ -14,10 +14,14 @@ public class StockManagementActivity extends AppCompatActivity {
 
     Button addStockBtn, viewStockHistoryBtn, backToMenuBtn, deleteStockBtn, updateStockBtn;
 
+    String userEmail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stock_management);
+
+        userEmail = getIntent().getStringExtra("userEmail");
 
         addStockBtn = (Button) findViewById(R.id.addStocks);
         viewStockHistoryBtn = (Button) findViewById(R.id.viewStockHistory);
@@ -28,7 +32,9 @@ public class StockManagementActivity extends AppCompatActivity {
         updateStockBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(StockManagementActivity.this, UpdateStockActivity.class));
+                Intent intent = new Intent(StockManagementActivity.this, UpdateStockActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -36,7 +42,9 @@ public class StockManagementActivity extends AppCompatActivity {
         deleteStockBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(StockManagementActivity.this, DeleteStockActivity.class));
+                Intent intent = new Intent(StockManagementActivity.this, DeleteStockActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -44,7 +52,9 @@ public class StockManagementActivity extends AppCompatActivity {
         backToMenuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(StockManagementActivity.this, MenuActivity.class));
+                Intent intent = new Intent(StockManagementActivity.this, MenuActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -52,7 +62,9 @@ public class StockManagementActivity extends AppCompatActivity {
         addStockBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(StockManagementActivity.this, AddStockActivity.class));
+                Intent intent = new Intent(StockManagementActivity.this, AddStockActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });
@@ -60,7 +72,9 @@ public class StockManagementActivity extends AppCompatActivity {
         viewStockHistoryBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(StockManagementActivity.this, ViewStockHistoryActivity.class));
+                Intent intent = new Intent(StockManagementActivity.this, ViewStockHistoryActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                startActivity(intent);
                 finish();
             }
         });

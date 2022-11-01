@@ -1,4 +1,4 @@
-package com.example.stocksportfoliomanagementsystem.delivery;
+package com.example.stocksportfoliomanagementsystem.reports;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,12 +25,13 @@ import de.codecrafters.tableview.TableView;
 import de.codecrafters.tableview.toolkit.SimpleTableDataAdapter;
 import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 
-public class ViewOrderListActivity extends AppCompatActivity {
+public class SupplierReportActivity extends AppCompatActivity {
 
-    TableView tableView;
-    Connection connection;
-    Button backBtn;
     String userEmail;
+    TableView tableView;
+    Button backToReportsButton;
+    Connection connection;
+    String data[][];
 
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
     private static final String USER = "root";
@@ -39,28 +40,27 @@ public class ViewOrderListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_order_list);
+        setContentView(R.layout.activity_supplier_report);
 
         userEmail = getIntent().getStringExtra("userEmail");
 
-        backBtn = (Button) findViewById(R.id.backButtonViewOrder);
-
-        backBtn.setOnClickListener(new View.OnClickListener() {
+        backToReportsButton = (Button) findViewById(R.id.srbackbtn);
+        backToReportsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ViewOrderListActivity.this, DeliveryManagementActivity.class);
+                Intent intent = new Intent(SupplierReportActivity.this, ReportsActivity.class);
                 intent.putExtra("userEmail", userEmail);
                 startActivity(intent);
                 finish();
             }
         });
 
-        tableView = findViewById(R.id.table_data_view_order);
-        String headers[] = {"Customer ID", "Address", "Package ID", "Status"};
-
+        tableView = findViewById(R.id.tableViewSuppliersReport);
+        tableView.setColumnCount(7);
+        String headers[] = {"Supplier ID", "Supplier User Name", "Product ID", "Product Name", "Product brand", "Product Quantity", "Product Price"};
         tableView.setHeaderAdapter(new SimpleTableHeaderAdapter(this, headers));
-
         new InfoAsyncTask().execute();
+
     }
 
     @SuppressLint("StaticFieldLeak")
@@ -71,16 +71,19 @@ public class ViewOrderListActivity extends AppCompatActivity {
             try {
                 connection = DriverManager.getConnection(URL, USER, PASSWORD);
 
-                String sql = "SELECT * FROM `order`;";
+                String sql = "SELECT supply_details.supplier_id, user.user_name, supply_details.product_id, product.product_name, supply_details.brand, supply_details.quantity, supply_details.cost_of_item FROM supply_details CROSS JOIN product ON supply_details.product_id=product.product_id CROSS JOIN supplier_details ON supply_details.supplier_id=supplier_details.supplier_id CROSS JOIN user ON supplier_details.user_id=user.user_id;";
                 PreparedStatement statement = connection.prepareStatement(sql);
                 ResultSet resultSet = statement.executeQuery();
 
                 while (resultSet.next()) {
                     List<String> temp = new ArrayList<>();
-                    temp.add(resultSet.getString("customer_id"));
-                    temp.add(resultSet.getString("destination_address"));
-                    temp.add(resultSet.getString("package_id"));
-                    temp.add(resultSet.getString("status"));
+                    temp.add(resultSet.getString("supplier_id"));
+                    temp.add(resultSet.getString("user_name"));
+                    temp.add(resultSet.getString("product_id"));
+                    temp.add(resultSet.getString("product_name"));
+                    temp.add(resultSet.getString("brand"));
+                    temp.add(resultSet.getString("quantity"));
+                    temp.add(resultSet.getString("cost_of_item"));
                     products.add(temp);
                 }
             } catch (Exception e) {
@@ -100,7 +103,7 @@ public class ViewOrderListActivity extends AppCompatActivity {
 
 
             if (!result.isEmpty()) {
-                tableView.setDataAdapter(new SimpleTableDataAdapter(ViewOrderListActivity.this, arr));
+                tableView.setDataAdapter(new SimpleTableDataAdapter(SupplierReportActivity.this, arr));
             }
         }
     }
