@@ -30,11 +30,10 @@ import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 
 public class UpdateCustomerActivity extends AppCompatActivity {
 
-    TableView tableView;
     Connection connection;
-    Button backBtn, resetBtn;
+    Button backBtn, updateBtn, loadDataBtn;
 
-    EditText resetDataID;
+    EditText etFName, etLName, etAddress, etTpNo, etEmail, etCustID;
 
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
     private static final String USER = "root";
@@ -45,20 +44,32 @@ public class UpdateCustomerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_customer);
 
-        resetDataID = (EditText) findViewById(R.id.etCustomerID);
+        etFName = (EditText) findViewById(R.id.idFirstName);
+        etLName = (EditText) findViewById(R.id.idLastName);
+        etAddress = (EditText) findViewById(R.id.idAddress);
+        etTpNo = (EditText) findViewById(R.id.idTelNo);
+        etEmail = (EditText) findViewById(R.id.idEmail);
+        etCustID = (EditText) findViewById(R.id.idCus);
 
-        resetBtn = (Button) findViewById(R.id.customerResetButton);
+        loadDataBtn = (Button) findViewById(R.id.btnLoadData);
 
-        resetBtn.setOnClickListener(new View.OnClickListener() {
+        loadDataBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new ResetUserTask().execute();
-
-                resetDataID.getText().clear();
+                new LoadDataTask().execute();
             }
         });
 
-        backBtn = (Button) findViewById(R.id.backButtonCustomerReset);
+        updateBtn = (Button) findViewById(R.id.btnUpdateDetails);
+
+        updateBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new UpdateUserTask().execute();
+            }
+        });
+
+        backBtn = (Button) findViewById(R.id.btnBackUpdateCus);
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,25 +78,25 @@ public class UpdateCustomerActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-        tableView = findViewById(R.id.table_data_view_customer_reset);
-        String headers[] = {"Cus ID", "Cus Name", "Cus Email", "Cus Tel No"};
-
-        tableView.setHeaderAdapter(new SimpleTableHeaderAdapter(this, headers));
-
-        new InfoAsyncTask().execute();
     }
 
     @SuppressLint("StaticFieldLeak")
-    public class ResetUserTask extends AsyncTask<Void, Void, List<String>> {
+    public class UpdateUserTask extends AsyncTask<Void, Void, List<String>> {
         @Override
         protected List<String> doInBackground(Void... voids) {
             List<String> products = new ArrayList<>();
             try {
 
-                String custID = resetDataID.getText().toString();
+                String fName = etFName.getText().toString();
+                String lName = etLName.getText().toString();
+                String address = etAddress.getText().toString();
+                String tpNum = etTpNo.getText().toString();
+                String email = etEmail.getText().toString();
 
-                String sql = "UPDATE customer SET `password` = '1234' WHERE  `custID` = '" + custID + "'; ";
+                String custId = etCustID.getText().toString();
+
+                String sql = "UPDATE customer SET `firstName` = '" + fName + "', `lastName` = '" + lName + "' " +
+                        ", `address` = '" + address + "', `telNo` = '" + tpNum + "', `email` = '" + email + "' WHERE  `custID` = '" + custId + "'; ";
 
                 System.out.println(sql);
 
@@ -98,6 +109,13 @@ public class UpdateCustomerActivity extends AppCompatActivity {
                         public void run() {
                             final Toast toast = Toast.makeText(UpdateCustomerActivity.this, "Password Reset Successful.", Toast.LENGTH_SHORT);
                             toast.show();
+
+                            etFName.getText().clear();
+                            etLName.getText().clear();
+                            etAddress.getText().clear();
+                            etTpNo.getText().clear();
+                            etEmail.getText().clear();
+                            etCustID.getText().clear();
                         }
                     });
 
@@ -118,44 +136,31 @@ public class UpdateCustomerActivity extends AppCompatActivity {
     }
 
     @SuppressLint("StaticFieldLeak")
-    public class InfoAsyncTask extends AsyncTask<Void, Void, List<List<String>>> {
+    public class LoadDataTask extends AsyncTask<Void, Void, List<List<String>>> {
         @Override
         protected List<List<String>> doInBackground(Void... voids) {
             List<List<String>> products = new ArrayList<>();
             try {
                 connection = DriverManager.getConnection(URL, USER, PASSWORD);
 
-                String sql = "SELECT * FROM customer";
+                String custId = etCustID.getText().toString();
+
+                String sql = "SELECT * FROM customer WHERE `custID` = '" + custId + "' ";
                 PreparedStatement statement = connection.prepareStatement(sql);
                 ResultSet resultSet = statement.executeQuery();
 
-                while (resultSet.next()) {
-                    List<String> temp = new ArrayList<>();
-                    temp.add(resultSet.getString("custID"));
-                    temp.add(resultSet.getString("firstName"));
-                    temp.add(resultSet.getString("email"));
-                    temp.add(resultSet.getString("telNo"));
-                    products.add(temp);
+                if (resultSet.next()) {
+                    etFName.setText(resultSet.getString("firstName"));
+                    etLName.setText(resultSet.getString("lastName"));
+                    etAddress.setText(resultSet.getString("address"));
+                    etTpNo.setText(resultSet.getString("telNo"));
+                    etEmail.setText(resultSet.getString("email"));
                 }
             } catch (Exception e) {
                 Log.e("InfoAsyncTask", "Error reading information", e);
             }
 
             return products;
-        }
-
-        @RequiresApi(api = Build.VERSION_CODES.N)
-        @Override
-        protected void onPostExecute(List<List<String>> result) {
-
-            String[][] arr = result.stream()
-                    .map(l -> l.stream().toArray(String[]::new))
-                    .toArray(String[][]::new);
-
-
-            if (!result.isEmpty()) {
-                tableView.setDataAdapter(new SimpleTableDataAdapter(UpdateCustomerActivity.this, arr));
-            }
         }
     }
 }
