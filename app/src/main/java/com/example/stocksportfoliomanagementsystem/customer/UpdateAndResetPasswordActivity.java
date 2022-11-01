@@ -30,11 +30,10 @@ import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 
 public class UpdateAndResetPasswordActivity extends AppCompatActivity {
 
-    TableView tableView;
     Connection connection;
-    Button backBtn, resetBtn;
+    Button backBtn, updateBtn;
 
-    EditText resetDataID;
+    EditText etFName, etLName, etAddress, etTpNo, etEmail;
 
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
     private static final String USER = "root";
@@ -45,20 +44,22 @@ public class UpdateAndResetPasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_and_reset_password);
 
-        resetDataID = (EditText) findViewById(R.id.etCustomerID);
+        etFName = (EditText) findViewById(R.id.idFirstName);
+        etLName = (EditText) findViewById(R.id.idLastName);
+        etAddress = (EditText) findViewById(R.id.idAddress);
+        etTpNo = (EditText) findViewById(R.id.idTelNo);
+        etEmail = (EditText) findViewById(R.id.idEmail);
 
-        resetBtn = (Button) findViewById(R.id.customerResetButton);
+        updateBtn = (Button) findViewById(R.id.btnUpdateDetails);
 
-        resetBtn.setOnClickListener(new View.OnClickListener() {
+        updateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new ResetUserTask().execute();
-
-                resetDataID.getText().clear();
+                new UpdateUserTask().execute();
             }
         });
 
-        backBtn = (Button) findViewById(R.id.backButtonCustomerReset);
+        backBtn = (Button) findViewById(R.id.btnBackUpdateCus);
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,16 +69,11 @@ public class UpdateAndResetPasswordActivity extends AppCompatActivity {
             }
         });
 
-        tableView = findViewById(R.id.table_data_view_customer_reset);
-        String headers[] = {"Cus ID", "Cus Name", "Cus Email", "Cus Tel No"};
-
-        tableView.setHeaderAdapter(new SimpleTableHeaderAdapter(this, headers));
-
         new InfoAsyncTask().execute();
     }
 
     @SuppressLint("StaticFieldLeak")
-    public class ResetUserTask extends AsyncTask<Void, Void, List<String>> {
+    public class UpdateUserTask extends AsyncTask<Void, Void, List<String>> {
         @Override
         protected List<String> doInBackground(Void... voids) {
             List<String> products = new ArrayList<>();
@@ -142,20 +138,6 @@ public class UpdateAndResetPasswordActivity extends AppCompatActivity {
             }
 
             return products;
-        }
-
-        @RequiresApi(api = Build.VERSION_CODES.N)
-        @Override
-        protected void onPostExecute(List<List<String>> result) {
-
-            String[][] arr = result.stream()
-                    .map(l -> l.stream().toArray(String[]::new))
-                    .toArray(String[][]::new);
-
-
-            if (!result.isEmpty()) {
-                tableView.setDataAdapter(new SimpleTableDataAdapter(UpdateAndResetPasswordActivity.this, arr));
-            }
         }
     }
 }
