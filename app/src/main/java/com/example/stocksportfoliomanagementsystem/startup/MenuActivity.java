@@ -26,8 +26,7 @@ public class MenuActivity extends AppCompatActivity {
     Button customerManagement;
     Button reportsButton;
 
-
-    String userEmail;
+    String userEmail, userType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +34,9 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
         userEmail = getIntent().getStringExtra("userEmail");
+        userType = getIntent().getStringExtra("userType");
+
+        System.out.println(userType);
 
         customerManagement = (Button) findViewById(R.id.cusMngButton);
 
