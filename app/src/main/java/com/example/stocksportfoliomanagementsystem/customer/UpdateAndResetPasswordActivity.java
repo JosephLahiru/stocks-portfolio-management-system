@@ -34,7 +34,7 @@ public class UpdateAndResetPasswordActivity extends AppCompatActivity {
     Connection connection;
     Button backBtn, resetBtn;
 
-    String userEmail;
+    String userEmail, userType;
 
     EditText resetDataID;
 
@@ -48,6 +48,7 @@ public class UpdateAndResetPasswordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_update_and_reset_password);
 
         userEmail = getIntent().getStringExtra("userEmail");
+        userType = getIntent().getStringExtra("userType");
 
         resetDataID = (EditText) findViewById(R.id.etCustomerID);
 
@@ -69,6 +70,7 @@ public class UpdateAndResetPasswordActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(UpdateAndResetPasswordActivity.this, CustomerManagementActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }

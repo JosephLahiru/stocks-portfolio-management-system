@@ -31,7 +31,7 @@ public class ViewDiscountsActivity extends AppCompatActivity {
     Button backToSupplireManagementButton;
     Connection connection;
     String data[][];
-    String userEmail;
+    String userEmail, userType;
     int supplierid;
 
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
@@ -43,6 +43,7 @@ public class ViewDiscountsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_discounts);
         userEmail = getIntent().getStringExtra("userEmail");
+        userType = getIntent().getStringExtra("userType");
 
         backToSupplireManagementButton = (Button) findViewById(R.id.vbsm6);
         backToSupplireManagementButton.setOnClickListener(new View.OnClickListener() {
@@ -50,6 +51,7 @@ public class ViewDiscountsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ViewDiscountsActivity.this, SupplierManagementActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
             }
         });

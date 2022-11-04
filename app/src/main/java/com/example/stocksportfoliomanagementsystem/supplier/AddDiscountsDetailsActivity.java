@@ -26,7 +26,7 @@ import java.util.List;
 
 public class AddDiscountsDetailsActivity extends AppCompatActivity {
 
-    String userEmail;
+    String userEmail, userType;
     Spinner dropdown;
     Button addDiscountsButton,backToSupplireManagementButton;
     Connection connection;
@@ -43,6 +43,7 @@ public class AddDiscountsDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_discounts_details);
 
         userEmail = getIntent().getStringExtra("userEmail");
+        userType = getIntent().getStringExtra("userType");
 
         dropdown = findViewById(R.id.spinneraddsupplierdiscounts);
 
@@ -65,7 +66,9 @@ public class AddDiscountsDetailsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(AddDiscountsDetailsActivity.this, SupplierManagementActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
+                finish();
             }
         });
     }

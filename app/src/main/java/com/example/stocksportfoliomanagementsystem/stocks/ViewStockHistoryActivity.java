@@ -31,7 +31,7 @@ public class ViewStockHistoryActivity extends AppCompatActivity {
     Connection connection;
     Button backBtn;
 
-    String userEmail;
+    String userEmail, userType;
 
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
     private static final String USER = "root";
@@ -43,6 +43,7 @@ public class ViewStockHistoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_stock_history);
 
         userEmail = getIntent().getStringExtra("userEmail");
+        userType = getIntent().getStringExtra("userType");
 
         backBtn = (Button) findViewById(R.id.backButton2);
 
@@ -51,6 +52,7 @@ public class ViewStockHistoryActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ViewStockHistoryActivity.this, StockManagementActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }

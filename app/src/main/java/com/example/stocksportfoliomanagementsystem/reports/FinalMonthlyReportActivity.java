@@ -28,7 +28,7 @@ import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 
 public class FinalMonthlyReportActivity extends AppCompatActivity {
 
-    String userEmail;
+    String userEmail, userType;
     TableView tableView;
     Button backToReportsButton;
     Connection connection;
@@ -44,6 +44,7 @@ public class FinalMonthlyReportActivity extends AppCompatActivity {
         setContentView(R.layout.activity_final_monthly_report);
 
         userEmail = getIntent().getStringExtra("userEmail");
+        userType = getIntent().getStringExtra("userType");
 
         backToReportsButton = (Button) findViewById(R.id.fmrbackbtn);
         backToReportsButton.setOnClickListener(new View.OnClickListener() {
@@ -51,6 +52,7 @@ public class FinalMonthlyReportActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(FinalMonthlyReportActivity.this, ReportsActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }

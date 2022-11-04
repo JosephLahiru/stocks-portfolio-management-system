@@ -35,7 +35,7 @@ public class UpdateUserActivity extends AppCompatActivity {
     Button updateProfileButton,backToSupplireManagementButton;
     Connection connection;
     EditText username,firstname,lastname,email,phone,address,password;
-    String userid_;
+    String userid_, userType;
     int supplier_id;
 
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
@@ -48,6 +48,7 @@ public class UpdateUserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_update_user);
 
         userEmail = getIntent().getStringExtra("userEmail");
+        userType = getIntent().getStringExtra("userType");
 
         username = (EditText) findViewById(R.id.editTextUserNameUUP);
         firstname = (EditText) findViewById(R.id.editTextUserFristNameUUP);
@@ -73,6 +74,7 @@ public class UpdateUserActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(UpdateUserActivity.this, SupplierManagementActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
             }
         });

@@ -33,7 +33,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
     Button signInButton, backBtn;
     ProgressBar progressBar;
 
-    String userEmail;
+    String userEmail, userType;
 
     String username, email, password, comPassword;
 
@@ -43,6 +43,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_registration);
 
         userEmail = getIntent().getStringExtra("userEmail");
+        userType = getIntent().getStringExtra("userType");
 
         backBtn = (Button) findViewById(R.id.backButtonAdmin);
         progressBar = (ProgressBar) findViewById(R.id.progressBar2);
@@ -65,6 +66,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(UserRegistrationActivity.this, AdministrationActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }

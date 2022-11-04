@@ -36,7 +36,7 @@ public class ConfirmDeliveryActivity extends AppCompatActivity {
     Button backBtn, confirmDeliveryBtn;
     EditText etDeliveryID;
 
-    String userEmail;
+    String userEmail, userType;
 
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
     private static final String USER = "root";
@@ -48,6 +48,7 @@ public class ConfirmDeliveryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_confirm_delivery);
 
         userEmail = getIntent().getStringExtra("userEmail");
+        userType = getIntent().getStringExtra("userType");
 
         etDeliveryID = (EditText) findViewById(R.id.etDeliveryID);
 
@@ -58,6 +59,7 @@ public class ConfirmDeliveryActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ConfirmDeliveryActivity.this, DeliveryManagementActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }

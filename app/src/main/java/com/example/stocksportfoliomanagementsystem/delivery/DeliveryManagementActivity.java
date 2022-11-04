@@ -14,7 +14,7 @@ public class DeliveryManagementActivity extends AppCompatActivity {
 
     Button viewOderListBtn, confirmDeliveryBtn, getUserFeedbackBtn, backBtn;
 
-    String userEmail;
+    String userEmail, userType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,12 +24,14 @@ public class DeliveryManagementActivity extends AppCompatActivity {
         viewOderListBtn = (Button) findViewById(R.id.viewOrderList);
 
         userEmail = getIntent().getStringExtra("userEmail");
+        userType = getIntent().getStringExtra("userType");
 
         viewOderListBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(DeliveryManagementActivity.this, ViewOrderListActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }
@@ -42,6 +44,7 @@ public class DeliveryManagementActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(DeliveryManagementActivity.this, ConfirmDeliveryActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }
@@ -54,6 +57,7 @@ public class DeliveryManagementActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(DeliveryManagementActivity.this, GetUserDeliveryFeedbackActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }
@@ -66,6 +70,7 @@ public class DeliveryManagementActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(DeliveryManagementActivity.this, MenuActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }

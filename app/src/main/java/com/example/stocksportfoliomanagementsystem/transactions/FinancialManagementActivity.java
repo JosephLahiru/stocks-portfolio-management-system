@@ -17,7 +17,7 @@ public class FinancialManagementActivity extends AppCompatActivity {
     Button updateTransactionButton;
     Button saveTransactionButton;
     Button deleteTransactionButton;
-    String userEmail;
+    String userEmail, userType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +32,7 @@ public class FinancialManagementActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(FinancialManagementActivity.this, MenuActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }
@@ -42,6 +43,7 @@ public class FinancialManagementActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(FinancialManagementActivity.this, ViewTransactionsActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }
@@ -52,6 +54,7 @@ public class FinancialManagementActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(FinancialManagementActivity.this, UpdateTransactionsActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }
@@ -62,6 +65,7 @@ public class FinancialManagementActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(FinancialManagementActivity.this, SaveTransactionsActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }
@@ -72,6 +76,7 @@ public class FinancialManagementActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(FinancialManagementActivity.this, DeleteTransactionsActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }

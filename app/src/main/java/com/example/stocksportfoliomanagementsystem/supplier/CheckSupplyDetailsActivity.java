@@ -31,7 +31,7 @@ public class CheckSupplyDetailsActivity extends AppCompatActivity {
     Button backToSupplireManagementButton;
     Connection connection;
     String data[][];
-    String userEmail;
+    String userEmail, userType;
     int userId;
 
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
@@ -43,6 +43,7 @@ public class CheckSupplyDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_supply_details);
         userEmail = getIntent().getStringExtra("userEmail");
+        userType = getIntent().getStringExtra("userType");
 
         backToSupplireManagementButton = (Button) findViewById(R.id.vbsm2);
         backToSupplireManagementButton.setOnClickListener(new View.OnClickListener() {
@@ -50,7 +51,9 @@ public class CheckSupplyDetailsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(CheckSupplyDetailsActivity.this, SupplierManagementActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
+                finish();
             }
         });
 

@@ -32,7 +32,7 @@ import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 
 public class DeleteSupplyDetailsActivity extends AppCompatActivity {
 
-    String userEmail;
+    String userEmail, userType;
     Spinner dropdown;
     String data[][];
     TableView tableView;
@@ -50,6 +50,7 @@ public class DeleteSupplyDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_delete_supply_details);
 
         userEmail = getIntent().getStringExtra("userEmail");
+        userType = getIntent().getStringExtra("userType");
 
         dropdown = findViewById(R.id.spinnerdeletesupplydetails);
 
@@ -75,7 +76,9 @@ public class DeleteSupplyDetailsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(DeleteSupplyDetailsActivity.this, SupplierManagementActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
+                finish();
             }
         });
     }

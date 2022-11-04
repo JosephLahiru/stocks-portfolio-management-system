@@ -27,7 +27,7 @@ public class SaveTransactionsActivity extends AppCompatActivity {
     EditText companyName,productName,productDiscription,productQuantity,totalPrice;
     Connection connection;
     Button savetransactonBtn;
-    String userEmail;
+    String userEmail, userType;
 
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
     private static final String USER = "root";
@@ -38,6 +38,7 @@ public class SaveTransactionsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_save_transactions);
         userEmail = getIntent().getStringExtra("userEmail");
+        userType = getIntent().getStringExtra("userType");
 
         backToFinancialManagementButton = (Button) findViewById(R.id.sbfm);
         backToFinancialManagementButton.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +46,7 @@ public class SaveTransactionsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SaveTransactionsActivity.this, FinancialManagementActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }

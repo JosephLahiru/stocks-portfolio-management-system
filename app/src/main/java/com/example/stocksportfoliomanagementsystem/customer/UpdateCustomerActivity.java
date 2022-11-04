@@ -35,7 +35,7 @@ public class UpdateCustomerActivity extends AppCompatActivity {
 
     EditText etFName, etLName, etAddress, etTpNo, etEmail, etCustID;
 
-    String userEmail;
+    String userEmail, userType;
 
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
     private static final String USER = "root";
@@ -47,6 +47,7 @@ public class UpdateCustomerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_update_customer);
 
         userEmail = getIntent().getStringExtra("userEmail");
+        userType = getIntent().getStringExtra("userType");
 
         etFName = (EditText) findViewById(R.id.idFirstName);
         etLName = (EditText) findViewById(R.id.idLastName);
@@ -80,6 +81,7 @@ public class UpdateCustomerActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(UpdateCustomerActivity.this, CustomerManagementActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }

@@ -12,7 +12,7 @@ import com.example.stocksportfoliomanagementsystem.startup.MenuActivity;
 
 public class ReportsActivity extends AppCompatActivity {
 
-    String userEmail;
+    String userEmail, userType;
 
     Button finalMonthlyReportButton;
     Button supplierReportButton;
@@ -24,6 +24,7 @@ public class ReportsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_reports);
 
         userEmail = getIntent().getStringExtra("userEmail");
+        userType = getIntent().getStringExtra("userType");
 
         backToDashboardButton = findViewById(R.id.rback);
         backToDashboardButton.setOnClickListener(new View.OnClickListener() {
@@ -31,6 +32,7 @@ public class ReportsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ReportsActivity.this, MenuActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }
@@ -42,6 +44,7 @@ public class ReportsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ReportsActivity.this, FinalMonthlyReportActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }
@@ -53,6 +56,7 @@ public class ReportsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ReportsActivity.this, SupplierReportActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }

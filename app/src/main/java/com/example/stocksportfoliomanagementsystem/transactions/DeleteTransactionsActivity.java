@@ -35,6 +35,7 @@ public class DeleteTransactionsActivity extends AppCompatActivity {
     Connection connection;
     String data[][];
     EditText deleteDataID;
+    String userEmail, userType;
 
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
     private static final String USER = "root";
@@ -44,6 +45,8 @@ public class DeleteTransactionsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delete_transactions);
+        userEmail = getIntent().getStringExtra("userEmail");
+        userType = getIntent().getStringExtra("userType");
         tableView = findViewById(R.id.tableViewD);
         tableView.setColumnCount(8);
         String headers[] = {"Invoice ID", "Date", "Company", "Product", "Product Discription", "Product Quantity", "Total Price", "Type Of Trascation"};
@@ -53,7 +56,10 @@ public class DeleteTransactionsActivity extends AppCompatActivity {
         backToFinancialManagementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(DeleteTransactionsActivity.this, FinancialManagementActivity.class));
+                Intent intent = new Intent(DeleteTransactionsActivity.this, FinancialManagementActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
+                startActivity(intent);
                 finish();
             }
         });
