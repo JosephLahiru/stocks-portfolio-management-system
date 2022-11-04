@@ -12,6 +12,8 @@ import com.example.stocksportfoliomanagementsystem.common.UpdateUserActivity;
 import com.example.stocksportfoliomanagementsystem.startup.LoginActivity;
 import com.example.stocksportfoliomanagementsystem.startup.MenuActivity;
 
+import java.util.Objects;
+
 public class SupplierManagementActivity extends AppCompatActivity {
 
     Button backToDashboardButton;
@@ -156,14 +158,29 @@ public class SupplierManagementActivity extends AppCompatActivity {
         });
 
         backToDashboardButton = (Button) findViewById(R.id.smback);
+
+        if(Objects.equals(userType, "admin")){
+            backToDashboardButton.setText("BACK TO MENU");
+        }else if(Objects.equals(userType, "supplier")){
+            backToDashboardButton.setText("LOG OUT");
+        }
+
         backToDashboardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SupplierManagementActivity.this, LoginActivity.class);
-                intent.putExtra("userEmail", userEmail);
-                intent.putExtra("userType", userType);
-                startActivity(intent);
-                finish();
+                if(Objects.equals(userType, "admin")) {
+                    Intent intent = new Intent(SupplierManagementActivity.this, MenuActivity.class);
+                    intent.putExtra("userEmail", userEmail);
+                    intent.putExtra("userType", userType);
+                    startActivity(intent);
+                    finish();
+                }else if(Objects.equals(userType, "supplier")){
+                    Intent intent = new Intent(SupplierManagementActivity.this, LoginActivity.class);
+                    intent.putExtra("userEmail", userEmail);
+                    intent.putExtra("userType", userType);
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
     }

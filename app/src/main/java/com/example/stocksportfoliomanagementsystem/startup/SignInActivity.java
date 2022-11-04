@@ -63,7 +63,7 @@ public class SignInActivity extends AppCompatActivity {
 
         userTypes.add("Admin");
         userTypes.add("Supplier");
-        userTypes.add("Manager");
+        userTypes.add("Management");
         userTypes.add("Delivery");
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(SignInActivity.this,
