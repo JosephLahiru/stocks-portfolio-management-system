@@ -64,6 +64,7 @@ public class SignInActivity extends AppCompatActivity {
         userTypes.add("Admin");
         userTypes.add("Supplier");
         userTypes.add("Manager");
+        userTypes.add("Delivery");
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(SignInActivity.this,
                 android.R.layout.simple_spinner_item, userTypes);
