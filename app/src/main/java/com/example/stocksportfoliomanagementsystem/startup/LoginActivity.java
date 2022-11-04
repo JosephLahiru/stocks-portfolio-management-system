@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView redirectSignInTextView;
     ProgressBar progressBar;
 
-    String email, password;
+    String email, password, userType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,6 +101,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     if(Objects.equals(resultSet.getString("user_email"), email) && Objects.equals(resultSet.getString("user_password"), password)){
                         user_found = 1;
+                        userType = resultSet.getString("user_type");
                         break;
                     }
                 }
@@ -110,6 +111,7 @@ public class LoginActivity extends AppCompatActivity {
                     //Toast.makeText(LoginActivity.this, "User logged in successfully.", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
                     intent.putExtra("userEmail", email);
+                    intent.putExtra("userType", userType);
                     startActivity(intent);
                     finish();
                 }else{
