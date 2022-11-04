@@ -9,12 +9,15 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.stocksportfoliomanagementsystem.R;
+import com.example.stocksportfoliomanagementsystem.stocks.AddStockActivity;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -22,6 +25,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class SignInActivity extends AppCompatActivity {
 
@@ -29,11 +33,12 @@ public class SignInActivity extends AppCompatActivity {
     private static final String USER = "root";
     private static final String PASSWORD = "amres";
 
-    EditText etUserName, etEmail, etPassword, etPasswordConfirm;
+    EditText etUserName, etEmail, etPassword, etPasswordConfirm, usrFName, usrLName, usrAddress, usrCtcNum;
     Button signInButton;
     TextView loginText;
+    Spinner dropdown;
 
-    String username, email, password, comPassword;
+    String username, email, password, comPassword, firstName, lastName, Address, ctcNum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +51,25 @@ public class SignInActivity extends AppCompatActivity {
         etPasswordConfirm = findViewById(R.id.editTextPasswordConfirm);
         signInButton = (Button) findViewById(R.id.signInButton);
         loginText = (TextView) findViewById(R.id.loginText);
+
+        usrFName = (EditText) findViewById(R.id.editTextFirstName);
+        usrLName = (EditText) findViewById(R.id.editTextLastName);
+        usrAddress = (EditText) findViewById(R.id.editTextAddress);
+        usrCtcNum = (EditText) findViewById(R.id.editTextContactNumber);
+
+        dropdown = (Spinner) findViewById(R.id.spinner2);
+
+        List<String> userTypes = new ArrayList<>();
+
+        userTypes.add("Admin");
+        userTypes.add("Supplier");
+        userTypes.add("Manager");
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(SignInActivity.this,
+                android.R.layout.simple_spinner_item, userTypes);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dropdown.setAdapter(adapter);
 
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +92,11 @@ public class SignInActivity extends AppCompatActivity {
         email = etEmail.getText().toString().trim();
         password = etPassword.getText().toString().trim();
         comPassword = etPasswordConfirm.getText().toString().trim();
+
+        firstName = usrFName.getText().toString().trim();
+        lastName = usrLName.getText().toString().trim();
+        Address = usrAddress.getText().toString().trim();
+        ctcNum = usrCtcNum.getText().toString().trim();
         
         if(TextUtils.isEmpty(email)){
             etEmail.setError("Email cannot be empty.");
@@ -96,7 +125,10 @@ public class SignInActivity extends AppCompatActivity {
             try {
                 Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
 
-                String sql = "INSERT INTO user(user_name, user_email, user_password) VALUES('" + username + "', '" + email + "', '" + password + "');";
+                String userType = dropdown.getSelectedItem().toString().toLowerCase(Locale.ROOT);
+                System.out.println(userType);
+
+                String sql = "INSERT INTO user(user_name, user_email, user_password, user_type) VALUES('" + username + "', '" + email + "', '" + password + "','" + userType + "');";
                 //String sql2 = "CREATE TABLE `user`(user_id INT PRIMARY KEY AUTO_INCREMENT, user_email VARCHAR(60), user_password VARCHAR(100));";
                 Statement st1 = connection.createStatement();
 
