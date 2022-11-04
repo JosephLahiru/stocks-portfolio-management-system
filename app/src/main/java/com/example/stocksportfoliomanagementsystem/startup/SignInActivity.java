@@ -104,6 +104,18 @@ public class SignInActivity extends AppCompatActivity {
         }else if(TextUtils.isEmpty(password)){
             etPassword.setError("Password cannot be empty.");
             etPassword.requestFocus();
+        }else if(TextUtils.isEmpty(firstName)){
+            usrFName.setError("First Name cannot be empty.");
+            usrFName.requestFocus();
+        }else if(TextUtils.isEmpty(lastName)){
+            usrLName.setError("Last Name cannot be empty.");
+            usrLName.requestFocus();
+        }else if(TextUtils.isEmpty(Address)){
+            usrAddress.setError("Address cannot be empty.");
+            usrAddress.requestFocus();
+        }else if(TextUtils.isEmpty(ctcNum)){
+            usrCtcNum.setError("Contact Number cannot be empty.");
+            usrCtcNum.requestFocus();
         }else if(TextUtils.isEmpty(username)){
             etUserName.setError("Username cannot be empty.");
             etUserName.requestFocus();
@@ -128,7 +140,7 @@ public class SignInActivity extends AppCompatActivity {
                 String userType = dropdown.getSelectedItem().toString().toLowerCase(Locale.ROOT);
                 System.out.println(userType);
 
-                String sql = "INSERT INTO user(user_name, user_email, user_password, user_type) VALUES('" + username + "', '" + email + "', '" + password + "','" + userType + "');";
+                String sql = "INSERT INTO user(user_name, user_first_name, user_last_name, user_address, user_contact_number, user_email, user_password, user_type) VALUES('" + username + "', '" + firstName + "', '" + lastName + "', '" + Address + "', '" + ctcNum + "', '" + email + "', '" + password + "','" + userType + "');";
                 //String sql2 = "CREATE TABLE `user`(user_id INT PRIMARY KEY AUTO_INCREMENT, user_email VARCHAR(60), user_password VARCHAR(100));";
                 Statement st1 = connection.createStatement();
 
