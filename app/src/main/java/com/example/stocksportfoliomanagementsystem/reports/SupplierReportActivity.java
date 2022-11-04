@@ -27,7 +27,7 @@ import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 
 public class SupplierReportActivity extends AppCompatActivity {
 
-    String userEmail;
+    String userEmail, userType;
     TableView tableView;
     Button backToReportsButton;
     Connection connection;
@@ -43,6 +43,7 @@ public class SupplierReportActivity extends AppCompatActivity {
         setContentView(R.layout.activity_supplier_report);
 
         userEmail = getIntent().getStringExtra("userEmail");
+        userType = getIntent().getStringExtra("userType");
 
         backToReportsButton = (Button) findViewById(R.id.srbackbtn);
         backToReportsButton.setOnClickListener(new View.OnClickListener() {
@@ -50,6 +51,7 @@ public class SupplierReportActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SupplierReportActivity.this, ReportsActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }

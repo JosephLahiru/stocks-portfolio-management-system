@@ -30,7 +30,7 @@ public class ViewOrderListActivity extends AppCompatActivity {
     TableView tableView;
     Connection connection;
     Button backBtn;
-    String userEmail;
+    String userEmail, userType;
 
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
     private static final String USER = "root";
@@ -42,6 +42,7 @@ public class ViewOrderListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_order_list);
 
         userEmail = getIntent().getStringExtra("userEmail");
+        userType = getIntent().getStringExtra("userType");
 
         backBtn = (Button) findViewById(R.id.backButtonViewOrder);
 
@@ -50,6 +51,7 @@ public class ViewOrderListActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ViewOrderListActivity.this, DeliveryManagementActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }

@@ -9,7 +9,10 @@ import android.widget.Button;
 
 import com.example.stocksportfoliomanagementsystem.R;
 import com.example.stocksportfoliomanagementsystem.common.UpdateUserActivity;
+import com.example.stocksportfoliomanagementsystem.startup.LoginActivity;
 import com.example.stocksportfoliomanagementsystem.startup.MenuActivity;
+
+import java.util.Objects;
 
 public class SupplierManagementActivity extends AppCompatActivity {
 
@@ -24,7 +27,7 @@ public class SupplierManagementActivity extends AppCompatActivity {
     Button updateDiscountsDetailsButton;
     Button deleteDiscountsDetailsButton;
     Button updateUserDetailsButton;
-    String userEmail;
+    String userEmail, userType;
 
 
     @Override
@@ -32,12 +35,16 @@ public class SupplierManagementActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_supplier_management);
         userEmail = getIntent().getStringExtra("userEmail");
+        userType = getIntent().getStringExtra("userType");
 
         viewRequiredStockDetailsButton = (Button) findViewById(R.id.checkrequiredstock);
         viewRequiredStockDetailsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SupplierManagementActivity.this, CheckRequiredStockActivity.class));
+                Intent intent = new Intent(SupplierManagementActivity.this, CheckRequiredStockActivity.class);
+                intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
+                startActivity(intent);
                 finish();
             }
         });
@@ -48,6 +55,7 @@ public class SupplierManagementActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SupplierManagementActivity.this, CheckSupplyDetailsActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }
@@ -59,6 +67,7 @@ public class SupplierManagementActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SupplierManagementActivity.this, SaveSupplyDetailsActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }
@@ -70,6 +79,7 @@ public class SupplierManagementActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SupplierManagementActivity.this, UpdateSupplyDetailsActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }
@@ -81,6 +91,7 @@ public class SupplierManagementActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SupplierManagementActivity.this, DeleteSupplyDetailsActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }
@@ -92,6 +103,7 @@ public class SupplierManagementActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SupplierManagementActivity.this, ViewDiscountsActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }
@@ -103,6 +115,7 @@ public class SupplierManagementActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SupplierManagementActivity.this, AddDiscountsDetailsActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }
@@ -114,6 +127,7 @@ public class SupplierManagementActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SupplierManagementActivity.this, UpdateDiscountsDetailsActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }
@@ -125,6 +139,7 @@ public class SupplierManagementActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SupplierManagementActivity.this, DeleteDiscountsDetailsActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }
@@ -136,19 +151,36 @@ public class SupplierManagementActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SupplierManagementActivity.this, UpdateUserActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }
         });
 
         backToDashboardButton = (Button) findViewById(R.id.smback);
+
+        if(Objects.equals(userType, "admin")){
+            backToDashboardButton.setText("BACK TO MENU");
+        }else if(Objects.equals(userType, "supplier")){
+            backToDashboardButton.setText("LOG OUT");
+        }
+
         backToDashboardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SupplierManagementActivity.this, MenuActivity.class);
-                intent.putExtra("userEmail", userEmail);
-                startActivity(intent);
-                finish();
+                if(Objects.equals(userType, "admin")) {
+                    Intent intent = new Intent(SupplierManagementActivity.this, MenuActivity.class);
+                    intent.putExtra("userEmail", userEmail);
+                    intent.putExtra("userType", userType);
+                    startActivity(intent);
+                    finish();
+                }else if(Objects.equals(userType, "supplier")){
+                    Intent intent = new Intent(SupplierManagementActivity.this, LoginActivity.class);
+                    intent.putExtra("userEmail", userEmail);
+                    intent.putExtra("userType", userType);
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
     }

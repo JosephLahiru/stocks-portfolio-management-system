@@ -32,7 +32,7 @@ import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 
 public class DeleteDiscountsDetailsActivity extends AppCompatActivity {
 
-    String userEmail;
+    String userEmail, userType;
     Button deleteDiscountsButton,backToSupplireManagementButton;
     Connection connection;
     EditText discountid;
@@ -50,6 +50,7 @@ public class DeleteDiscountsDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_delete_discounts_details);
 
         userEmail = getIntent().getStringExtra("userEmail");
+        userType = getIntent().getStringExtra("userType");
 
         discountid = (EditText) findViewById(R.id.editTextDiscountIDDSD);
 
@@ -74,7 +75,9 @@ public class DeleteDiscountsDetailsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(DeleteDiscountsDetailsActivity.this, SupplierManagementActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
+                finish();
             }
         });
     }

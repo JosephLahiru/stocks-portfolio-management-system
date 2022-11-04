@@ -34,7 +34,7 @@ public class UpdateStockActivity extends AppCompatActivity {
     Connection connection;
     Button backBtn, updateBtn;
 
-    String userEmail;
+    String userEmail, userType;
 
     EditText updateDataID, updateDataColumn, newData;
 
@@ -48,6 +48,7 @@ public class UpdateStockActivity extends AppCompatActivity {
         setContentView(R.layout.activity_update_stock);
 
         userEmail = getIntent().getStringExtra("userEmail");
+        userType = getIntent().getStringExtra("userType");
 
         updateDataID = (EditText) findViewById(R.id.etStockIDUpdate);
         updateDataColumn = (EditText) findViewById(R.id.etStockColumnUpdate);
@@ -72,6 +73,7 @@ public class UpdateStockActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(UpdateStockActivity.this, StockManagementActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }

@@ -27,7 +27,7 @@ import java.util.List;
 
 public class SaveSupplyDetailsActivity extends AppCompatActivity {
 
-    String userEmail;
+    String userEmail, userType;
     Spinner dropdown;
     Button saveSupplyDetailsButton,backToSupplireManagementButton;
     Connection connection;
@@ -43,6 +43,7 @@ public class SaveSupplyDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_save_supply_details);
         userEmail = getIntent().getStringExtra("userEmail");
+        userType = getIntent().getStringExtra("userType");
 
         dropdown = findViewById(R.id.spinnerSelectProductS);
 
@@ -66,7 +67,9 @@ public class SaveSupplyDetailsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SaveSupplyDetailsActivity.this, SupplierManagementActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
+                finish();
             }
         });
 

@@ -32,7 +32,7 @@ import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 
 public class UpdateSupplyDetailsActivity extends AppCompatActivity {
 
-    String userEmail;
+    String userEmail, userType;
     Spinner dropdown;
     String data[][];
     TableView tableView;
@@ -51,6 +51,7 @@ public class UpdateSupplyDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_update_supply_details);
 
         userEmail = getIntent().getStringExtra("userEmail");
+        userType = getIntent().getStringExtra("userType");
 
         dropdown = findViewById(R.id.spinnerSelectProductSU);
 
@@ -80,6 +81,7 @@ public class UpdateSupplyDetailsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(UpdateSupplyDetailsActivity.this, SupplierManagementActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
             }
         });

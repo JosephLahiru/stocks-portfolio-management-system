@@ -14,7 +14,7 @@ import com.example.stocksportfoliomanagementsystem.R;
 public class ProfileActivity extends AppCompatActivity {
 
     Button btnLogout, btnMenu;
-    String userEmail;
+    String userEmail, userType;
     TextView welcomeTextView;
 
     @Override
@@ -27,6 +27,7 @@ public class ProfileActivity extends AppCompatActivity {
         welcomeTextView = findViewById(R.id.welcomeText);
 
         userEmail = getIntent().getStringExtra("userEmail");
+        userType = getIntent().getStringExtra("userType");
 
     }
 

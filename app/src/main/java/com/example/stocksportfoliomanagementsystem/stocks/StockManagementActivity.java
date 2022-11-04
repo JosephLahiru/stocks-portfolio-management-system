@@ -14,7 +14,7 @@ public class StockManagementActivity extends AppCompatActivity {
 
     Button addStockBtn, viewStockHistoryBtn, backToMenuBtn, deleteStockBtn, updateStockBtn;
 
-    String userEmail;
+    String userEmail, userType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,7 @@ public class StockManagementActivity extends AppCompatActivity {
         setContentView(R.layout.activity_stock_management);
 
         userEmail = getIntent().getStringExtra("userEmail");
+        userType = getIntent().getStringExtra("userType");
 
         addStockBtn = (Button) findViewById(R.id.addStocks);
         viewStockHistoryBtn = (Button) findViewById(R.id.viewStockHistory);
@@ -34,6 +35,7 @@ public class StockManagementActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(StockManagementActivity.this, UpdateStockActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }
@@ -44,6 +46,7 @@ public class StockManagementActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(StockManagementActivity.this, DeleteStockActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }
@@ -54,6 +57,7 @@ public class StockManagementActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(StockManagementActivity.this, MenuActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }
@@ -64,6 +68,7 @@ public class StockManagementActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(StockManagementActivity.this, AddStockActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }
@@ -74,6 +79,7 @@ public class StockManagementActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(StockManagementActivity.this, ViewStockHistoryActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }

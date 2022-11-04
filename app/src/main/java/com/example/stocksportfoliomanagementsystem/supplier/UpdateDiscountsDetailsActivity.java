@@ -32,7 +32,7 @@ import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 
 public class UpdateDiscountsDetailsActivity extends AppCompatActivity {
 
-    String userEmail;
+    String userEmail, userType;
     Spinner dropdown;
     Button updateDiscountsButton,backToSupplireManagementButton;
     Connection connection;
@@ -51,6 +51,7 @@ public class UpdateDiscountsDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_update_discounts_details);
 
         userEmail = getIntent().getStringExtra("userEmail");
+        userType = getIntent().getStringExtra("userType");
 
         dropdown = findViewById(R.id.spinnerUSD);
 
@@ -79,6 +80,7 @@ public class UpdateDiscountsDetailsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(UpdateDiscountsDetailsActivity.this, SupplierManagementActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
             }
         });

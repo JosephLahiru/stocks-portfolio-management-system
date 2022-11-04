@@ -35,7 +35,9 @@
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/choseImageView" />
+            app:layout_constraintTop_toBottomOf="@id/choseImageView"
+            android:visibility="invisible"
+            />
 
         <Button
             android:id="@+id/stockMngButton"
@@ -46,7 +48,9 @@
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cusMngButton" />
+            app:layout_constraintTop_toBottomOf="@id/cusMngButton"
+            android:visibility="invisible"
+            />
 
         <Button
             android:id="@+id/financialMngButton"
@@ -57,7 +61,9 @@
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/stockMngButton" />
+            app:layout_constraintTop_toBottomOf="@id/stockMngButton"
+            android:visibility="invisible"
+            />
 
         <Button
             android:id="@+id/reportMngButton"
@@ -68,7 +74,9 @@
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/financialMngButton" />
+            app:layout_constraintTop_toBottomOf="@id/financialMngButton"
+            android:visibility="invisible"
+            />
 
         <Button
             android:id="@+id/supplierMngButton"
@@ -79,7 +87,9 @@
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/reportMngButton" />
+            app:layout_constraintTop_toBottomOf="@id/reportMngButton"
+            android:visibility="invisible"
+            />
 
         <Button
             android:id="@+id/deliveryMngButton"
@@ -90,7 +100,9 @@
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/supplierMngButton" />
+            app:layout_constraintTop_toBottomOf="@id/supplierMngButton"
+            android:visibility="invisible"
+            />
 
         <Button
             android:id="@+id/adminMngButton"
@@ -103,7 +115,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/deliveryMngButton" />
+            app:layout_constraintTop_toBottomOf="@id/deliveryMngButton"
+            android:visibility="invisible"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

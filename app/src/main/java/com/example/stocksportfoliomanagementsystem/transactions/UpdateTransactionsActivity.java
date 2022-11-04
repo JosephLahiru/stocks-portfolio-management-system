@@ -38,7 +38,7 @@ public class UpdateTransactionsActivity extends AppCompatActivity {
     Connection connection;
     String data[][];
     EditText invoiceID,companyName,productName,productDiscription,productQuantity,totalPrice;
-    String userEmail;
+    String userEmail, userType;
 
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
     private static final String USER = "root";
@@ -49,6 +49,7 @@ public class UpdateTransactionsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_transactions);
         userEmail = getIntent().getStringExtra("userEmail");
+        userType = getIntent().getStringExtra("userType");
         new InfoAsyncTask().execute();
         backToFinancialManagementButton = (Button) findViewById(R.id.ubfm2);
         backToFinancialManagementButton.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +57,7 @@ public class UpdateTransactionsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(UpdateTransactionsActivity.this, FinancialManagementActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }

@@ -32,7 +32,7 @@ public class CheckRequiredStockActivity extends AppCompatActivity {
     Button backToSupplireManagementButton;
     Connection connection;
     String data[][];
-    String userEmail;
+    String userEmail, userType;
 
     private static final String URL = "jdbc:mysql://152.70.158.151:3306/spms";
     private static final String USER = "root";
@@ -43,6 +43,7 @@ public class CheckRequiredStockActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_required_stock);
         userEmail = getIntent().getStringExtra("userEmail");
+        userType = getIntent().getStringExtra("userType");
 
         backToSupplireManagementButton = (Button) findViewById(R.id.vbsm);
         backToSupplireManagementButton.setOnClickListener(new View.OnClickListener() {
@@ -50,7 +51,9 @@ public class CheckRequiredStockActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(CheckRequiredStockActivity.this, SupplierManagementActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
+                finish();
             }
         });
 
