@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.stocksportfoliomanagementsystem.R;
+import com.example.stocksportfoliomanagementsystem.startup.LoginActivity;
 import com.example.stocksportfoliomanagementsystem.startup.MenuActivity;
 
 public class DeliveryManagementActivity extends AppCompatActivity {
@@ -68,7 +69,7 @@ public class DeliveryManagementActivity extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DeliveryManagementActivity.this, MenuActivity.class);
+                Intent intent = new Intent(DeliveryManagementActivity.this, LoginActivity.class);
                 intent.putExtra("userEmail", userEmail);
                 intent.putExtra("userType", userType);
                 startActivity(intent);

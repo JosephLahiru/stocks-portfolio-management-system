@@ -9,6 +9,7 @@ import android.widget.Button;
 
 import com.example.stocksportfoliomanagementsystem.R;
 import com.example.stocksportfoliomanagementsystem.common.UpdateUserActivity;
+import com.example.stocksportfoliomanagementsystem.startup.LoginActivity;
 import com.example.stocksportfoliomanagementsystem.startup.MenuActivity;
 
 public class SupplierManagementActivity extends AppCompatActivity {
@@ -158,7 +159,7 @@ public class SupplierManagementActivity extends AppCompatActivity {
         backToDashboardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SupplierManagementActivity.this, MenuActivity.class);
+                Intent intent = new Intent(SupplierManagementActivity.this, LoginActivity.class);
                 intent.putExtra("userEmail", userEmail);
                 intent.putExtra("userType", userType);
                 startActivity(intent);
