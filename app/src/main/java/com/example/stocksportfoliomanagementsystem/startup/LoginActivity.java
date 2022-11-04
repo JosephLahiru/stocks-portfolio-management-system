@@ -16,6 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.stocksportfoliomanagementsystem.R;
+import com.example.stocksportfoliomanagementsystem.delivery.DeliveryManagementActivity;
+import com.example.stocksportfoliomanagementsystem.supplier.SupplierManagementActivity;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -23,6 +25,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
@@ -101,19 +104,33 @@ public class LoginActivity extends AppCompatActivity {
 
                     if(Objects.equals(resultSet.getString("user_email"), email) && Objects.equals(resultSet.getString("user_password"), password)){
                         user_found = 1;
-                        userType = resultSet.getString("user_type");
+                        userType = resultSet.getString("user_type").toLowerCase(Locale.ROOT);
                         break;
                     }
                 }
 
                 if(user_found == 1){
                     progressBar.setVisibility(View.INVISIBLE);
-                    //Toast.makeText(LoginActivity.this, "User logged in successfully.", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
-                    intent.putExtra("userEmail", email);
-                    intent.putExtra("userType", userType);
-                    startActivity(intent);
-                    finish();
+                    if(userType=="supplier"){
+                        Intent intent = new Intent(LoginActivity.this, SupplierManagementActivity.class);
+                        intent.putExtra("userEmail", email);
+                        intent.putExtra("userType", userType);
+                        startActivity(intent);
+                        finish();
+                    }else if(userType=="delivery"){
+                        Intent intent = new Intent(LoginActivity.this, DeliveryManagementActivity.class);
+                        intent.putExtra("userEmail", email);
+                        intent.putExtra("userType", userType);
+                        startActivity(intent);
+                        finish();
+                    }else {
+                        //Toast.makeText(LoginActivity.this, "User logged in successfully.", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+                        intent.putExtra("userEmail", email);
+                        intent.putExtra("userType", userType);
+                        startActivity(intent);
+                        finish();
+                    }
                 }else{
                     runOnUiThread(new Runnable() {
                         public void run() {
