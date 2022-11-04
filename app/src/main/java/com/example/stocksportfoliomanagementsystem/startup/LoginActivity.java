@@ -111,18 +111,22 @@ public class LoginActivity extends AppCompatActivity {
 
                 if(user_found == 1){
                     progressBar.setVisibility(View.INVISIBLE);
-                    if(userType=="supplier"){
+                    if(Objects.equals(userType, "supplier")){
                         Intent intent = new Intent(LoginActivity.this, SupplierManagementActivity.class);
                         intent.putExtra("userEmail", email);
                         intent.putExtra("userType", userType);
                         startActivity(intent);
                         finish();
-                    }else if(userType=="delivery"){
+
+                        //TODO : remove back to dashboard from supplier add logout button
+                    }else if(Objects.equals(userType, "delivery")){
                         Intent intent = new Intent(LoginActivity.this, DeliveryManagementActivity.class);
                         intent.putExtra("userEmail", email);
                         intent.putExtra("userType", userType);
                         startActivity(intent);
                         finish();
+
+                        //TODO : do the same on delivery
                     }else {
                         //Toast.makeText(LoginActivity.this, "User logged in successfully.", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
