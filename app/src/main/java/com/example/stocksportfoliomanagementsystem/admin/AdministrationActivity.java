@@ -15,7 +15,7 @@ public class AdministrationActivity extends AppCompatActivity {
 
     Button backBtn, userRegistrationBtn, supplierDataBtn, bugReviewBtn, devFeedbackBtn, usrPassResetBtn;
 
-    String userEmail;
+    String userEmail, userType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,7 @@ public class AdministrationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_administration);
 
         userEmail = getIntent().getStringExtra("userEmail");
+        userType = getIntent().getStringExtra("userType");
 
         usrPassResetBtn = (Button) findViewById(R.id.resetPassword);
 
@@ -31,6 +32,7 @@ public class AdministrationActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(AdministrationActivity.this, UserPasswordResetActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }
@@ -43,6 +45,7 @@ public class AdministrationActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(AdministrationActivity.this, DeveloperFeedbackActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }
@@ -55,6 +58,7 @@ public class AdministrationActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(AdministrationActivity.this, BugReviewActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }
@@ -67,6 +71,7 @@ public class AdministrationActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(AdministrationActivity.this, ViewSupplierDataActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }
@@ -79,6 +84,7 @@ public class AdministrationActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(AdministrationActivity.this, UserRegistrationActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }
@@ -91,6 +97,7 @@ public class AdministrationActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(AdministrationActivity.this, MenuActivity.class);
                 intent.putExtra("userEmail", userEmail);
+                intent.putExtra("userType", userType);
                 startActivity(intent);
                 finish();
             }

@@ -25,6 +25,7 @@ public class FinancialManagementActivity extends AppCompatActivity {
         setContentView(R.layout.activity_financial_management);
 
         userEmail = getIntent().getStringExtra("userEmail");
+        userType = getIntent().getStringExtra("userType");
 
         backToDashboardButton = (Button) findViewById(R.id.fmback);
         backToDashboardButton.setOnClickListener(new View.OnClickListener() {

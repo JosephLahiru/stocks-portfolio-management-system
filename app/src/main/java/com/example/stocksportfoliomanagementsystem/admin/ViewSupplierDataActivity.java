@@ -74,7 +74,7 @@ public class ViewSupplierDataActivity extends AppCompatActivity {
             try {
                 connection = DriverManager.getConnection(URL, USER, PASSWORD);
 
-                String sql = "SELECT * FROM user WHERE user_type='S'";
+                String sql = "SELECT * FROM user WHERE user_type='supplier'";
                 PreparedStatement statement = connection.prepareStatement(sql);
                 ResultSet resultSet = statement.executeQuery();
 
