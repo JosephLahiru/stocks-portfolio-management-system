@@ -89,8 +89,7 @@ public class LoginActivity extends AppCompatActivity {
         }else if(!validateEmail(email)){
             emailEditText.setError("Email is not valid.");
             emailEditText.requestFocus();
-        }
-        else if(TextUtils.isEmpty(password)){
+        }else if(TextUtils.isEmpty(password)){
             passwordEditText.setError("Password cannot be empty.");
             passwordEditText.requestFocus();
         }else{

@@ -26,6 +26,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.regex.Pattern;
 
 public class SignInActivity extends AppCompatActivity {
 
@@ -39,6 +40,15 @@ public class SignInActivity extends AppCompatActivity {
     Spinner dropdown;
 
     String username, email, password, comPassword, firstName, lastName, Address, ctcNum;
+
+    public boolean validateEmail(String email) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +"[a-zA-Z0-9_+&*-]+)*@" + "(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        Pattern pattern = Pattern.compile(emailRegex);
+        if (pattern.matcher(email).matches()) {
+            return true;
+        }
+        return false;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,6 +111,9 @@ public class SignInActivity extends AppCompatActivity {
         
         if(TextUtils.isEmpty(email)){
             etEmail.setError("Email cannot be empty.");
+            etEmail.requestFocus();
+        }else if(!validateEmail(email)){
+            etEmail.setError("Email is not valid.");
             etEmail.requestFocus();
         }else if(TextUtils.isEmpty(password)){
             etPassword.setError("Password cannot be empty.");
