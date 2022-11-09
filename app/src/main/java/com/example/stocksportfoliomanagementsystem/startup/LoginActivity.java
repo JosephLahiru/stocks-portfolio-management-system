@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -41,6 +42,15 @@ public class LoginActivity extends AppCompatActivity {
     ProgressBar progressBar;
 
     String email, password, userType;
+
+    public boolean validateEmail(String email) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +"[a-zA-Z0-9_+&*-]+)*@" + "(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        Pattern pattern = Pattern.compile(emailRegex);
+        if (pattern.matcher(email).matches()) {
+            return true;
+        }
+        return false;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +85,9 @@ public class LoginActivity extends AppCompatActivity {
 
         if(TextUtils.isEmpty(email)){
             emailEditText.setError("Email cannot be empty.");
+            emailEditText.requestFocus();
+        }else if(!validateEmail(email)){
+            emailEditText.setError("Email is not valid.");
             emailEditText.requestFocus();
         }else if(TextUtils.isEmpty(password)){
             passwordEditText.setError("Password cannot be empty.");
@@ -118,7 +131,6 @@ public class LoginActivity extends AppCompatActivity {
                         startActivity(intent);
                         finish();
 
-                        //TODO : remove back to dashboard from supplier add logout button
                     }else if(Objects.equals(userType, "delivery")){
                         Intent intent = new Intent(LoginActivity.this, DeliveryManagementActivity.class);
                         intent.putExtra("userEmail", email);
@@ -126,7 +138,6 @@ public class LoginActivity extends AppCompatActivity {
                         startActivity(intent);
                         finish();
 
-                        //TODO : do the same on delivery
                     }else {
                         //Toast.makeText(LoginActivity.this, "User logged in successfully.", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
